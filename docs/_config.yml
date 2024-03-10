@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: FIN205 Data Technologies for Financial Modelling
-author: FIN205 Instructors
+author: Tan Chong Hui
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
