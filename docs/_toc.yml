@@ -5,4 +5,5 @@ format: jb-book
 root: intro
 chapters:
 - file: markdown
+- file: markdown-notebooks
 - file: "How to Download Financial Statements Data from the Internet"
