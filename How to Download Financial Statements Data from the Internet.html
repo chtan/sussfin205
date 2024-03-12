@@ -183,6 +183,7 @@
 
 
 
+
 </ul>
 
     </div>
@@ -412,6 +413,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-on-google-colab">Code on Google Colab</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#making-it-available">Making It Available</a></li>
 </ul>
 
             </nav>
@@ -424,7 +426,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sources-of-financial-statements-on-the-internet">
+  <section id="sources-of-financial-statements-on-the-internet">
 <h1>Sources of Financial Statements on the Internet<a class="headerlink" href="#sources-of-financial-statements-on-the-internet" title="Link to this heading">#</a></h1>
 <section id="source-company-website">
 <h2>Source: Company Website<a class="headerlink" href="#source-company-website" title="Link to this heading">#</a></h2>
@@ -496,7 +498,7 @@ document.write(`
 <p>Information on EDGAR’s API may be found here: <a class="reference external" href="https://www.sec.gov/edgar/sec-api-documentation">https://www.sec.gov/edgar/sec-api-documentation</a></p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="using-python-packages">
+<section id="using-python-packages">
 <h1>Using Python Packages<a class="headerlink" href="#using-python-packages" title="Link to this heading">#</a></h1>
 <section id="api-access">
 <h2>API Access<a class="headerlink" href="#api-access" title="Link to this heading">#</a></h2>
@@ -697,7 +699,7 @@ Requirement already satisfied: six&gt;=1.5 in c:\users\admin\anaconda3\lib\site-
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="comparing-balance-sheets">
+<section id="comparing-balance-sheets">
 <h1>Comparing Balance Sheets<a class="headerlink" href="#comparing-balance-sheets" title="Link to this heading">#</a></h1>
 <p>Let’s quickly try out EDGAR Tools and Finance Toolkit for their abilities to produce the balance sheet, against the standard found on EDGAR.</p>
 <p>Finance Database is useful when one wishes to inspect and query “high-level” aspects of companies, such as the industry a company belongs to, the exchanges on which it trades, etc.. So, we won’t use it to search for balance sheet data.</p>
@@ -720,7 +722,7 @@ Requirement already satisfied: six&gt;=1.5 in c:\users\admin\anaconda3\lib\site-
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #7fbfbf; text-decoration-color: #7fbfbf">[00:04:07] </span><span style="color: #000080; text-decoration-color: #000080">INFO    </span> Identity of the Edgar REST client set to <span style="font-weight: bold">[</span>Michael Mccallum mike.mccalum@indigo.com<span style="font-weight: bold">]</span> <a href="file://C:\Users\Admin\anaconda3\Lib\site-packages\edgar\core.py" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">core.py</span></a><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">:</span><a href="file://C:\Users\Admin\anaconda3\Lib\site-packages\edgar\core.py#155" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">155</span></a>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #7fbfbf; text-decoration-color: #7fbfbf">[09:02:33] </span><span style="color: #000080; text-decoration-color: #000080">INFO    </span> Identity of the Edgar REST client set to <span style="font-weight: bold">[</span>Michael Mccallum mike.mccalum@indigo.com<span style="font-weight: bold">]</span> <a href="file://C:\Users\Admin\anaconda3\Lib\site-packages\edgar\core.py" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">core.py</span></a><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">:</span><a href="file://C:\Users\Admin\anaconda3\Lib\site-packages\edgar\core.py#155" target="_blank"><span style="color: #7f7f7f; text-decoration-color: #7f7f7f">155</span></a>
 </pre>
 </div></div>
 </div>
@@ -811,10 +813,10 @@ Requirement already satisfied: six&gt;=1.5 in c:\users\admin\anaconda3\lib\site-
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obtaining balance data:   0%|                                                                    | 0/1 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obtaining balance data: 100%|████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  9.82it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obtaining balance data: 100%|████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  9.69it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obtaining balance data: 100%|████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  9.45it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obtaining balance data: 100%|████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  9.42it/s]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -882,7 +884,7 @@ No data found for the following tickers: KO
 <p><u>The balance sheet output from EDGAR Tools isn’t incorrect. It is missing data.</u> This output is a convenience functionality of the package unrelated to the EDGAR access functionality.</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="collating-edgar-data-into-balance-sheet">
+<section id="collating-edgar-data-into-balance-sheet">
 <h1>Collating EDGAR Data into Balance Sheet<a class="headerlink" href="#collating-edgar-data-into-balance-sheet" title="Link to this heading">#</a></h1>
 <section id="edgar-as-source">
 <h2>EDGAR as Source<a class="headerlink" href="#edgar-as-source" title="Link to this heading">#</a></h2>
@@ -2320,7 +2322,7 @@ Name: 20971, dtype: object
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="obtaining-notes-to-financial-statements">
+<section id="obtaining-notes-to-financial-statements">
 <h1>Obtaining Notes to Financial Statements<a class="headerlink" href="#obtaining-notes-to-financial-statements" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2354,6 +2356,86 @@ Name: 20971, dtype: object
 <h2>Code on Google Colab<a class="headerlink" href="#code-on-google-colab" title="Link to this heading">#</a></h2>
 <p>You may visit this page - <a class="reference external" href="https://colab.research.google.com/drive/1BAWw3mCLQ7Rzuz8AYFzyTAFg9No-HEWC">https://colab.research.google.com/drive/1BAWw3mCLQ7Rzuz8AYFzyTAFg9No-HEWC</a> - to look at the codes for downloading the data minus the explanations found in this set of notes.</p>
 </section>
+</section>
+<section id="making-it-available">
+<h1>Making It Available<a class="headerlink" href="#making-it-available" title="Link to this heading">#</a></h1>
+<p>We are going to download 5-year history worth of financial statements data for KO using Finance Toolkit and make it available on Google Sheets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">financetoolkit</span> <span class="kn">import</span> <span class="n">Toolkit</span>
+
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>
+<span class="n">companies</span> <span class="o">=</span> <span class="n">Toolkit</span><span class="p">([</span><span class="s1">&#39;KO&#39;</span><span class="p">],</span> <span class="n">api_key</span><span class="o">=</span><span class="n">API_KEY</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="s2">&quot;2017-12-31&quot;</span><span class="p">)</span>
+
+<span class="c1"># Getting the balance sheet</span>
+<span class="n">bs</span> <span class="o">=</span> <span class="n">companies</span><span class="o">.</span><span class="n">get_balance_sheet_statement</span><span class="p">()[[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">2024</span><span class="p">)]]</span>
+<span class="n">bs</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;ko_bs_2023-2019_financetoolkit.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Getting the income statement</span>
+<span class="n">ics</span> <span class="o">=</span> <span class="n">companies</span><span class="o">.</span><span class="n">get_income_statement</span><span class="p">()</span>
+<span class="n">ics</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;ko_ics_2023-2019_financetoolkit.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Getting the cash flow statement</span>
+<span class="n">cfs</span> <span class="o">=</span> <span class="n">companies</span><span class="o">.</span><span class="n">get_cash_flow_statement</span><span class="p">()</span>
+<span class="n">cfs</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;ko_cfs_2023-2019_financetoolkit.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obtaining balance data:   0%|                                                                    | 0/1 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obtaining balance data: 100%|████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  9.88it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obtaining balance data: 100%|████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  9.60it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You have entered an invalid API key from FinancialModelingPrep. Obtain your API key for free and get 15% off the Premium plans by using the following affiliate link.
+This also supports the project: https://www.jeroenbouma.com/fmp
+No data found for the following tickers: KO
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">companies</span> <span class="o">=</span> <span class="n">Toolkit</span><span class="p">([</span><span class="s1">&#39;KO&#39;</span><span class="p">],</span> <span class="n">api_key</span><span class="o">=</span><span class="n">API_KEY</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="s2">&quot;2017-12-31&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Getting the balance sheet</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">bs</span> <span class="o">=</span> <span class="n">companies</span><span class="o">.</span><span class="n">get_balance_sheet_statement</span><span class="p">()[[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">2024</span><span class="p">)]]</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">bs</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;ko_bs_2023-2019_financetoolkit.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># Getting the income statement</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\pandas\core\frame.py:4096,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4094</span>     <span class="k">if</span> <span class="n">is_iterator</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">4095</span>         <span class="n">key</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">4096</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">_get_indexer_strict</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;columns&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">4098</span> <span class="c1"># take() does not accept boolean indexers</span>
+<span class="g g-Whitespace">   </span><span class="mi">4099</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="s2">&quot;dtype&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bool</span><span class="p">:</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\pandas\core\indexes\base.py:6200,</span> in <span class="ni">Index._get_indexer_strict</span><span class="nt">(self, key, axis_name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6197</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">6198</span>     <span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">new_indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reindex_non_unique</span><span class="p">(</span><span class="n">keyarr</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">6200</span> <span class="bp">self</span><span class="o">.</span><span class="n">_raise_if_missing</span><span class="p">(</span><span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">axis_name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6202</span> <span class="n">keyarr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6203</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Index</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">6204</span>     <span class="c1"># GH 42790 - Preserve name from an Index</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\pandas\core\indexes\base.py:6249,</span> in <span class="ni">Index._raise_if_missing</span><span class="nt">(self, key, indexer, axis_name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6247</span> <span class="k">if</span> <span class="n">nmissing</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">6248</span>     <span class="k">if</span> <span class="n">nmissing</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">6249</span>         <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;None of [</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">] are in the [</span><span class="si">{</span><span class="n">axis_name</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6251</span>     <span class="n">not_found</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ensure_index</span><span class="p">(</span><span class="n">key</span><span class="p">)[</span><span class="n">missing_mask</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="g g-Whitespace">   </span><span class="mi">6252</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">not_found</span><span class="si">}</span><span class="s2"> not in index&quot;</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: &quot;None of [Index([&#39;2019&#39;, &#39;2020&#39;, &#39;2021&#39;, &#39;2022&#39;, &#39;2023&#39;], dtype=&#39;object&#39;)] are in the [columns]&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The data is available at: <a class="reference external" href="https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos">https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos</a></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2445,6 +2527,7 @@ Name: 20971, dtype: object
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-on-google-colab">Code on Google Colab</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#making-it-available">Making It Available</a></li>
 </ul>
 
   </nav></div>
