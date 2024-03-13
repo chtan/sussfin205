@@ -7,5 +7,4 @@ defaults:  # The defaults key will be applied to all chapters and sub-sections
   titlesonly: True
 chapters:
 - file: "Quotes in the Markets"
-- file: a
 - file: "How to Download Financial Statements Data from the Internet"

@@ -40,7 +40,6 @@ While the quotes are prices of things, namely, currencies, they are a bit more c
 
 For example, the quote of 1.09145 for EUR/USD in the [table](#fx-table), says that, EUR 1 costs USD 1.09145.
 
-
 +++
 
 ```{tip} Mental Crutch
