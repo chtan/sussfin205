@@ -454,32 +454,17 @@ This is the <em>ask</em> quote, while 1.09145 is the <em>bid</em> quote. Bid is 
 <p>Consider the exchange rates EUR/USD and USD/JPY.</p>
 <p>For the purpose of the discussion here, we will only be considering mid quotes.</p>
 <p>A client wishes to change EUR 1 into USD, and then from USD into JPY.</p>
-<p>According to the <a class="reference internal" href="#fx-table">table</a>, the listed rates are EUR/USD = 1.09153 and USD/JPY = 147.687.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">147.680</span> <span class="o">+</span> <span class="mf">147.694</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>This means that EUR 1 gets changed to USD 1.09153, which in turn, gets changed to JPY 161.205.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">1.09153</span> <span class="o">*</span> <span class="mf">147.687</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>According to the <a class="reference internal" href="#fx-table">table</a>, the listed rates are EUR/USD = 1.09153 and USD/JPY = 147.687, since</p>
+<div class="math notranslate nohighlight">
+\[\frac{147.680 + 147.694}{2} \approx 147.687\]</div>
+<p>This means that EUR 1 gets changed to USD 1.09153, which in turn, gets changed to JPY 161.205, since</p>
+<div class="math notranslate nohighlight">
+\[1.09153 \times 147.687 \approx 161.205\]</div>
 <p>In other words, EUR/JPY = 161.205.</p>
 <p>As this exchange rate has been calculated from given rates EUR/USD and USD/JPY, it is said to be an <em>implied</em> rate.</p>
-<p>On the other hand, the dealer also lists EUR/JPY as 161.207.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">161.197</span> <span class="o">+</span> <span class="mf">161.218</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>On the other hand, the dealer also lists EUR/JPY as 161.207, since</p>
+<div class="math notranslate nohighlight">
+\[\frac{161.197 + 161.218}{2} \approx 161.207\]</div>
 <p>The difference between the implied and the quoted rates is slight. When the difference is large, it either means that there is a mispricing or the market isn’t liquid, making it difficulty for someone to actually realize the implied rate through actual trading. When the difference is large and someone is able to make money out of it, it is known as an <em>arbitrage opportunty</em> in finance.</p>
 <div class="exercise admonition" id="cross-rate">
 
