@@ -16,6 +16,7 @@ kernelspec:
 
 +++
 
+(my-label)=
 ## Currencies
 
 +++
@@ -92,6 +93,8 @@ For the purpose of the discussion here, we will only be considering mid quotes.
 A client wishes to change EUR 1 into USD, and then from USD into JPY.
 
 According to the [table](#fx-table), the listed rates are EUR/USD = 1.09153 and USD/JPY = 147.687.
+
+[x](my-label)
 
 ```{code-cell} ipython3
 (147.680 + 147.694) / 2
