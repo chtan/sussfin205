@@ -58,8 +58,6 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Quotes in the Markets';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -394,7 +392,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="quotes-in-the-markets">
+  <section id="quotes-in-the-markets">
 <h1>Quotes in the Markets<a class="headerlink" href="#quotes-in-the-markets" title="Link to this heading">#</a></h1>
 <section id="currencies">
 <h2>Currencies<a class="headerlink" href="#currencies" title="Link to this heading">#</a></h2>
@@ -404,7 +402,7 @@ document.write(`
 <figure class="align-default" id="fx-table">
 <a class="reference internal image-reference" href="_images/fx.png"><img alt="_images/fx.png" src="_images/fx.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text"><a class="reference external" href="https://www.oanda.com/currency-converter/live-exchange-rates/">https://www.oanda.com/currency-converter/live-exchange-rates/</a></span><a class="headerlink" href="#fx-table" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">https://www.oanda.com/currency-converter/live-exchange-rates/</span><a class="headerlink" href="#fx-table" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Currency quotes are also known as foreign exchange quotes or FX quotes.</p>
@@ -421,8 +419,7 @@ In an exchange rate X/Y, it is useful to regard X as the stuff that one wishes t
 This is the <em>ask</em> quote, while 1.09145 is the <em>bid</em> quote. Bid is the price at which the dealer buys or is willing to buy from the client to which the quote is reported or advertised. Ask is the sell price. As quotes of published by dealers, it is natural that the bid/buy and ask/sell are taken from their perspectives.</p>
 </div>
 <p>For the purpose of calculations, there is the notion of a <em>mid-quote</em>, <em>mid-price</em> or simply <em>mid</em>. The mid for EUR/USD is:</p>
-<div class="math notranslate nohighlight">
-\[\frac{1.09145 + 1.09161}{2} \approx 1.09153\]</div>
+<p>$$\frac{1.09145 + 1.09161}{2} \approx 1.09153$$</p>
 </section>
 <section id="turnover-distribution-of-currencies">
 <h3>Turnover Distribution of Currencies<a class="headerlink" href="#turnover-distribution-of-currencies" title="Link to this heading">#</a></h3>
@@ -450,16 +447,13 @@ This is the <em>ask</em> quote, while 1.09145 is the <em>bid</em> quote. Bid is 
 <p>For the purpose of the discussion here, we will only be considering mid quotes.</p>
 <p>A client wishes to change EUR 1 into USD, and then from USD into JPY.</p>
 <p>According to the <a class="reference internal" href="#fx-table">table</a>, the listed rates are EUR/USD = 1.09153 and USD/JPY = 147.687, since</p>
-<div class="math notranslate nohighlight">
-\[\frac{147.680 + 147.694}{2} \approx 147.687\]</div>
+<p>$$\frac{147.680 + 147.694}{2} \approx 147.687$$</p>
 <p>This means that EUR 1 gets changed to USD 1.09153, which in turn, gets changed to JPY 161.205, since</p>
-<div class="math notranslate nohighlight">
-\[1.09153 \times 147.687 \approx 161.205\]</div>
+<p>$$1.09153 \times 147.687 \approx 161.205$$</p>
 <p>In other words, EUR/JPY = 161.205.</p>
 <p>As this exchange rate has been calculated from given rates EUR/USD and USD/JPY, it is said to be an <em>implied</em> rate.</p>
 <p>On the other hand, the dealer also lists EUR/JPY as 161.207, since</p>
-<div class="math notranslate nohighlight">
-\[\frac{161.197 + 161.218}{2} \approx 161.207\]</div>
+<p>$$\frac{161.197 + 161.218}{2} \approx 161.207$$</p>
 <p>The difference between the implied and the quoted rates is slight. When the difference is large, it either means that there is a mispricing or the market isn’t liquid, making it difficulty for someone to actually realize the implied rate through actual trading. When the difference is large and someone is able to make money out of it, it is known as an <em>arbitrage opportunty</em> in finance.</p>
 <div class="exercise admonition" id="cross-rate">
 
@@ -474,16 +468,15 @@ This is the <em>ask</em> quote, while 1.09145 is the <em>bid</em> quote. Bid is 
 <section id="solution-content">
 <p>Note that 3 currencies are involved here, namely, EUR, USD and JPY. This suggests that we consider the relationships between EUR/USD, USD/JPY and EUR/JPY.</p>
 <p>As noted earlier, the mid of EUR/USD is 1.09153.</p>
-<p>The mid of EUR/JPY is calculated from the <a class="reference internal" href="#fx-table">table</a> to be <span class="math notranslate nohighlight">\(\frac{161.197 + 161.218}{2} \approx 161.207\)</span>.</p>
+<p>The mid of EUR/JPY is calculated from the <a class="reference internal" href="#fx-table">table</a> to be $\frac{161.197 + 161.218}{2} \approx 161.207$.</p>
 <p>Thus, the implied USD/JPY is</p>
-<div class="math notranslate nohighlight">
-\[\text{USD}/\text{EUR} \times \text{EUR}/\text{JPY} = \frac{1}{1.09153} \times 161.207 \approx 147.689\]</div>
+<p>$$\text{USD}/\text{EUR} \times \text{EUR}/\text{JPY} = \frac{1}{1.09153} \times 161.207 \approx 147.689$$</p>
 <p>from the chain of currency exchanges USD → EUR → JPY. There is a significant discrepancy between the implied exchange rate and the listed exchange rate as given in the exercise.</p>
 <p>An astute trader may act as follows, using the mantra <em>Buy Low, Sell High</em>:</p>
 <ul class="simple">
 <li><p>Buy USD 1 at USD/JPY 140 using JPY 140</p></li>
-<li><p>Buy EUR <span class="math notranslate nohighlight">\(\frac{1}{1.09153}\)</span> using USD 1</p></li>
-<li><p>Buy JPY <span class="math notranslate nohighlight">\(\frac{1}{1.09153} \times 161.207\)</span> using EUR <span class="math notranslate nohighlight">\(\frac{1}{1.09153}\)</span></p></li>
+<li><p>Buy EUR $\frac{1}{1.09153}$ using USD 1</p></li>
+<li><p>Buy JPY $\frac{1}{1.09153} \times 161.207$ using EUR $\frac{1}{1.09153}$</p></li>
 </ul>
 <p>According to the calculations above, the trader ends up with JPY 147.689, i.e. JPY 7.689 richer!</p>
 </section>

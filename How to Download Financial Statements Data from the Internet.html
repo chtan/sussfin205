@@ -420,7 +420,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="how-to-download-financial-statements-data-from-the-internet">
+  <section id="how-to-download-financial-statements-data-from-the-internet">
 <h1>How to Download Financial Statements Data from the Internet<a class="headerlink" href="#how-to-download-financial-statements-data-from-the-internet" title="Link to this heading">#</a></h1>
 <section id="sources-of-financial-statements-on-the-internet">
 <h2>Sources of Financial Statements on the Internet<a class="headerlink" href="#sources-of-financial-statements-on-the-internet" title="Link to this heading">#</a></h2>
@@ -473,14 +473,14 @@ document.write(`
 </figure></section>
 <section id="understanding-the-url">
 <h3>Understanding the URL<a class="headerlink" href="#understanding-the-url" title="Link to this heading">#</a></h3>
-<p>In the URL <a class="reference external" href="https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm">https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm</a>,</p>
+<p>In the URL https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm,</p>
 <ul class="simple">
 <li><p>21344: Central Index Key or CIK number (EDGAR assigns to filers a unique numerical identifier)</p></li>
 <li><p>000002134424000009: accession number (unique identifier assigned automatically to an accepted submission by EDGAR)</p></li>
 <li><p>KO: ticker symbol</p></li>
 <li><p>20231231: YYYYMMDD</p></li>
 </ul>
-<p>Such information and others on how EDGAR data may be accessed may be found here: <a class="reference external" href="https://www.sec.gov/os/accessing-edgar-data">https://www.sec.gov/os/accessing-edgar-data</a></p>
+<p>Such information and others on how EDGAR data may be accessed may be found here: https://www.sec.gov/os/accessing-edgar-data</p>
 </section>
 <section id="edgar-api">
 <h3>EDGAR API<a class="headerlink" href="#edgar-api" title="Link to this heading">#</a></h3>
@@ -491,7 +491,7 @@ document.write(`
 <li><p>company-facts: all the company concepts data for a company in a single API call</p></li>
 <li><p>frames: aggregates one fact for each reporting entity that is last filed that most closely fits the calendrical period requested</p></li>
 </ul>
-<p>Information on EDGAR’s API may be found here: <a class="reference external" href="https://www.sec.gov/edgar/sec-api-documentation">https://www.sec.gov/edgar/sec-api-documentation</a></p>
+<p>Information on EDGAR’s API may be found here: https://www.sec.gov/edgar/sec-api-documentation</p>
 </section>
 </section>
 <section id="using-python-packages">
@@ -502,35 +502,35 @@ document.write(`
 <ul class="simple">
 <li><p>EDGAR Tools</p>
 <ul>
-<li><p>GitHub: <a class="reference external" href="https://dgunning.github.io/edgartools/">https://dgunning.github.io/edgartools/</a></p></li>
-<li><p>PyPI: <a class="reference external" href="https://pypi.org/project/edgartools/">https://pypi.org/project/edgartools/</a></p></li>
+<li><p>GitHub: https://dgunning.github.io/edgartools/</p></li>
+<li><p>PyPI: https://pypi.org/project/edgartools/</p></li>
 </ul>
 </li>
 </ul>
 <p>As this package connects directly to the EDGAR API, the downloading is limited by the constraints set on the SEC database servers.</p>
-<p>An alternative to EDGAR Tools is <code>sec-edgar-api</code> found at <a class="reference external" href="https://sec-edgar-api.readthedocs.io/en/latest/">https://sec-edgar-api.readthedocs.io/en/latest/</a>, or <code>secfsdstools</code> found at <a class="reference external" href="https://pypi.org/project/secfsdstools/">https://pypi.org/project/secfsdstools/</a>.</p>
+<p>An alternative to EDGAR Tools is <code>sec-edgar-api</code> found at https://sec-edgar-api.readthedocs.io/en/latest/, or <code>secfsdstools</code> found at https://pypi.org/project/secfsdstools/.</p>
 <p>We will also make use of the following packages by Jeroen Bouma which are useful for financial analysis:</p>
 <ul class="simple">
 <li><p>Finance Database</p>
 <ul>
-<li><p>Home: <a class="reference external" href="https://www.jeroenbouma.com/projects/financetoolkit">https://www.jeroenbouma.com/projects/financetoolkit</a></p></li>
-<li><p>GitHub: <a class="github reference external" href="https://github.com/JerBouma/FinanceToolkit">JerBouma/FinanceToolkit</a></p></li>
-<li><p>PyPI: <a class="reference external" href="https://pypi.org/project/financedatabase/">https://pypi.org/project/financedatabase/</a></p></li>
+<li><p>Home: https://www.jeroenbouma.com/projects/financetoolkit</p></li>
+<li><p>GitHub: https://github.com/JerBouma/FinanceToolkit</p></li>
+<li><p>PyPI: https://pypi.org/project/financedatabase/</p></li>
 </ul>
 </li>
 </ul>
 <ul class="simple">
 <li><p>Finance Toolkit</p>
 <ul>
-<li><p>Home: <a class="reference external" href="https://www.jeroenbouma.com/projects/financetoolkit">https://www.jeroenbouma.com/projects/financetoolkit</a></p></li>
-<li><p>GitHub: <a class="github reference external" href="https://github.com/JerBouma/FinanceDatabase">JerBouma/FinanceDatabase</a></p></li>
-<li><p>PyPI: <a class="reference external" href="https://pypi.org/project/financetoolkit/">https://pypi.org/project/financetoolkit/</a></p></li>
+<li><p>Home: https://www.jeroenbouma.com/projects/financetoolkit</p></li>
+<li><p>GitHub: https://github.com/JerBouma/FinanceDatabase</p></li>
+<li><p>PyPI: https://pypi.org/project/financetoolkit/</p></li>
 </ul>
 </li>
 </ul>
 <p>While the packages <code>financedatabase</code> and <code>financetoolkit</code> are open source, the data source is FinancialModelingPrep, which isn’t free.</p>
-<p>To use these packages, you will need to register at: <a class="reference external" href="https://site.financialmodelingprep.com/sign-up">https://site.financialmodelingprep.com/sign-up</a></p>
-<p>and obtain an API key from your dashboard: <a class="reference external" href="https://site.financialmodelingprep.com/developer/docs/dashboard">https://site.financialmodelingprep.com/developer/docs/dashboard</a></p>
+<p>To use these packages, you will need to register at: https://site.financialmodelingprep.com/sign-up</p>
+<p>and obtain an API key from your dashboard: https://site.financialmodelingprep.com/developer/docs/dashboard</p>
 <p>The Free plan is limited to 250 requests each day, 5 years of data and only features companies listed on US exchanges.</p>
 </section>
 <section id="installation">
@@ -2556,7 +2556,7 @@ Name: 20971, dtype: object
 </figure></section>
 <section id="code-on-google-colab">
 <h3>Code on Google Colab<a class="headerlink" href="#code-on-google-colab" title="Link to this heading">#</a></h3>
-<p>You may visit this page - <a class="reference external" href="https://colab.research.google.com/drive/1BAWw3mCLQ7Rzuz8AYFzyTAFg9No-HEWC">https://colab.research.google.com/drive/1BAWw3mCLQ7Rzuz8AYFzyTAFg9No-HEWC</a> - to look at the codes for downloading the data minus the explanations found in this set of notes.</p>
+<p>You may visit this page - https://colab.research.google.com/drive/1BAWw3mCLQ7Rzuz8AYFzyTAFg9No-HEWC - to look at the codes for downloading the data minus the explanations found in this set of notes.</p>
 </section>
 </section>
 <section id="making-it-available">
@@ -2591,7 +2591,7 @@ Obtaining cashflow data: 100%|████████████████�
 </div>
 </div>
 </div>
-<p>The data is available at: <a class="reference external" href="https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos">https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos</a></p>
+<p>The data is available at: https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos</p>
 </section>
 </section>
 
