@@ -92,27 +92,27 @@ For the purpose of the discussion here, we will only be considering mid quotes.
 
 A client wishes to change EUR 1 into USD, and then from USD into JPY.
 
-According to the [table](#fx-table), the listed rates are EUR/USD = 1.09153 and USD/JPY = 147.687.
+According to the [table](#fx-table), the listed rates are EUR/USD = 1.09153 and USD/JPY = 147.687, since
 
-```{code-cell} ipython3
-(147.680 + 147.694) / 2
-```
+$$\frac{147.680 + 147.694}{2} \approx 147.687$$
 
-This means that EUR 1 gets changed to USD 1.09153, which in turn, gets changed to JPY 161.205.
++++
 
-```{code-cell} ipython3
-1.09153 * 147.687
-```
+This means that EUR 1 gets changed to USD 1.09153, which in turn, gets changed to JPY 161.205, since
+
+$$1.09153 \times 147.687 \approx 161.205$$
+
++++
 
 In other words, EUR/JPY = 161.205.
 
 As this exchange rate has been calculated from given rates EUR/USD and USD/JPY, it is said to be an *implied* rate.
 
-On the other hand, the dealer also lists EUR/JPY as 161.207.
+On the other hand, the dealer also lists EUR/JPY as 161.207, since
 
-```{code-cell} ipython3
-(161.197 + 161.218) / 2
-```
+$$\frac{161.197 + 161.218}{2} \approx 161.207$$
+
++++
 
 The difference between the implied and the quoted rates is slight. When the difference is large, it either means that there is a mispricing or the market isn't liquid, making it difficulty for someone to actually realize the implied rate through actual trading. When the difference is large and someone is able to make money out of it, it is known as an *arbitrage opportunty* in finance.
 
