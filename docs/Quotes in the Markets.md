@@ -58,9 +58,9 @@ This is the *ask* quote, while 1.09145 is the *bid* quote. Bid is the price at w
 
 For the purpose of calculations, there is the notion of a *mid-quote*, *mid-price* or simply *mid*. The mid for EUR/USD is:
 
-```{code-cell} ipython3
-(1.09145 + 1.09161) / 2
-```
+$$\frac{1.09145 + 1.09161}{2} \approx 1.09153$$
+
++++
 
 ### Turnover Distribution of Currencies
 
