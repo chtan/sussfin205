@@ -43,16 +43,16 @@ For example, the quote of 1.09145 for EUR/USD in the [table](#fx-table), says th
 
 +++
 
-```{tip} Mental Crutch
+:::{tip} Mental Crutch
 In an exchange rate X/Y, it is useful to regard X as the stuff that one wishes to buy using the currency Y. Thus, if EUR/USD is 1.1, it means that 1 unit of the stuff EUR (namely, EUR 1) costs USD 1.1..
-```
+:::
 
 +++
 
-```{attention} What is the quote 1.09161 beside 1.09145 for EUR/USD?
+:::{attention} What is the quote 1.09161 beside 1.09145 for EUR/USD?
 :class: dropdown
 This is the *ask* quote, while 1.09145 is the *bid* quote. Bid is the price at which the dealer buys or is willing to buy from the client to which the quote is reported or advertised. Ask is the sell price. As quotes of published by dealers, it is natural that the bid/buy and ask/sell are taken from their perspectives.
-```
+:::
 
 +++
 
