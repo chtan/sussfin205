@@ -261,19 +261,277 @@ df['Relative Change'] = df['Relative Change'].map(f)
 
 We note that over the years 2022-2023, the net income of KO increased by 12.16% even though the revenue growth is only 6.51%.
 
+There are some fields with significantly large magnitudes of relative change, namely, Other Expenses, Interest Income, Interest Expense, D&A and Total Other Income. To find out more, one may try to ascertain their magnitudes relative to the top or bottom line (refer to the {ref}`Common-Size Analysis <common_size_analysis>` section on how to do this), and/or to find out from the notes if any mention is made of these quantities.
+
 You may find the sheet [here](https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos/edit#gid=884666173).
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
 ## Base-Year Analysis
 
+Let's assume that a data table is arranged into columns chronologically, each column being indexed by a year. In base-year analysis, the leftmost column is taken as the reference. Hence, the values in that column are taken to be 100%, while values in other columns are taken as a percentage relative to the corresponding values in the first column.
+
+The base-year analysis for the income statement of The Coca-Cola Company FY2019-2023 is shown as follows:
+
+```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: ''
+tags: [hide-input]
+---
+import openpyxl
+import pandas as pd
+import requests
+from io import BytesIO
+from IPython.display import display, Markdown
+import numpy as np
+
+spreadsheetId = "1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos"
+url = "https://docs.google.com/spreadsheets/export?exportFormat=xlsx&id=" + spreadsheetId
+res = requests.get(url)
+data = BytesIO(res.content)
+xlsx = openpyxl.load_workbook(filename=data)
+for name in xlsx.sheetnames:
+    if name == 'BS Base-Year':
+        df = pd.read_excel(data, sheet_name=name)
+        break
+        
+df = df.set_index(df.columns[0])
+df.index.names = ['Field']
+for y in range(2019, 2024):
+    df.drop(y, axis='columns', inplace=True)
+df = df.rename(columns={str(k) + '.1':k for k in range(2019, 2024)})
+def f(x):
+    try: 
+        return "{:.2%}".format(x)
+    except:
+        return x
+df = df.apply(np.vectorize(f))
+
+# This doesn't work for markdown tables because myst parses CommonMark
+# Ref: https://github.com/executablebooks/jupyter-book/issues/1105
+#display(Markdown(df.to_markdown()))
+
+# Copy and paste the output of the following into a markdown cell,
+# then comment it out.
+#print(df.to_markdown())
+```
+
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
+| Field                                    | 2019    | 2020    | 2021    | 2022    | 2023    |
+|:-----------------------------------------|:--------|:--------|:--------|:--------|:--------|
+| Cash and Cash Equivalents                | 7.50%   | 7.79%   | 10.25%  | 10.26%  | 9.59%   |
+| Short Term Investments                   | 5.44%   | 4.72%   | 3.11%   | 2.27%   | 4.40%   |
+| Cash and Short Term Investments          | 12.96%  | 12.49%  | 13.35%  | 12.50%  | 14.02%  |
+| Accounts Receivable                      | 4.59%   | 3.60%   | 3.72%   | 3.76%   | 3.49%   |
+| Inventory                                | 3.91%   | 3.75%   | 3.61%   | 4.56%   | 4.52%   |
+| Other Current Assets                     | 2.19%   | 2.20%   | 3.17%   | 3.49%   | 5.36%   |
+| Total Current Assets                     | 23.61%  | 21.99%  | 23.83%  | 24.35%  | 27.33%  |
+| Property, Plant and Equipment            | 12.50%  | 12.37%  | 10.51%  | 10.60%  | 9.46%   |
+| Goodwill                                 | 19.44%  | 20.05%  | 20.55%  | 20.26%  | 18.83%  |
+| Intangible Assets                        | 11.57%  | 12.60%  | 16.21%  | 15.95%  | 15.25%  |
+| Long Term Investments                    | 23.03%  | 23.02%  | 19.49%  | 20.26%  | 20.27%  |
+| Tax Assets                               | 2.79%   | 2.82%   | 2.26%   | 1.89%   | 1.60%   |
+| Other Fixed Assets                       | 7.04%   | 7.08%   | 7.13%   | 6.67%   | 7.33%   |
+| Fixed Assets                             | 76.39%  | 78.01%  | 76.06%  | 75.65%  | 72.67%  |
+| Other Assets                             | 0.00%   | 0.00%   | 0.00%   | 0.00%   | 0.00%   |
+| Total Assets                             | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% |
+| Accounts Payable                         | 13.08%  | 12.71%  | 15.47%  | 16.92%  | 15.86%  |
+| Short Term Debt                          | 17.59%  | 3.06%   | 4.93%   | 2.98%   | 6.67%   |
+| Tax Payables                             | 0.48%   | 0.90%   | 0.73%   | 1.29%   | 1.61%   |
+| Deferred Revenue                         | 0.00%   | 0.00%   | 0.00%   | 0.00%   | -14.33% |
+| Other Current Liabilities                | 0.48%   | 0.90%   | 0.73%   | 1.29%   | 15.86%  |
+| Total Current Liabilities                | 31.25%  | 16.72%  | 21.19%  | 21.23%  | 24.16%  |
+| Long Term Debt                           | 31.83%  | 45.93%  | 40.36%  | 39.22%  | 36.34%  |
+| Deferred Revenue Non Current             | 0.00%   | 0.00%   | 0.00%   | 0.00%   | 0.00%   |
+| Deferred Tax Liabilities                 | 2.64%   | 2.10%   | 2.99%   | 3.14%   | 2.70%   |
+| Other Non Current Liabilities            | 9.85%   | 10.82%  | 9.12%   | 8.53%   | 8.67%   |
+| Total Non Current Liabilities            | 44.33%  | 58.88%  | 52.44%  | 50.86%  | 47.80%  |
+| Other Liabilities                        | 0.00%   | 0.00%   | 0.00%   | 0.00%   | 0.00%   |
+| Capital Lease Obligations                | 1.28%   | 1.49%   | 1.23%   | 1.20%   | 1.02%   |
+| Total Liabilities                        | 75.58%  | 75.60%  | 73.62%  | 72.09%  | 71.85%  |
+| Preferred Stock                          | 0.00%   | 0.00%   | 0.00%   | 0.00%   | 0.00%   |
+| Common Stock                             | 2.04%   | 2.02%   | 1.86%   | 1.90%   | 1.80%   |
+| Retained Earnings                        | 76.16%  | 76.29%  | 73.20%  | 76.51%  | 75.54%  |
+| Accumulated Other Comprehensive Income   | -15.05% | -17.18% | -14.83% | -16.16% | -14.33% |
+| Other Total Shareholder Equity           | -40.51% | -38.95% | -36.02% | -36.64% | -35.82% |
+| Total Shareholder Equity                 | 21.99%  | 22.11%  | 24.36%  | 25.97%  | 26.51%  |
+| Total Equity                             | 24.42%  | 24.40%  | 26.38%  | 27.80%  | 28.15%  |
+| Total Liabilities and Shareholder Equity | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% |
+| Minority Interest                        | 2.45%   | 2.28%   | 1.97%   | 1.85%   | 1.58%   |
+| Total Liabilities and Equity             | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% |
+| Total Investments                        | 28.47%  | 27.72%  | 22.67%  | 22.52%  | 24.67%  |
+| Total Debt                               | 49.54%  | 49.03%  | 45.34%  | 42.13%  | 43.09%  |
+| Net Debt                                 | 42.01%  | 41.24%  | 35.06%  | 31.90%  | 33.47%  |
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+Fixed assets is about 75% of total assets, cash and cash equivalents is about 10%, while inventory is about 4%. Goodwill is about 20% over the years. This came about from acquisition (and divestitures when goodwill is reduced).
+
+Liabilities-to-equity ratio is about 7:3. Long-term debt is about 35%.
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+The sheet that contains the base-year analysis may be found [here](https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos/edit#gid=890470595).
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+(common_size_analysis)=
 ## Common-Size Analysis
+
+In common size analysis, a field is selected to be a reference value, and other fields are expressed as a percentage relative to it.
+
+For example, on the income statement, one may choose the Sales or top line, to be the reference figure. It will have the value of 100%. Other field values will be then expressed as a percentage of sales. 
+
+On the balance sheet, one may take the Total Assets or Total Liabilities and Equity as reference value (does not matter which from the Accounting Equation for the balance sheet), and all other field values are expressed as a percentage of the reference value. This makes good sense as each field on the balance sheet is either an asset, or a liability or an equity.
+
+The common-size analysis for the balance sheet of The Coca-Cola Company FY2019-2023 is shown as follows:
+
+```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: ''
+tags: [hide-input]
+---
+import openpyxl
+import pandas as pd
+import requests
+from io import BytesIO
+from IPython.display import display, Markdown
+
+spreadsheetId = "1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos"
+url = "https://docs.google.com/spreadsheets/export?exportFormat=xlsx&id=" + spreadsheetId
+res = requests.get(url)
+data = BytesIO(res.content)
+xlsx = openpyxl.load_workbook(filename=data)
+for name in xlsx.sheetnames:
+    if name == 'IS Common-Size':
+        df = pd.read_excel(data, sheet_name=name)
+        break
+        
+df = df.set_index(df.columns[0])
+df.index.names = ['Field']
+for y in range(2019, 2024):
+    df.drop(y, axis='columns', inplace=True)
+df = df.rename(columns={str(k) + '.1':k for k in range(2019, 2024)})
+def f(x):
+    try: 
+        return "{:.2%}".format(x)
+    except:
+        return x
+df = df.apply(np.vectorize(f))
+
+# This doesn't work for markdown tables because myst parses CommonMark
+# Ref: https://github.com/executablebooks/jupyter-book/issues/1105
+#display(Markdown(df.to_markdown()))
+
+# Copy and paste the output of the following into a markdown cell,
+# then comment it out.
+#print(df.to_markdown())
+```
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+| Field                                        | 2019    | 2020    | 2021     | 2022    | 2023     |
+|:---------------------------------------------|:--------|:--------|:---------|:--------|:---------|
+| Revenue                                      | 100.00% | 88.47%  | 103.75%  | 115.28% | 122.79%  |
+| Cost of Goods Sold                           | 100.00% | 91.78%  | 105.48%  | 123.29% | 126.71%  |
+| Gross Profit                                 | 100.00% | 86.73%  | 103.10%  | 110.62% | 120.35%  |
+| Gross Profit Ratio                           | 100.00% | 97.60%  | 99.18%   | 95.67%  | 97.94%   |
+| Research and Development Expenses            | #DIV/0! | #DIV/0! | #DIV/0!  | #DIV/0! | #DIV/0!  |
+| General and Administrative Expenses          | 100.00% | 62.69%  | 167.66%  | 177.11% | 159.70%  |
+| Selling and Marketing Expenses               | 100.00% | 76.12%  | 93.68%   | 99.58%  | 106.88%  |
+| Selling, General and Administrative Expenses | 100.00% | 80.41%  | 100.00%  | 106.61% | 115.70%  |
+| Other Expenses                               | 100.00% | 186.24% | 184.72%  | 266.38% | -436.68% |
+| Operating Expenses                           | 100.00% | 84.13%  | 103.17%  | 111.90% | 126.19%  |
+| Cost and Expenses                            | 100.00% | 88.24%  | 104.04%  | 118.01% | 126.47%  |
+| Interest Income                              | 100.00% | 65.72%  | 49.02%   | 79.75%  | 161.10%  |
+| Interest Expense                             | 100.00% | 152.22% | 169.13%  | 93.23%  | 161.73%  |
+| Depreciation and Amortization                | 100.00% | 123.92% | 48.17%   | 97.01%  | 37.54%   |
+| EBITDA                                       | 100.00% | 96.95%  | 118.32%  | 105.34% | 94.66%   |
+| EBITDA Ratio                                 | 100.00% | 109.68% | 113.92%  | 91.52%  | 77.38%   |
+| Operating Income                             | 100.00% | 89.11%  | 138.61%  | 107.92% | 111.88%  |
+| Operating Income Ratio                       | 100.00% | 100.70% | 134.04%  | 93.75%  | 91.35%   |
+| Total Other Income                           | 100.00% | 107.43% | -228.57% | 111.00% | 234.29%  |
+| Income Before Tax                            | 100.00% | 90.28%  | 114.81%  | 108.33% | 120.37%  |
+| Income Before Tax Ratio                      | 100.00% | 102.04% | 111.06%  | 93.88%  | 97.82%   |
+| Income Tax Expense                           | 100.00% | 110.00% | 145.56%  | 117.78% | 125.00%  |
+| Net Income                                   | 100.00% | 86.88%  | 109.53%  | 106.95% | 119.96%  |
+| Net Income Ratio                             | 100.00% | 98.04%  | 105.60%  | 92.69%  | 97.83%   |
+| EPS                                          | 100.00% | 86.12%  | 108.13%  | 105.26% | 118.66%  |
+| EPS Diluted                                  | 100.00% | 86.47%  | 108.70%  | 105.80% | 119.32%  |
+| Weighted Average Shares                      | 100.00% | 100.23% | 100.70%  | 100.93% | 100.70%  |
+| Weighted Average Shares Diluted              | 100.00% | 100.23% | 100.70%  | 100.93% | 100.70%  |
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+The revenue growth over the years 2019 to 2023 is expressed by: 100.00%, 88.47%, 103.75%, 115.28%, 122.79%.
+
+The net income growth over the same period is expressed by: 100.00%, 86.88%, 109.53%, 106.95%, 119.96%.
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+Note that the trends as depicted by the sparklines are similar in shape to those depicted by the sparklines on the original income statment that does not have base-year analysis performed on it. 
+
+Nevertheless, there is one advantage to consider trends using field values in a base-year analysis, namely, the sparklines are mutually comparable in scale and they are start at 100%.
+
+Hence, we may superpose all the resulting sparklines on a single graph to compare them:
+
+```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: ''
+tags: [hide-input]
+---
+trends = []
+names = []
+for i in range(len(df)):
+    try:
+        trends.append([float(x.strip('%'))/100 for x in list(df.iloc[i])])
+        names.append(df.index[i])
+    except:
+        pass
+
+# importing package 
+import matplotlib.pyplot as plt 
+%matplotlib inline
+  
+# create data 
+x = [10,20,30,40,50] 
+y = [30,30,30,30,30] 
+  
+# plot lines 
+for i, trend in enumerate(trends):
+    plt.plot(range(5), trend, label = names[i])
+#plt.legend()
+plt.show()
+```
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+Comparing trends in base-year analysis is sometimes called *Index Number Trend Analysis*.
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+The sheet that contains the common-size analysis may be found [here](https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos/edit#gid=1727892542).
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
 ## Reasoning
+
+### Computational Artefacts
+
+Identifying and comprehending the underlying causes of significant quantities is worthwhile. Sometimes, the causes are unrelated the financial reality, but are rather due to how calculations turn out.
+
+For example, if $x_t$ is a small positive number (say, close to 0), resulting in a large fraction $\frac{x_{t+1} - x_t}{x_t}$, then the cause of the large fraction may simply be due to this fact.
+
+A change is signs may also result in a large relative fraction. For example, $x_t$ may be positive while $x_{t+1}$ may be negative. In this, it may be more reasonable to note that there has been a change causing the signs to flip, and not to interpret the relative change too much.
+
+Missing data may also cause difficulties in reasoning for the obvious reason that there is no data to reason with!
 
 ### Inconsistencies
 
