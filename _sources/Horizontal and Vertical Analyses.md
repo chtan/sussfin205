@@ -368,6 +368,8 @@ df = df.apply(np.vectorize(f))
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
+Notice the Total Assets and Total Liabilities and Equity rows are filled with 100%.
+
 Fixed assets is about 75% of total assets, cash and cash equivalents is about 10%, while inventory is about 4%. Goodwill is about 20% over the years. This came about from acquisition (and divestitures when goodwill is reduced).
 
 Liabilities-to-equity ratio is about 7:3. Long-term debt is about 35%.
@@ -468,6 +470,8 @@ df = df.apply(np.vectorize(f))
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
+Notice that the leftmost column for FY2019 have values 100%.
+
 The revenue growth over the years 2019 to 2023 is expressed by: 100.00%, 88.47%, 103.75%, 115.28%, 122.79%.
 
 The net income growth over the same period is expressed by: 100.00%, 86.88%, 109.53%, 106.95%, 119.96%.
@@ -495,6 +499,17 @@ for i in range(len(df)):
         names.append(df.index[i])
     except:
         pass
+
+from IPython.core.display import HTML
+HTML("""
+<style>
+.output_png {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+</style>
+""")
 
 # importing package 
 import matplotlib.pyplot as plt 
