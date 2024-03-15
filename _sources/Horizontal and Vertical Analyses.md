@@ -521,9 +521,14 @@ plt.savefig('img/example_plot.png')
 plt.close()
 
 # Display the image with HTML/CSS styling to center align it
-display(HTML("<style>.output { display: flex; justify-content: center; }</style>"))
-display(HTML("<img src='img/example_plot.png'>"))
+#display(HTML("<style>.output { display: flex; justify-content: center; }</style>"))
+#display(HTML("<img src='img/example_plot.png'>"))
 ```
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+<style>.output { display: flex; justify-content: center; }</style>
+![image info](./img/example_plot.png)
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
