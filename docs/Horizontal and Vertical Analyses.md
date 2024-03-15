@@ -16,6 +16,28 @@ kernelspec:
 
 # Horizontal and Vertical Analyses
 
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+*Horizontal analysis* refers to comparing accounting data over a number of periods. If the data in the initial period is taken as baseline, and data in other periods are expressed as a percentage of that, then the analysis assumes the name of *base-year analysis*. Horizontal analysis or base-year analysis allows one to talk about *trends* in data. 
+
+If the number of periods (or time steps) is 2, then the analysis is also called a *change analysis*.
+
+*Vertical analysis*, on the other, focusses on data in one accounting period. It involves comparing data with each other within that period. If a particular field is taken to be the reference and all other fields are expressed as a percentage of that, then the analysis assumes the name of *common size analysis*. Vertical analysis or common size analysis allows one to talk about the relative sizes and distribution of values in a collection (e.g. the relative sizes of components making up the asset side of the balance sheet, thus allowing one to appreciate the kinds of assets that a firm holds).
+
+## Trends
+
+A trend is a tendency in how a sequence of quantities evolve.
+
+The basic types are: increasing/growing, decreasing/diminishing, or stationary/fluctuating
+
+Among trends of the same types, one may talk about the strength of a trend. For example, one increasing trend may be stronger than another.
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+### Example
+
+Let's visualize the trends on the income statement of The Coca-Cola Company FY2019-2023:
+
 ```{code-cell} ipython3
 ---
 editable: true
@@ -30,33 +52,6 @@ import matplotlib.pyplot as plt
 import base64
 from IPython.display import Markdown
 from io import BytesIO
-
-def sparkline_inline(data, figsize=(4, 0.25), **kwags):
-    """
-    Returns a HTML image tag containing a base64 encoded sparkline style plot
-    """
-    data = list(data)
-
-    fig, ax = plt.subplots(1, 1, figsize=figsize, **kwags)
-    ax.plot(data)
-    for k,v in ax.spines.items():
-        v.set_visible(False)
-    ax.set_xticks([])
-    ax.set_yticks([])
-
-    plt.plot(len(data) - 1, data[len(data) - 1], 'r.')
-
-    ax.fill_between(range(len(data)), data, len(data)*[min(data)], alpha=0.1)
-
-    img = BytesIO()
-    plt.savefig(img, transparent=True, bbox_inches='tight')
-    img.seek(0)
-    plt.close()
-
-    x = base64.b64encode(img.read()).decode("UTF-8")
-
-    return Markdown('<img style="display:inline-block;margin:0px;" src="data:image/png;base64,{}"/>'
-                    .format(x))
 
 def sparkline(data, figsize=(4, 0.25), **kwags):
     """
@@ -83,39 +78,7 @@ def sparkline(data, figsize=(4, 0.25), **kwags):
     x = base64.b64encode(img.read()).decode("UTF-8")
 
     return '<img style="display:inline-block;margin:0px;" src="data:image/png;base64,{}"/>'.format(x)
-```
 
-+++ {"editable": true, "slideshow": {"slide_type": ""}, "user_expressions": [{"expression": "[1,2,4,4,7,8]", "result": {"status": "ok", "data": {"text/plain": "[1, 2, 4, 4, 7, 8]"}, "metadata": {}}}, {"expression": "sparkline_inline([1,2,4,4,7,8])", "result": {"status": "ok", "data": {"text/plain": "<IPython.core.display.Markdown object>", "text/markdown": "<img style=\"display:inline-block;margin:0px;\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAAAnCAYAAABpNAE1AAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9hAAAPYQGoP6dpAAADX0lEQVR4nO3dy27UZhiH8WcYCIUUEhAiIFGwKGLTC+hFcANskZB6C951W/UKYMFVIO+66IZNJVZsUQUBqZCQllMmITR1F7bFeMaeL0PsOeX5SZa/OfpzFn+9tsdvOmmaIkmqd2zaE5CkWWdQSlKAQSlJAQalJAUYlJIUYFBKUoBBKUkBBqUkBRiUkhRwfNoTkDTfojjpAEvAt8ByvnztePC5U3XbvfT+DY/u3aFbvrtwH4hI05fN7aFBKR0ZUZx0gdMcLKDGHXcnsAu9fNkGej9s/NntpunNgfd0gRuAQSmpLIqT48AV4HrFcg04C3wzgans8SXQSsHWt97pG/cGxlWf6wG7QKl0/HH9yeUU/uiUTyHuA0+b3qmOTTGk+RDFyQrlAPyechgetPBJGQ6ibbIAO0yw9YB/D7eX4/n9/t3b196++rWTVZL7wE+k6YOmt2NQSjMirwq/o7oqvA6cD3zFHvACeJ4v6/n6JfCOcnW2MH7+7f7anccPV4CnTZ+bLBiU0gRFcbJKdUVYVIWhc31vKIdg//ovBg5Pj4j/nv1y61WbG/AcpdSgKE5OMLoqPBf4ik98qQqLECzG62QVoSbMoJTGFMXJeeqD8CrhqnCT4SAsHr/maFaFM82glAbkVeFV6sNwNfAVn6g+NC7WO23MW+0xKFUSxckysAZc7FsvTXVS7TvLcFUYumttg/qqcAOrwoViUC64/K6JVcrht1bxuBgvT2Wis2eX+qrwBVaFR4pBOYfyOywuMDrw+h+fGHMTu2RXV4tloX5OUmGH4TDcmOqMNFMMyhkRxclJ6gNvMPwuAJ0xN/GB7CJCEX6jxh8PtzfSYjEoW5If8hbn+0ZVe8V4ZcxNpMA/ZME2KvQ2gS2yCwySvoJBOUIUJ0uEmwGcob76q+18UuMzWcBtUR2Am32v/U12y5akls19UEZxcoz2OqI08ffZYTjk6gLwbQPbk9SwiQRlfhh6ksP3qhurX12DPlPdIGA7X7aoP+z16qg051oNyihOnpP9NGWZ9vvVFR1RBjucHKTzSaiLykQ7okiaLW1XlCtkP+btt0d2VbWoxvrHVc9VvV71His3Sa2we5AkBfjPxSQpwKCUpACDUpICDEpJCjAoJSnAoJSkAINSkgIMSkkKMCglKeB/UE5Cu4MrlxMAAAAASUVORK5CYII=\"/>"}, "metadata": {}}}, {"expression": "[1,2,4,4,7,8][::-1]", "result": {"status": "ok", "data": {"text/plain": "[8, 7, 4, 4, 2, 1]"}, "metadata": {}}}, {"expression": "sparkline_inline([1,2,4,4,7,8][::-1])", "result": {"status": "ok", "data": {"text/plain": "<IPython.core.display.Markdown object>", "text/markdown": "<img style=\"display:inline-block;margin:0px;\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAAAnCAYAAABpNAE1AAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9hAAAPYQGoP6dpAAADXElEQVR4nO3cXW7TShyG8cctB5oWxFcDveAjSLCaiB1wzRq6hJwlgMQNe+jFWcsRVSjoSC0VLYXyUZr6XLhW3MRm0saThPD8JGsmTuyMb179PYknSdMUSVK1hWkPQJJmnUEpSQEGpSQFGJSSFGBQSlKAQSlJAQalJAUYlJIUYFBKUsClmCdvrW98Bq6O+PFvwBfgsNCO08/bo26n7eNHki4sifkIY2t94zXQBFaA5cJWfB1bj/HDtqz/tdtp9yYwfklTFjUoAVrrG2tU3+InwBLlAVoVrCtAo2Tf4DGXo1zQWd+BA+AtsFmyve922scTGIekiKYdlDFdojx0zxO8VfuTEcdwTBaibygJ0m6n/WnMa5Q0AfMclDEVq+DrwD3gIfDgtH0I3Cdc1X6kvBLdBN5ZjUqzwaCMZwFYox+eg+1q4Pge/Vv6oYq022nvRxm1pCEG5fQsk4VmsQrN+/eBK4Hj9/h1NfozzrClP49BOZsS4C7DAZq3zcDxPWCL4QB9Q1aN7sUZtjSfDMrfU4PqW/oHhKvRfaqr0S2rUeksg3L+JMAdssBsMRykdwLHnzBcjR5EGuusOAJ2gO287Xbah9MdkmaJQfnnaZDNgVZVo0vTG9pMOaQQnIVtp6S/79Nf882gVFFCNv85GJ6NaQ5qApbI/oXQPG1DUxeD8oq0LEQHX+/6RNfvx6CUhl2lH5qrJf0mcPu0vXbOc6fALuEqdRvY6XbaP8a8FtXAoJTGswTcoh+gVYHaBG4y+lNduU+MFqrbwKFTAHEYlNLkLNIP1WKAloXrKvDXOc//jepA/UxgEZhup3108UubbwalNLtuEA7UvF/HPPIx9a2uNbjS1kkN4yuXJPeAJ8C/pOn7KF9hUEpzYZny+dRVskBdob+oS74QTN4/b+V6EcX1Zmtbc3bz76fPFkhfkmXMCfCcNH1V9+CjLtwraWK+kv3/desCx+YrbYVWzQqtwFX22XxOtnG6hZ4qG9nawS5pQvbzWGYBeEGS/FN3ZTmJoPwwge+QNJsaZP8iyCvaYn+lYn/ZZwbfv/xo7z8Wh++IF4HHQK1BGf3WW5KiyOYm33J2aq8HtOquKA1KSQrwRxZJCjAoJSnAoJSkAINSkgIMSkkKMCglKcCglKQAg1KSAv4H3I989L5lQvsAAAAASUVORK5CYII=\"/>"}, "metadata": {}}}, {"expression": "[4,8,1,4,6,2]", "result": {"status": "ok", "data": {"text/plain": "[4, 8, 1, 4, 6, 2]"}, "metadata": {}}}, {"expression": "sparkline_inline([4,8,1,4,6,2])", "result": {"status": "ok", "data": {"text/plain": "<IPython.core.display.Markdown object>", "text/markdown": "<img style=\"display:inline-block;margin:0px;\" src=\"data:image/png;base64,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\"/>"}, "metadata": {}}}]}
-
-*Horizontal analysis* refers to comparing accounting data over a number of periods. If the data in the initial period is taken as baseline, and data in other periods are expressed as a percentage of that, then the analysis assumes the name of *base-year analysis*. Horizontal analysis or base-year analysis allows one to talk about *trends* in data. 
-
-If the number of periods (or time steps) is 2, then the analysis is also called a *change analysis*.
-
-*Vertical analysis*, on the other, focusses on data in one accounting period. It involves comparing data with each other within that period. If a particular field is taken to be the reference and all other fields are expressed as a percentage of that, then the analysis assumes the name of *common size analysis*. Vertical analysis or common size analysis allows one to talk about the relative sizes and distribution of values in a collection (e.g. the relative sizes of components making up the asset side of the balance sheet, thus allowing one to appreciate the kinds of assets that a firm holds).
-
-## Trends
-
-A trend is a tendency in how a sequence of quantities evolve.
-
-The basic types are: increasing/growing, decreasing/diminishing, or stationary/fluctuating
-
-The trend in a sequence of quantities may be visualized for quick and easy appreciation. Thus, an increasing sequence {eval}`[1,2,4,4,7,8]` may be visualized as {eval}`sparkline_inline([1,2,4,4,7,8])`, a decreasing sequence {eval}`[1,2,4,4,7,8][::-1]` may be visualized as {eval}`sparkline_inline([1,2,4,4,7,8][::-1])`, and a fluctuating sequence {eval}`[4,8,1,4,6,2]` may be visualized as {eval}`sparkline_inline([4,8,1,4,6,2])`.
-
-Among trends of the same types, one may talk about the strength of a trend. For example, one increasing trend may be stronger than another.
-
-+++ {"editable": true, "slideshow": {"slide_type": ""}}
-
-### Example
-
-Let's visualize the trends on the income statement of The Coca-Cola Company FY2019-2023:
-
-```{code-cell} ipython3
----
-editable: true
-slideshow:
-  slide_type: ''
-tags: [hide-input]
----
 # This code reads just one sheet from a Google Sheet which may contain multiple sheets
 #import pandas as pd
 #sheet_id = "1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos"
@@ -141,7 +104,11 @@ for name in xlsx.sheetnames:
 df['Sparkline'] = df.apply(lambda row: sparkline([row[2019], row[2020], row[2021], row[2022], row[2023]]), axis=1)
 df = df.set_index(df.columns[0])
 df.index.names = ['Field']
+
+# This doesn't work for markdown tables because myst parses CommonMark
+# Ref: https://github.com/executablebooks/jupyter-book/issues/1105
 #display(Markdown(df.to_markdown()))
+
 # Copy and paste the output of the following into a markdown cell,
 # then comment it out.
 #print(df.to_markdown())
@@ -182,11 +149,31 @@ df.index.names = ['Field']
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
-We can't compare the magnitudes of trends here because the numerical data sets have their own individual scales. Though we can talk about the general shapes of these sparklines.
+We can't compare the magnitudes of the trends here because the scales of the numerical data sets are incompatible. Though we can talk about the general shapes of these sparklines.
 
-From the sparklines, we can quickly observe that the revenue and net income has been on a rising trend since 2020 when Covid-19 initially struck. On the other hand, Other Expenses, D&A and EBITDA have been decreasing. 
+We quickly observe from the sparklines that the revenue and net income has been on a rising trend since 2020 when Covid-19 initially struck. On the other hand, Other Expenses, D&A and EBITDA have been decreasing. 
 
-It is unusual for Other Expense to have a negative value.
+Notice that Other Expense is negative.
+
+:::{admonition} How may an expense on the income statement be negative?
+:class: note
+Expenses on an income statement are typically represented as positive numbers, reflecting the costs incurred by a company to generate revenue and operate its business. However, in certain situations, an expense may appear as negative. Here are some scenarios where this might occur:
+
+1. **Reversal of Accruals or Provisions**: If a company reverses a previously recorded accrual or provision for an expense, the reversal could result in a negative expense. This might happen if the company overestimated an expense in a prior period and needs to adjust it downward in the current period.
+
+2. **Recovery of Expenses**: In some cases, a company might recover expenses that were previously incurred. For example, if a company receives a refund or reimbursement for certain expenses, it could result in a negative expense on the income statement.
+
+3. **Offsetting Revenues**: Occasionally, certain expenses might be offset against revenues or gains. For instance, if a company earns income from one source but incurs expenses related to another activity, the net effect could be a negative expense.
+
+4. **Contra Accounts**: Certain accounting practices involve the use of contra accounts, which are accounts that offset the balance of another related account. For example, contra-accounts like "Sales Returns and Allowances" or "Purchase Returns and Allowances" could result in negative amounts being reported as expenses.
+
+5. **Adjustments for Errors**: If errors are discovered in the accounting records, adjustments may be made to correct them. These adjustments could result in negative expenses to rectify the overstatement of expenses in previous periods.
+
+6. **Credit Balance in Expense Accounts**: Uncommonly, if a company overestimates its expenses and the actual expenses turn out to be less than anticipated, the expense account may show a credit balance, effectively representing a negative expense.
+
+While these scenarios are less common and may vary depending on specific accounting practices and circumstances, they can lead to negative expenses appearing on an income statement. It's essential to carefully review the reasons behind any negative expenses to ensure accurate financial reporting and analysis.
+
+:::
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
@@ -227,7 +214,11 @@ def f(x):
     except:
         return x
 df['Relative Change'] = df['Relative Change'].map(f)
+
+# This doesn't work for markdown tables because myst parses CommonMark
+# Ref: https://github.com/executablebooks/jupyter-book/issues/1105
 #display(Markdown(df.to_markdown()))
+
 # Copy and paste the output of the following into a markdown cell,
 # then comment it out.
 #print(df.to_markdown())
@@ -268,9 +259,9 @@ df['Relative Change'] = df['Relative Change'].map(f)
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
-We note that over the years 2022-2023, the net income of KO increased by 12.16% even though the revenue growth is only 6.51%. This may be attributed to the decrease in General and Administrative Expenses (-9.83%), Other Expenses (-263.93%) and D&A (-61.30%).
+We note that over the years 2022-2023, the net income of KO increased by 12.16% even though the revenue growth is only 6.51%.
 
-You may also find the the sheet [here](https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos/edit#gid=884666173).
+You may find the sheet [here](https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos/edit#gid=884666173).
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
