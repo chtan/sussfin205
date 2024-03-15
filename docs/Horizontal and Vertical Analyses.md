@@ -500,19 +500,10 @@ for i in range(len(df)):
     except:
         pass
 
-from IPython.core.display import HTML
-HTML("""
-<style>
-.output_png {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-}
-</style>
-""")
-
 # importing package 
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
+from IPython.display import display, Markdown, HTML
+
 %matplotlib inline
   
 # create data 
@@ -523,7 +514,15 @@ y = [30,30,30,30,30]
 for i, trend in enumerate(trends):
     plt.plot(range(5), trend, label = names[i])
 #plt.legend()
-plt.show()
+#plt.show()
+plt.savefig('example_plot.png')
+
+# Prevent the plot from being displayed immediately
+plt.close()
+
+# Display the image with HTML/CSS styling to center align it
+display(HTML("<style>.output { display: flex; justify-content: center; }</style>"))
+display(HTML("<img src='example_plot.png'>"))
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
