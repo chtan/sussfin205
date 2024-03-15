@@ -515,14 +515,14 @@ for i, trend in enumerate(trends):
     plt.plot(range(5), trend, label = names[i])
 #plt.legend()
 #plt.show()
-plt.savefig('example_plot.png')
+plt.savefig('img/example_plot.png')
 
 # Prevent the plot from being displayed immediately
 plt.close()
 
 # Display the image with HTML/CSS styling to center align it
 display(HTML("<style>.output { display: flex; justify-content: center; }</style>"))
-display(HTML("<img src='example_plot.png'>"))
+display(HTML("<img src='img/example_plot.png'>"))
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
