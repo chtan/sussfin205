@@ -527,8 +527,19 @@ plt.close()
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
-<style>.output { display: flex; justify-content: center; }</style>
-![image info](./img/example_plot.png)
+% https://stackoverflow.com/questions/46439874/display-image-jupyter-notebook-aligned-centre
+
+<style>
+img {
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    wi75h: 50%;
+}
+</style>
+
+![normalized sparklines](./img/example_plot.png)
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
