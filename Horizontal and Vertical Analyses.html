@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css?v=20b57f81" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -402,6 +402,17 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="horizontal-and-vertical-analyses">
 <h1>Horizontal and Vertical Analyses<a class="headerlink" href="#horizontal-and-vertical-analyses" title="Link to this heading">#</a></h1>
+<p><em>Horizontal analysis</em> refers to comparing accounting data over a number of periods. If the data in the initial period is taken as baseline, and data in other periods are expressed as a percentage of that, then the analysis assumes the name of <em>base-year analysis</em>. Horizontal analysis or base-year analysis allows one to talk about <em>trends</em> in data.</p>
+<p>If the number of periods (or time steps) is 2, then the analysis is also called a <em>change analysis</em>.</p>
+<p><em>Vertical analysis</em>, on the other, focusses on data in one accounting period. It involves comparing data with each other within that period. If a particular field is taken to be the reference and all other fields are expressed as a percentage of that, then the analysis assumes the name of <em>common size analysis</em>. Vertical analysis or common size analysis allows one to talk about the relative sizes and distribution of values in a collection (e.g. the relative sizes of components making up the asset side of the balance sheet, thus allowing one to appreciate the kinds of assets that a firm holds).</p>
+<section id="trends">
+<h2>Trends<a class="headerlink" href="#trends" title="Link to this heading">#</a></h2>
+<p>A trend is a tendency in how a sequence of quantities evolve.</p>
+<p>The basic types are: increasing/growing, decreasing/diminishing, or stationary/fluctuating</p>
+<p>Among trends of the same types, one may talk about the strength of a trend. For example, one increasing trend may be stronger than another.</p>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>Let’s visualize the trends on the income statement of The Coca-Cola Company FY2019-2023:</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -416,33 +427,6 @@ document.write(`
 <span class="kn">import</span> <span class="nn">base64</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span>
 <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
-
-<span class="k">def</span> <span class="nf">sparkline_inline</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">),</span> <span class="o">**</span><span class="n">kwags</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns a HTML image tag containing a base64 encoded sparkline style plot</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="o">**</span><span class="n">kwags</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">v</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
-
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r.&#39;</span><span class="p">)</span>
-
-    <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)),</span> <span class="n">data</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">)],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-
-    <span class="n">img</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
-    <span class="n">img</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-    <span class="n">x</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">read</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;&lt;img style=&quot;display:inline-block;margin:0px;&quot; src=&quot;data:image/png;base64,</span><span class="si">{}</span><span class="s1">&quot;/&gt;&#39;</span>
-                    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">sparkline</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">),</span> <span class="o">**</span><span class="n">kwags</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -469,31 +453,8 @@ document.write(`
     <span class="n">x</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">read</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="s1">&#39;&lt;img style=&quot;display:inline-block;margin:0px;&quot; src=&quot;data:image/png;base64,</span><span class="si">{}</span><span class="s1">&quot;/&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<p><em>Horizontal analysis</em> refers to comparing accounting data over a number of periods. If the data in the initial period is taken as baseline, and data in other periods are expressed as a percentage of that, then the analysis assumes the name of <em>base-year analysis</em>. Horizontal analysis or base-year analysis allows one to talk about <em>trends</em> in data.</p>
-<p>If the number of periods (or time steps) is 2, then the analysis is also called a <em>change analysis</em>.</p>
-<p><em>Vertical analysis</em>, on the other, focusses on data in one accounting period. It involves comparing data with each other within that period. If a particular field is taken to be the reference and all other fields are expressed as a percentage of that, then the analysis assumes the name of <em>common size analysis</em>. Vertical analysis or common size analysis allows one to talk about the relative sizes and distribution of values in a collection (e.g. the relative sizes of components making up the asset side of the balance sheet, thus allowing one to appreciate the kinds of assets that a firm holds).</p>
-<section id="trends">
-<h2>Trends<a class="headerlink" href="#trends" title="Link to this heading">#</a></h2>
-<p>A trend is a tendency in how a sequence of quantities evolve.</p>
-<p>The basic types are: increasing/growing, decreasing/diminishing, or stationary/fluctuating</p>
-<p>The trend in a sequence of quantities may be visualized for quick and easy appreciation. Thus, an increasing sequence  may be visualized as , a decreasing sequence  may be visualized as , and a fluctuating sequence  may be visualized as .</p>
-<p>Among trends of the same types, one may talk about the strength of a trend. For example, one increasing trend may be stronger than another.</p>
-<section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
-<p>Let’s visualize the trends on the income statement of The Coca-Cola Company FY2019-2023:</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This code reads just one sheet from a Google Sheet which may contain multiple sheets</span>
+
+<span class="c1"># This code reads just one sheet from a Google Sheet which may contain multiple sheets</span>
 <span class="c1">#import pandas as pd</span>
 <span class="c1">#sheet_id = &quot;1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos&quot;</span>
 <span class="c1">#df = pd.read_csv(f&quot;https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&quot;)</span>
@@ -518,7 +479,11 @@ document.write(`
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sparkline&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">sparkline</span><span class="p">([</span><span class="n">row</span><span class="p">[</span><span class="mi">2019</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="mi">2020</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="mi">2021</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="mi">2022</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="mi">2023</span><span class="p">]]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Field&#39;</span><span class="p">]</span>
+
+<span class="c1"># This doesn&#39;t work for markdown tables because myst parses CommonMark</span>
+<span class="c1"># Ref: https://github.com/executablebooks/jupyter-book/issues/1105</span>
 <span class="c1">#display(Markdown(df.to_markdown()))</span>
+
 <span class="c1"># Copy and paste the output of the following into a markdown cell,</span>
 <span class="c1"># then comment it out.</span>
 <span class="c1">#print(df.to_markdown())</span>
@@ -765,9 +730,22 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<p>We can’t compare the magnitudes of trends here because the numerical data sets have their own individual scales. Though we can talk about the general shapes of these sparklines.</p>
-<p>From the sparklines, we can quickly observe that the revenue and net income has been on a rising trend since 2020 when Covid-19 initially struck. On the other hand, Other Expenses, D&amp;A and EBITDA have been decreasing.</p>
-<p>It is unusual for Other Expense to have a negative value.</p>
+<p>We can’t compare the magnitudes of the trends here because the scales of the numerical data sets are incompatible. Though we can talk about the general shapes of these sparklines.</p>
+<p>We quickly observe from the sparklines that the revenue and net income has been on a rising trend since 2020 when Covid-19 initially struck. On the other hand, Other Expenses, D&amp;A and EBITDA have been decreasing.</p>
+<p>Notice that Other Expense is negative.</p>
+<div class="note admonition">
+<p class="admonition-title">How may an expense on the income statement be negative?</p>
+<p>Expenses on an income statement are typically represented as positive numbers, reflecting the costs incurred by a company to generate revenue and operate its business. However, in certain situations, an expense may appear as negative. Here are some scenarios where this might occur:</p>
+<ol class="arabic simple">
+<li><p><strong>Reversal of Accruals or Provisions</strong>: If a company reverses a previously recorded accrual or provision for an expense, the reversal could result in a negative expense. This might happen if the company overestimated an expense in a prior period and needs to adjust it downward in the current period.</p></li>
+<li><p><strong>Recovery of Expenses</strong>: In some cases, a company might recover expenses that were previously incurred. For example, if a company receives a refund or reimbursement for certain expenses, it could result in a negative expense on the income statement.</p></li>
+<li><p><strong>Offsetting Revenues</strong>: Occasionally, certain expenses might be offset against revenues or gains. For instance, if a company earns income from one source but incurs expenses related to another activity, the net effect could be a negative expense.</p></li>
+<li><p><strong>Contra Accounts</strong>: Certain accounting practices involve the use of contra accounts, which are accounts that offset the balance of another related account. For example, contra-accounts like “Sales Returns and Allowances” or “Purchase Returns and Allowances” could result in negative amounts being reported as expenses.</p></li>
+<li><p><strong>Adjustments for Errors</strong>: If errors are discovered in the accounting records, adjustments may be made to correct them. These adjustments could result in negative expenses to rectify the overstatement of expenses in previous periods.</p></li>
+<li><p><strong>Credit Balance in Expense Accounts</strong>: Uncommonly, if a company overestimates its expenses and the actual expenses turn out to be less than anticipated, the expense account may show a credit balance, effectively representing a negative expense.</p></li>
+</ol>
+<p>While these scenarios are less common and may vary depending on specific accounting practices and circumstances, they can lead to negative expenses appearing on an income statement. It’s essential to carefully review the reasons behind any negative expenses to ensure accurate financial reporting and analysis.</p>
+</div>
 </section>
 <section id="changes">
 <h3>Changes<a class="headerlink" href="#changes" title="Link to this heading">#</a></h3>
@@ -804,7 +782,11 @@ document.write(`
     <span class="k">except</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">x</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Relative Change&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Relative Change&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># This doesn&#39;t work for markdown tables because myst parses CommonMark</span>
+<span class="c1"># Ref: https://github.com/executablebooks/jupyter-book/issues/1105</span>
 <span class="c1">#display(Markdown(df.to_markdown()))</span>
+
 <span class="c1"># Copy and paste the output of the following into a markdown cell,</span>
 <span class="c1"># then comment it out.</span>
 <span class="c1">#print(df.to_markdown())</span>
@@ -993,8 +975,8 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<p>We note that over the years 2022-2023, the net income of KO increased by 12.16% even though the revenue growth is only 6.51%. This may be attributed to the decrease in General and Administrative Expenses (-9.83%), Other Expenses (-263.93%) and D&amp;A (-61.30%).</p>
-<p>You may also find the the sheet <a class="reference external" href="https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos/edit#gid=884666173">here</a>.</p>
+<p>We note that over the years 2022-2023, the net income of KO increased by 12.16% even though the revenue growth is only 6.51%.</p>
+<p>You may find the sheet <a class="reference external" href="https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos/edit#gid=884666173">here</a>.</p>
 </section>
 </section>
 <section id="base-year-analysis">
