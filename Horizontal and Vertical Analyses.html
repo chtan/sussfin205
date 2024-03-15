@@ -386,6 +386,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-year-analysis">Base-Year Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-size-analysis">Common-Size Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reasoning">Reasoning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-artefacts">Computational Artefacts</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inconsistencies">Inconsistencies</a></li>
 </ul>
 </li>
@@ -976,17 +977,696 @@ document.write(`
 </tbody>
 </table>
 <p>We note that over the years 2022-2023, the net income of KO increased by 12.16% even though the revenue growth is only 6.51%.</p>
+<p>There are some fields with significantly large magnitudes of relative change, namely, Other Expenses, Interest Income, Interest Expense, D&amp;A and Total Other Income. To find out more, one may try to ascertain their magnitudes relative to the top or bottom line (refer to the <a class="reference internal" href="#common-size-analysis"><span class="std std-ref">Common-Size Analysis</span></a> section on how to do this), and/or to find out from the notes if any mention is made of these quantities.</p>
 <p>You may find the sheet <a class="reference external" href="https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos/edit#gid=884666173">here</a>.</p>
 </section>
 </section>
 <section id="base-year-analysis">
 <h2>Base-Year Analysis<a class="headerlink" href="#base-year-analysis" title="Link to this heading">#</a></h2>
+<p>Let’s assume that a data table is arranged into columns chronologically, each column being indexed by a year. In base-year analysis, the leftmost column is taken as the reference. Hence, the values in that column are taken to be 100%, while values in other columns are taken as a percentage relative to the corresponding values in the first column.</p>
+<p>The base-year analysis for the income statement of The Coca-Cola Company FY2019-2023 is shown as follows:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openpyxl</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">spreadsheetId</span> <span class="o">=</span> <span class="s2">&quot;1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://docs.google.com/spreadsheets/export?exportFormat=xlsx&amp;id=&quot;</span> <span class="o">+</span> <span class="n">spreadsheetId</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="n">xlsx</span> <span class="o">=</span> <span class="n">openpyxl</span><span class="o">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">xlsx</span><span class="o">.</span><span class="n">sheetnames</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;BS Base-Year&#39;</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">break</span>
+        
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Field&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">2024</span><span class="p">):</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.1&#39;</span><span class="p">:</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">2024</span><span class="p">)})</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{:.2%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+
+<span class="c1"># This doesn&#39;t work for markdown tables because myst parses CommonMark</span>
+<span class="c1"># Ref: https://github.com/executablebooks/jupyter-book/issues/1105</span>
+<span class="c1">#display(Markdown(df.to_markdown()))</span>
+
+<span class="c1"># Copy and paste the output of the following into a markdown cell,</span>
+<span class="c1"># then comment it out.</span>
+<span class="c1">#print(df.to_markdown())</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Field</p></th>
+<th class="head text-left"><p>2019</p></th>
+<th class="head text-left"><p>2020</p></th>
+<th class="head text-left"><p>2021</p></th>
+<th class="head text-left"><p>2022</p></th>
+<th class="head text-left"><p>2023</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Cash and Cash Equivalents</p></td>
+<td class="text-left"><p>7.50%</p></td>
+<td class="text-left"><p>7.79%</p></td>
+<td class="text-left"><p>10.25%</p></td>
+<td class="text-left"><p>10.26%</p></td>
+<td class="text-left"><p>9.59%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Short Term Investments</p></td>
+<td class="text-left"><p>5.44%</p></td>
+<td class="text-left"><p>4.72%</p></td>
+<td class="text-left"><p>3.11%</p></td>
+<td class="text-left"><p>2.27%</p></td>
+<td class="text-left"><p>4.40%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Cash and Short Term Investments</p></td>
+<td class="text-left"><p>12.96%</p></td>
+<td class="text-left"><p>12.49%</p></td>
+<td class="text-left"><p>13.35%</p></td>
+<td class="text-left"><p>12.50%</p></td>
+<td class="text-left"><p>14.02%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Accounts Receivable</p></td>
+<td class="text-left"><p>4.59%</p></td>
+<td class="text-left"><p>3.60%</p></td>
+<td class="text-left"><p>3.72%</p></td>
+<td class="text-left"><p>3.76%</p></td>
+<td class="text-left"><p>3.49%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Inventory</p></td>
+<td class="text-left"><p>3.91%</p></td>
+<td class="text-left"><p>3.75%</p></td>
+<td class="text-left"><p>3.61%</p></td>
+<td class="text-left"><p>4.56%</p></td>
+<td class="text-left"><p>4.52%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Other Current Assets</p></td>
+<td class="text-left"><p>2.19%</p></td>
+<td class="text-left"><p>2.20%</p></td>
+<td class="text-left"><p>3.17%</p></td>
+<td class="text-left"><p>3.49%</p></td>
+<td class="text-left"><p>5.36%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Total Current Assets</p></td>
+<td class="text-left"><p>23.61%</p></td>
+<td class="text-left"><p>21.99%</p></td>
+<td class="text-left"><p>23.83%</p></td>
+<td class="text-left"><p>24.35%</p></td>
+<td class="text-left"><p>27.33%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Property, Plant and Equipment</p></td>
+<td class="text-left"><p>12.50%</p></td>
+<td class="text-left"><p>12.37%</p></td>
+<td class="text-left"><p>10.51%</p></td>
+<td class="text-left"><p>10.60%</p></td>
+<td class="text-left"><p>9.46%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Goodwill</p></td>
+<td class="text-left"><p>19.44%</p></td>
+<td class="text-left"><p>20.05%</p></td>
+<td class="text-left"><p>20.55%</p></td>
+<td class="text-left"><p>20.26%</p></td>
+<td class="text-left"><p>18.83%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Intangible Assets</p></td>
+<td class="text-left"><p>11.57%</p></td>
+<td class="text-left"><p>12.60%</p></td>
+<td class="text-left"><p>16.21%</p></td>
+<td class="text-left"><p>15.95%</p></td>
+<td class="text-left"><p>15.25%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Long Term Investments</p></td>
+<td class="text-left"><p>23.03%</p></td>
+<td class="text-left"><p>23.02%</p></td>
+<td class="text-left"><p>19.49%</p></td>
+<td class="text-left"><p>20.26%</p></td>
+<td class="text-left"><p>20.27%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Tax Assets</p></td>
+<td class="text-left"><p>2.79%</p></td>
+<td class="text-left"><p>2.82%</p></td>
+<td class="text-left"><p>2.26%</p></td>
+<td class="text-left"><p>1.89%</p></td>
+<td class="text-left"><p>1.60%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Other Fixed Assets</p></td>
+<td class="text-left"><p>7.04%</p></td>
+<td class="text-left"><p>7.08%</p></td>
+<td class="text-left"><p>7.13%</p></td>
+<td class="text-left"><p>6.67%</p></td>
+<td class="text-left"><p>7.33%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Fixed Assets</p></td>
+<td class="text-left"><p>76.39%</p></td>
+<td class="text-left"><p>78.01%</p></td>
+<td class="text-left"><p>76.06%</p></td>
+<td class="text-left"><p>75.65%</p></td>
+<td class="text-left"><p>72.67%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Other Assets</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Total Assets</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.00%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Accounts Payable</p></td>
+<td class="text-left"><p>13.08%</p></td>
+<td class="text-left"><p>12.71%</p></td>
+<td class="text-left"><p>15.47%</p></td>
+<td class="text-left"><p>16.92%</p></td>
+<td class="text-left"><p>15.86%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Short Term Debt</p></td>
+<td class="text-left"><p>17.59%</p></td>
+<td class="text-left"><p>3.06%</p></td>
+<td class="text-left"><p>4.93%</p></td>
+<td class="text-left"><p>2.98%</p></td>
+<td class="text-left"><p>6.67%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Tax Payables</p></td>
+<td class="text-left"><p>0.48%</p></td>
+<td class="text-left"><p>0.90%</p></td>
+<td class="text-left"><p>0.73%</p></td>
+<td class="text-left"><p>1.29%</p></td>
+<td class="text-left"><p>1.61%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Deferred Revenue</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>-14.33%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Other Current Liabilities</p></td>
+<td class="text-left"><p>0.48%</p></td>
+<td class="text-left"><p>0.90%</p></td>
+<td class="text-left"><p>0.73%</p></td>
+<td class="text-left"><p>1.29%</p></td>
+<td class="text-left"><p>15.86%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Total Current Liabilities</p></td>
+<td class="text-left"><p>31.25%</p></td>
+<td class="text-left"><p>16.72%</p></td>
+<td class="text-left"><p>21.19%</p></td>
+<td class="text-left"><p>21.23%</p></td>
+<td class="text-left"><p>24.16%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Long Term Debt</p></td>
+<td class="text-left"><p>31.83%</p></td>
+<td class="text-left"><p>45.93%</p></td>
+<td class="text-left"><p>40.36%</p></td>
+<td class="text-left"><p>39.22%</p></td>
+<td class="text-left"><p>36.34%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Deferred Revenue Non Current</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Deferred Tax Liabilities</p></td>
+<td class="text-left"><p>2.64%</p></td>
+<td class="text-left"><p>2.10%</p></td>
+<td class="text-left"><p>2.99%</p></td>
+<td class="text-left"><p>3.14%</p></td>
+<td class="text-left"><p>2.70%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Other Non Current Liabilities</p></td>
+<td class="text-left"><p>9.85%</p></td>
+<td class="text-left"><p>10.82%</p></td>
+<td class="text-left"><p>9.12%</p></td>
+<td class="text-left"><p>8.53%</p></td>
+<td class="text-left"><p>8.67%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Total Non Current Liabilities</p></td>
+<td class="text-left"><p>44.33%</p></td>
+<td class="text-left"><p>58.88%</p></td>
+<td class="text-left"><p>52.44%</p></td>
+<td class="text-left"><p>50.86%</p></td>
+<td class="text-left"><p>47.80%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Other Liabilities</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Capital Lease Obligations</p></td>
+<td class="text-left"><p>1.28%</p></td>
+<td class="text-left"><p>1.49%</p></td>
+<td class="text-left"><p>1.23%</p></td>
+<td class="text-left"><p>1.20%</p></td>
+<td class="text-left"><p>1.02%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Total Liabilities</p></td>
+<td class="text-left"><p>75.58%</p></td>
+<td class="text-left"><p>75.60%</p></td>
+<td class="text-left"><p>73.62%</p></td>
+<td class="text-left"><p>72.09%</p></td>
+<td class="text-left"><p>71.85%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Preferred Stock</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+<td class="text-left"><p>0.00%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Common Stock</p></td>
+<td class="text-left"><p>2.04%</p></td>
+<td class="text-left"><p>2.02%</p></td>
+<td class="text-left"><p>1.86%</p></td>
+<td class="text-left"><p>1.90%</p></td>
+<td class="text-left"><p>1.80%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Retained Earnings</p></td>
+<td class="text-left"><p>76.16%</p></td>
+<td class="text-left"><p>76.29%</p></td>
+<td class="text-left"><p>73.20%</p></td>
+<td class="text-left"><p>76.51%</p></td>
+<td class="text-left"><p>75.54%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Accumulated Other Comprehensive Income</p></td>
+<td class="text-left"><p>-15.05%</p></td>
+<td class="text-left"><p>-17.18%</p></td>
+<td class="text-left"><p>-14.83%</p></td>
+<td class="text-left"><p>-16.16%</p></td>
+<td class="text-left"><p>-14.33%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Other Total Shareholder Equity</p></td>
+<td class="text-left"><p>-40.51%</p></td>
+<td class="text-left"><p>-38.95%</p></td>
+<td class="text-left"><p>-36.02%</p></td>
+<td class="text-left"><p>-36.64%</p></td>
+<td class="text-left"><p>-35.82%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Total Shareholder Equity</p></td>
+<td class="text-left"><p>21.99%</p></td>
+<td class="text-left"><p>22.11%</p></td>
+<td class="text-left"><p>24.36%</p></td>
+<td class="text-left"><p>25.97%</p></td>
+<td class="text-left"><p>26.51%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Total Equity</p></td>
+<td class="text-left"><p>24.42%</p></td>
+<td class="text-left"><p>24.40%</p></td>
+<td class="text-left"><p>26.38%</p></td>
+<td class="text-left"><p>27.80%</p></td>
+<td class="text-left"><p>28.15%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Total Liabilities and Shareholder Equity</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.00%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Minority Interest</p></td>
+<td class="text-left"><p>2.45%</p></td>
+<td class="text-left"><p>2.28%</p></td>
+<td class="text-left"><p>1.97%</p></td>
+<td class="text-left"><p>1.85%</p></td>
+<td class="text-left"><p>1.58%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Total Liabilities and Equity</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.00%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Total Investments</p></td>
+<td class="text-left"><p>28.47%</p></td>
+<td class="text-left"><p>27.72%</p></td>
+<td class="text-left"><p>22.67%</p></td>
+<td class="text-left"><p>22.52%</p></td>
+<td class="text-left"><p>24.67%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Total Debt</p></td>
+<td class="text-left"><p>49.54%</p></td>
+<td class="text-left"><p>49.03%</p></td>
+<td class="text-left"><p>45.34%</p></td>
+<td class="text-left"><p>42.13%</p></td>
+<td class="text-left"><p>43.09%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Net Debt</p></td>
+<td class="text-left"><p>42.01%</p></td>
+<td class="text-left"><p>41.24%</p></td>
+<td class="text-left"><p>35.06%</p></td>
+<td class="text-left"><p>31.90%</p></td>
+<td class="text-left"><p>33.47%</p></td>
+</tr>
+</tbody>
+</table>
+<p>Fixed assets is about 75% of total assets, cash and cash equivalents is about 10%, while inventory is about 4%. Goodwill is about 20% over the years. This came about from acquisition (and divestitures when goodwill is reduced).</p>
+<p>Liabilities-to-equity ratio is about 7:3. Long-term debt is about 35%.</p>
+<p>The sheet that contains the base-year analysis may be found <a class="reference external" href="https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos/edit#gid=890470595">here</a>.</p>
 </section>
 <section id="common-size-analysis">
-<h2>Common-Size Analysis<a class="headerlink" href="#common-size-analysis" title="Link to this heading">#</a></h2>
+<span id="id1"></span><h2>Common-Size Analysis<a class="headerlink" href="#common-size-analysis" title="Link to this heading">#</a></h2>
+<p>In common size analysis, a field is selected to be a reference value, and other fields are expressed as a percentage relative to it.</p>
+<p>For example, on the income statement, one may choose the Sales or top line, to be the reference figure. It will have the value of 100%. Other field values will be then expressed as a percentage of sales.</p>
+<p>On the balance sheet, one may take the Total Assets or Total Liabilities and Equity as reference value (does not matter which from the Accounting Equation for the balance sheet), and all other field values are expressed as a percentage of the reference value. This makes good sense as each field on the balance sheet is either an asset, or a liability or an equity.</p>
+<p>The common-size analysis for the balance sheet of The Coca-Cola Company FY2019-2023 is shown as follows:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openpyxl</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+
+<span class="n">spreadsheetId</span> <span class="o">=</span> <span class="s2">&quot;1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://docs.google.com/spreadsheets/export?exportFormat=xlsx&amp;id=&quot;</span> <span class="o">+</span> <span class="n">spreadsheetId</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="n">xlsx</span> <span class="o">=</span> <span class="n">openpyxl</span><span class="o">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">xlsx</span><span class="o">.</span><span class="n">sheetnames</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;IS Common-Size&#39;</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">break</span>
+        
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Field&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">2024</span><span class="p">):</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.1&#39;</span><span class="p">:</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">2024</span><span class="p">)})</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{:.2%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+
+<span class="c1"># This doesn&#39;t work for markdown tables because myst parses CommonMark</span>
+<span class="c1"># Ref: https://github.com/executablebooks/jupyter-book/issues/1105</span>
+<span class="c1">#display(Markdown(df.to_markdown()))</span>
+
+<span class="c1"># Copy and paste the output of the following into a markdown cell,</span>
+<span class="c1"># then comment it out.</span>
+<span class="c1">#print(df.to_markdown())</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Field</p></th>
+<th class="head text-left"><p>2019</p></th>
+<th class="head text-left"><p>2020</p></th>
+<th class="head text-left"><p>2021</p></th>
+<th class="head text-left"><p>2022</p></th>
+<th class="head text-left"><p>2023</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Revenue</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>88.47%</p></td>
+<td class="text-left"><p>103.75%</p></td>
+<td class="text-left"><p>115.28%</p></td>
+<td class="text-left"><p>122.79%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Cost of Goods Sold</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>91.78%</p></td>
+<td class="text-left"><p>105.48%</p></td>
+<td class="text-left"><p>123.29%</p></td>
+<td class="text-left"><p>126.71%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Gross Profit</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>86.73%</p></td>
+<td class="text-left"><p>103.10%</p></td>
+<td class="text-left"><p>110.62%</p></td>
+<td class="text-left"><p>120.35%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Gross Profit Ratio</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>97.60%</p></td>
+<td class="text-left"><p>99.18%</p></td>
+<td class="text-left"><p>95.67%</p></td>
+<td class="text-left"><p>97.94%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Research and Development Expenses</p></td>
+<td class="text-left"><p>#DIV/0!</p></td>
+<td class="text-left"><p>#DIV/0!</p></td>
+<td class="text-left"><p>#DIV/0!</p></td>
+<td class="text-left"><p>#DIV/0!</p></td>
+<td class="text-left"><p>#DIV/0!</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>General and Administrative Expenses</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>62.69%</p></td>
+<td class="text-left"><p>167.66%</p></td>
+<td class="text-left"><p>177.11%</p></td>
+<td class="text-left"><p>159.70%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Selling and Marketing Expenses</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>76.12%</p></td>
+<td class="text-left"><p>93.68%</p></td>
+<td class="text-left"><p>99.58%</p></td>
+<td class="text-left"><p>106.88%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Selling, General and Administrative Expenses</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>80.41%</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>106.61%</p></td>
+<td class="text-left"><p>115.70%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Other Expenses</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>186.24%</p></td>
+<td class="text-left"><p>184.72%</p></td>
+<td class="text-left"><p>266.38%</p></td>
+<td class="text-left"><p>-436.68%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Operating Expenses</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>84.13%</p></td>
+<td class="text-left"><p>103.17%</p></td>
+<td class="text-left"><p>111.90%</p></td>
+<td class="text-left"><p>126.19%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Cost and Expenses</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>88.24%</p></td>
+<td class="text-left"><p>104.04%</p></td>
+<td class="text-left"><p>118.01%</p></td>
+<td class="text-left"><p>126.47%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Interest Income</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>65.72%</p></td>
+<td class="text-left"><p>49.02%</p></td>
+<td class="text-left"><p>79.75%</p></td>
+<td class="text-left"><p>161.10%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Interest Expense</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>152.22%</p></td>
+<td class="text-left"><p>169.13%</p></td>
+<td class="text-left"><p>93.23%</p></td>
+<td class="text-left"><p>161.73%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Depreciation and Amortization</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>123.92%</p></td>
+<td class="text-left"><p>48.17%</p></td>
+<td class="text-left"><p>97.01%</p></td>
+<td class="text-left"><p>37.54%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>EBITDA</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>96.95%</p></td>
+<td class="text-left"><p>118.32%</p></td>
+<td class="text-left"><p>105.34%</p></td>
+<td class="text-left"><p>94.66%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>EBITDA Ratio</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>109.68%</p></td>
+<td class="text-left"><p>113.92%</p></td>
+<td class="text-left"><p>91.52%</p></td>
+<td class="text-left"><p>77.38%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Operating Income</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>89.11%</p></td>
+<td class="text-left"><p>138.61%</p></td>
+<td class="text-left"><p>107.92%</p></td>
+<td class="text-left"><p>111.88%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Operating Income Ratio</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.70%</p></td>
+<td class="text-left"><p>134.04%</p></td>
+<td class="text-left"><p>93.75%</p></td>
+<td class="text-left"><p>91.35%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Total Other Income</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>107.43%</p></td>
+<td class="text-left"><p>-228.57%</p></td>
+<td class="text-left"><p>111.00%</p></td>
+<td class="text-left"><p>234.29%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Income Before Tax</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>90.28%</p></td>
+<td class="text-left"><p>114.81%</p></td>
+<td class="text-left"><p>108.33%</p></td>
+<td class="text-left"><p>120.37%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Income Before Tax Ratio</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>102.04%</p></td>
+<td class="text-left"><p>111.06%</p></td>
+<td class="text-left"><p>93.88%</p></td>
+<td class="text-left"><p>97.82%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Income Tax Expense</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>110.00%</p></td>
+<td class="text-left"><p>145.56%</p></td>
+<td class="text-left"><p>117.78%</p></td>
+<td class="text-left"><p>125.00%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Net Income</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>86.88%</p></td>
+<td class="text-left"><p>109.53%</p></td>
+<td class="text-left"><p>106.95%</p></td>
+<td class="text-left"><p>119.96%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Net Income Ratio</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>98.04%</p></td>
+<td class="text-left"><p>105.60%</p></td>
+<td class="text-left"><p>92.69%</p></td>
+<td class="text-left"><p>97.83%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>EPS</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>86.12%</p></td>
+<td class="text-left"><p>108.13%</p></td>
+<td class="text-left"><p>105.26%</p></td>
+<td class="text-left"><p>118.66%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>EPS Diluted</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>86.47%</p></td>
+<td class="text-left"><p>108.70%</p></td>
+<td class="text-left"><p>105.80%</p></td>
+<td class="text-left"><p>119.32%</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Weighted Average Shares</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.23%</p></td>
+<td class="text-left"><p>100.70%</p></td>
+<td class="text-left"><p>100.93%</p></td>
+<td class="text-left"><p>100.70%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Weighted Average Shares Diluted</p></td>
+<td class="text-left"><p>100.00%</p></td>
+<td class="text-left"><p>100.23%</p></td>
+<td class="text-left"><p>100.70%</p></td>
+<td class="text-left"><p>100.93%</p></td>
+<td class="text-left"><p>100.70%</p></td>
+</tr>
+</tbody>
+</table>
+<p>The revenue growth over the years 2019 to 2023 is expressed by: 100.00%, 88.47%, 103.75%, 115.28%, 122.79%.</p>
+<p>The net income growth over the same period is expressed by: 100.00%, 86.88%, 109.53%, 106.95%, 119.96%.</p>
+<p>Note that the trends as depicted by the sparklines are similar in shape to those depicted by the sparklines on the original income statment that does not have base-year analysis performed on it.</p>
+<p>Nevertheless, there is one advantage to consider trends using field values in a base-year analysis, namely, the sparklines are mutually comparable in scale and they are start at 100%.</p>
+<p>Hence, we may superpose all the resulting sparklines on a single graph to compare them:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trends</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">trends</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;%&#39;</span><span class="p">))</span><span class="o">/</span><span class="mi">100</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])])</span>
+        <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+<span class="c1"># importing package </span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="o">%</span><span class="k">matplotlib</span> inline
+  
+<span class="c1"># create data </span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span> 
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span> 
+  
+<span class="c1"># plot lines </span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">trend</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">trends</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">trend</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="c1">#plt.legend()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="_images/766b6f7df8bcd12c8908a175b89ab0bb75c848d97f0e870585883d19fc0d21c2.png" src="_images/766b6f7df8bcd12c8908a175b89ab0bb75c848d97f0e870585883d19fc0d21c2.png" />
+</div>
+</div>
+<p>Comparing trends in base-year analysis is sometimes called <em>Index Number Trend Analysis</em>.</p>
+<p>The sheet that contains the common-size analysis may be found <a class="reference external" href="https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos/edit#gid=1727892542">here</a>.</p>
 </section>
 <section id="reasoning">
 <h2>Reasoning<a class="headerlink" href="#reasoning" title="Link to this heading">#</a></h2>
+<section id="computational-artefacts">
+<h3>Computational Artefacts<a class="headerlink" href="#computational-artefacts" title="Link to this heading">#</a></h3>
+<p>Identifying and comprehending the underlying causes of significant quantities is worthwhile. Sometimes, the causes are unrelated the financial reality, but are rather due to how calculations turn out.</p>
+<p>For example, if <span class="math notranslate nohighlight">\(x_t\)</span> is a small positive number (say, close to 0), resulting in a large fraction <span class="math notranslate nohighlight">\(\frac{x_{t+1} - x_t}{x_t}\)</span>, then the cause of the large fraction may simply be due to this fact.</p>
+<p>A change is signs may also result in a large relative fraction. For example, <span class="math notranslate nohighlight">\(x_t\)</span> may be positive while <span class="math notranslate nohighlight">\(x_{t+1}\)</span> may be negative. In this, it may be more reasonable to note that there has been a change causing the signs to flip, and not to interpret the relative change too much.</p>
+<p>Missing data may also cause difficulties in reasoning for the obvious reason that there is no data to reason with!</p>
+</section>
 <section id="inconsistencies">
 <h3>Inconsistencies<a class="headerlink" href="#inconsistencies" title="Link to this heading">#</a></h3>
 <p>Suppose that there is a 20% increase in sales. If it is also known that there is a 25% increase in freight-out cost, then the situation calls for further investigation and explanation.</p>
@@ -1068,6 +1748,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-year-analysis">Base-Year Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-size-analysis">Common-Size Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reasoning">Reasoning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-artefacts">Computational Artefacts</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inconsistencies">Inconsistencies</a></li>
 </ul>
 </li>
