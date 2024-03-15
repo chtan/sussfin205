@@ -1636,19 +1636,10 @@ document.write(`
     <span class="k">except</span><span class="p">:</span>
         <span class="k">pass</span>
 
-<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">&lt;style&gt;</span>
-<span class="s2">.output_png {</span>
-<span class="s2">    display: table-cell;</span>
-<span class="s2">    text-align: center;</span>
-<span class="s2">    vertical-align: middle;</span>
-<span class="s2">}</span>
-<span class="s2">&lt;/style&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-
 <span class="c1"># importing package </span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">HTML</span>
+
 <span class="o">%</span><span class="k">matplotlib</span> inline
   
 <span class="c1"># create data </span>
@@ -1659,14 +1650,21 @@ document.write(`
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">trend</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">trends</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">trend</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 <span class="c1">#plt.legend()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1">#plt.show()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;example_plot.png&#39;</span><span class="p">)</span>
+
+<span class="c1"># Prevent the plot from being displayed immediately</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Display the image with HTML/CSS styling to center align it</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.output { display: flex; justify-content: center; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;img src=&#39;example_plot.png&#39;&gt;&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/766b6f7df8bcd12c8908a175b89ab0bb75c848d97f0e870585883d19fc0d21c2.png" src="_images/766b6f7df8bcd12c8908a175b89ab0bb75c848d97f0e870585883d19fc0d21c2.png" />
-</div>
+<div class="output text_html"><style>.output { display: flex; justify-content: center; }</style></div><div class="output text_html"><img src='example_plot.png'></div></div>
 </div>
 <p>Comparing trends in base-year analysis is sometimes called <em>Index Number Trend Analysis</em>.</p>
 <p>The sheet that contains the common-size analysis may be found <a class="reference external" href="https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos/edit#gid=1727892542">here</a>.</p>
