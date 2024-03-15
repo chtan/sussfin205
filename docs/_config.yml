@@ -9,10 +9,11 @@ logo: logo.png
 # See https://jupyterbook.org/content/execute.html
 execute:
   #execute_notebooks: off
-  execute_notebooks: force
+  #execute_notebooks: force
+  execute_notebooks: inline
   exclude_patterns:
-    - "How to Download Financial Statements Data from the Internet"
-    - "Quotes in the Markets"
+    - "How to Download Financial Statements Data from the Internet*"
+    - "Quotes in the Markets*"
 
 parse:
   myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
@@ -52,5 +53,6 @@ html:
 sphinx:
   extra_extensions:
     - sphinx_exercise
-  #config:
+  config:
+    nb_execution_show_tb: True
   #  html_show_copyright: false
