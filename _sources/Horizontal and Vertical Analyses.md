@@ -690,7 +690,7 @@ df = df.apply(np.vectorize(f))
 | Weighted Average Shares                      | 11.55%  | 13.09%  | 11.21%  | 10.12%  | 9.48%   |
 | Weighted Average Shares Diluted              | 11.55%  | 13.09%  | 11.21%  | 10.12%  | 9.48%   |
 
-+++
++++ {"editable": true, "slideshow": {"slide_type": ""}}
 
 Notice that with the numbers normalized (all are generally between 0% to 100%), the table is easier to read and cognize. When read from left to right, we can look for trends. When read vertically, we appreciate the relative magnitudes of each entry (income or expense) as compared to the revenue (or sales).
 
@@ -704,7 +704,9 @@ Some slightly more oustanding changes in levels are:
 - D&A rising to 11.30% in 2020 and falling to 3.75% in 2021
 - EBITDA rising and falling over the years reported, from 35.12% to 40.05%, then down to 27.07%. This is similarly reflected in the Operating Income, and to a smaller extent, the Net Income (people drinking Coke at home during the Lockdown?)
 
-+++
+Overall, the company is able to maintain a consistent profit margin (i.e. net income / revenue) at about 23% in part because it is able to maintain its various expenses at a steady level over the years.
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
 
 :::{admonition} What does having a high percentage of total asset in retained earnings signify?
 :class: note
