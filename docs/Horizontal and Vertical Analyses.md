@@ -26,9 +26,7 @@ If the number of periods (or time steps) is 2, then the analysis is also called 
 
 ## Trends
 
-A trend is a tendency in how a sequence of quantities evolve.
-
-The basic types are: increasing/growing, decreasing/diminishing, or stationary/fluctuating
+A trend is a tendency in how a sequence of quantities evolves. The basic types are: increasing/growing, decreasing/diminishing, or stationary/fluctuating
 
 Among trends of the same types, one may talk about the strength of a trend. For example, one increasing trend may be stronger than another.
 
@@ -149,6 +147,8 @@ df.index.names = ['Field']
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
+The magnitudes of most of the fields are in the millions and are cognitively hard to grasp. We will have a better picture of the numerical trends when we perform a base-year or common-size analysis.
+
 We can't compare the magnitudes of the trends here because the scales of the numerical data sets are incompatible. Though we can talk about the general shapes of these sparklines.
 
 We quickly observe from the sparklines that the revenue and net income has been on a rising trend since 2020 when Covid-19 initially struck. On the other hand, Other Expenses, D&A and EBITDA have been decreasing. 
@@ -172,7 +172,6 @@ Expenses on an income statement are typically represented as positive numbers, r
 6. **Credit Balance in Expense Accounts**: Uncommonly, if a company overestimates its expenses and the actual expenses turn out to be less than anticipated, the expense account may show a credit balance, effectively representing a negative expense.
 
 While these scenarios are less common and may vary depending on specific accounting practices and circumstances, they can lead to negative expenses appearing on an income statement. It's essential to carefully review the reasons behind any negative expenses to ensure accurate financial reporting and analysis.
-
 :::
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
@@ -267,11 +266,16 @@ You may find the sheet [here](https://docs.google.com/spreadsheets/d/1OCqC9k0lz1
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
-## Base-Year Analysis
+(common_size_analysis)=
+## Common-Size Analysis
 
-Let's assume that a data table is arranged into columns chronologically, each column being indexed by a year. In base-year analysis, the leftmost column is taken as the reference. Hence, the values in that column are taken to be 100%, while values in other columns are taken as a percentage relative to the corresponding values in the first column.
+In common size analysis, a field is selected to be a reference value, and other fields are expressed as a percentage relative to it.
 
-The base-year analysis for the income statement of The Coca-Cola Company FY2019-2023 is shown as follows:
+For example, on the income statement, one may choose the Sales or top line, to be the reference figure. It will have the value of 100%. Other field values will be then expressed as a percentage of sales. 
+
+On the balance sheet, one may take the Total Assets or Total Liabilities and Equity as reference value (does not matter which from the Accounting Equation for the balance sheet), and all other field values are expressed as a percentage of the reference value. This makes good sense as each field on the balance sheet is either an asset, or a liability or an equity.
+
+The common-size analysis for the balance sheet of The Coca-Cola Company FY2019-2023 is shown as follows:
 
 ```{code-cell} ipython3
 ---
@@ -370,9 +374,43 @@ df = df.apply(np.vectorize(f))
 
 Notice the Total Assets and Total Liabilities and Equity rows are filled with 100%.
 
-Fixed assets is about 75% of total assets, cash and cash equivalents is about 10%, while inventory is about 4%. Goodwill is about 20% over the years. This came about from acquisition (and divestitures when goodwill is reduced).
+Most of the fields do not vary too much over the years. This is consistent with the fact the KO is a mature company.
 
-Liabilities-to-equity ratio is about 7:3. Long-term debt is about 35%.
+Some of the fields, such as Cash and Cash Equivalents, PP&E, Intangible Assets, Long Term Investments, Accounts Payable, Total Non Current Liabilities and Net Debt, exhibit a dip or bump from FY20 to FY21, which is possibly attributable to actions during the Covid-19 period.
+
+The most significant change in field values seem to be that for Total Current Liabilities from FY19 to FY20, falling from 31.25% to 16.72%. Short-term liabilities fell by about 50% as the company entered the Covid-19 period. Though, the level picks up again from FY20 to FY23.
+
+Fixed assets is a significant part of the total assets - about 75%. Cash and cash equivalents is about 10%, inventory is about 4%, while intangible assets is about 15%. 
+
+Goodwill is about 20% over the years. This came about from acquisition (and divestitures when goodwill is reduced).
+
+Current liabilities is about 20%. Long-term debt is about 35%. 
+
+Liabilities-to-equity ratio is about 7:3. One may also say that about 30% of the assets of KO is financed by equity capital.
+
+Net Debt has been steadily falling over the years reported here.
+
+Retained earnings has been steady at about 75% of total assets. This signifies that the company has been consistently reinvesting its profits back into the business rather than distributing them to shareholders as dividends.
+
++++
+
+:::{admonition} What does having a high percentage of total asset in retained earnings signify?
+:class: note
+Having 75% of total assets in retained earnings signifies that the company has been consistently reinvesting its profits back into the business rather than distributing them to shareholders as dividends. Retained earnings represent the cumulative amount of profits that have been retained and reinvested in the company since its inception, minus any dividends paid out to shareholders.
+
+A high percentage of total assets in retained earnings could indicate several things:
+
+1. **Reinvestment for Growth**: The company may be using its profits to fund expansion, research and development, or other growth initiatives. This suggests that the company is focused on long-term growth and increasing its asset base.
+
+2. **Financial Stability**: Retained earnings can serve as a buffer during periods of economic downturns or unexpected expenses. Having a significant portion of assets in retained earnings indicates financial stability and resilience.
+
+3. **Confidence in Future Prospects**: Management's decision to retain earnings rather than distribute them as dividends could indicate confidence in the company's future profitability and growth prospects.
+
+4. **Limited Dividend Payments**: Alternatively, it could also mean that the company has been conservative in its dividend policy, preferring to retain earnings for future opportunities rather than paying out dividends to shareholders.
+
+Overall, a high percentage of total assets in retained earnings suggests that the company is reinvesting in itself and has a strong financial position, which can be favorable for shareholders in the long run.
+
+:::
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
@@ -380,16 +418,11 @@ The sheet that contains the base-year analysis may be found [here](https://docs.
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
-(common_size_analysis)=
-## Common-Size Analysis
+## Base-Year Analysis
 
-In common size analysis, a field is selected to be a reference value, and other fields are expressed as a percentage relative to it.
+Let's assume that a data table is arranged into columns chronologically, each column being indexed by a year. In base-year analysis, the leftmost column is taken as the reference. Hence, the values in that column are taken to be 100%, while values in other columns are taken as a percentage relative to the corresponding values in the first column.
 
-For example, on the income statement, one may choose the Sales or top line, to be the reference figure. It will have the value of 100%. Other field values will be then expressed as a percentage of sales. 
-
-On the balance sheet, one may take the Total Assets or Total Liabilities and Equity as reference value (does not matter which from the Accounting Equation for the balance sheet), and all other field values are expressed as a percentage of the reference value. This makes good sense as each field on the balance sheet is either an asset, or a liability or an equity.
-
-The common-size analysis for the balance sheet of The Coca-Cola Company FY2019-2023 is shown as follows:
+The base-year analysis for the income statement of The Coca-Cola Company FY2019-2023 is shown as follows:
 
 ```{code-cell} ipython3
 ---
@@ -571,11 +604,129 @@ Suppose that there is a 20% increase in accounts receivable. If the sales increa
 
 In the first case, the directions of trends supported by the evidence differ. In the second, the magnitudes of changes are incompatible.
 
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+### Attributing Trends
+
+The most important line in the income statement for investors is the net income. If there has been a growing or falling trend, one would like to find out what could have caused it.
+
+Trend attribution is thus a reasoning method to explain how a trend in a quantity comes back due to trends in the component factors of the given quantity.
+
+Consider the common-base analysis for the income state of KO:
+
 ```{code-cell} ipython3
 ---
 editable: true
 slideshow:
   slide_type: ''
+tags: [hide-input]
 ---
+import openpyxl
+import pandas as pd
+import requests
+from io import BytesIO
+from IPython.display import display, Markdown
+import numpy as np
 
+spreadsheetId = "1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos"
+url = "https://docs.google.com/spreadsheets/export?exportFormat=xlsx&id=" + spreadsheetId
+res = requests.get(url)
+data = BytesIO(res.content)
+xlsx = openpyxl.load_workbook(filename=data)
+for name in xlsx.sheetnames:
+    if name == 'IS Base-Year':
+        df = pd.read_excel(data, sheet_name=name)
+        break
+        
+df = df.set_index(df.columns[0])
+df.index.names = ['Field']
+for y in range(2019, 2024):
+    df.drop(y, axis='columns', inplace=True)
+df = df.rename(columns={str(k) + '.1':k for k in range(2019, 2024)})
+def f(x):
+    try: 
+        return "{:.2%}".format(x)
+    except:
+        return x
+df = df.apply(np.vectorize(f))
+
+# This doesn't work for markdown tables because myst parses CommonMark
+# Ref: https://github.com/executablebooks/jupyter-book/issues/1105
+#display(Markdown(df.to_markdown()))
+
+# Copy and paste the output of the following into a markdown cell,
+# then comment it out.
+#print(df.to_markdown())
 ```
+
+| Field                                        | 2019    | 2020    | 2021    | 2022    | 2023    |
+|:---------------------------------------------|:--------|:--------|:--------|:--------|:--------|
+| Revenue                                      | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% |
+| Cost of Goods Sold                           | 39.14%  | 40.61%  | 39.79%  | 41.86%  | 40.39%  |
+| Gross Profit                                 | 60.59%  | 59.39%  | 60.21%  | 58.14%  | 59.39%  |
+| Gross Profit Ratio                           | 0.00%   | 0.00%   | 0.00%   | 0.00%   | 0.00%   |
+| Research and Development Expenses            | 0.00%   | 0.00%   | 0.00%   | 0.00%   | 0.00%   |
+| General and Administrative Expenses          | 0.54%   | 0.38%   | 0.87%   | 0.83%   | 0.70%   |
+| Selling and Marketing Expenses               | 19.09%  | 16.42%  | 17.24%  | 16.49%  | 16.62%  |
+| Selling, General and Administrative Expenses | 32.44%  | 29.48%  | 31.27%  | 30.00%  | 30.57%  |
+| Other Expenses                               | 1.23%   | 2.58%   | 2.19%   | 2.84%   | -4.37%  |
+| Operating Expenses                           | 33.78%  | 32.12%  | 33.59%  | 32.79%  | 34.72%  |
+| Cost and Expenses                            | 72.92%  | 72.73%  | 73.13%  | 74.65%  | 75.11%  |
+| Interest Income                              | 1.51%   | 1.12%   | 0.71%   | 1.04%   | 1.98%   |
+| Interest Expense                             | 2.54%   | 4.36%   | 4.13%   | 2.05%   | 3.34%   |
+| Depreciation and Amortization                | 8.07%   | 11.30%  | 3.75%   | 6.79%   | 2.47%   |
+| EBITDA                                       | 35.12%  | 38.48%  | 40.05%  | 32.09%  | 27.07%  |
+| EBITDA Ratio                                 | 0.00%   | 0.00%   | 0.00%   | 0.00%   | 0.00%   |
+| Operating Income                             | 27.08%  | 27.27%  | 36.18%  | 25.35%  | 24.67%  |
+| Operating Income Ratio                       | 0.00%   | 0.00%   | 0.00%   | 0.00%   | 0.00%   |
+| Total Other Income                           | 1.88%   | 2.28%   | -4.13%  | 1.81%   | 3.58%   |
+| Income Before Tax                            | 28.95%  | 29.55%  | 32.04%  | 27.21%  | 28.38%  |
+| Income Before Tax Ratio                      | 0.00%   | 0.00%   | 0.00%   | 0.00%   | 0.00%   |
+| Income Tax Expense                           | 4.83%   | 6.00%   | 6.77%   | 4.93%   | 4.91%   |
+| Net Income                                   | 23.91%  | 23.48%  | 25.25%  | 22.19%  | 23.36%  |
+| Net Income Ratio                             | 0.00%   | 0.00%   | 0.00%   | 0.00%   | 0.00%   |
+| EPS                                          | 0.00%   | 0.00%   | 0.00%   | 0.00%   | 0.00%   |
+| EPS Diluted                                  | 0.00%   | 0.00%   | 0.00%   | 0.00%   | 0.00%   |
+| Weighted Average Shares                      | 11.55%  | 13.09%  | 11.21%  | 10.12%  | 9.48%   |
+| Weighted Average Shares Diluted              | 11.55%  | 13.09%  | 11.21%  | 10.12%  | 9.48%   |
+
++++
+
+Notice that with the numbers normalized (all are generally between 0% to 100%), the table is easier to read and cognize. When read from left to right, we can look for trends. When read vertically, we appreciate the relative magnitudes of each entry (income or expense) as compared to the revenue (or sales).
+
+Zooming immediately to bottom line, we see that net income (as a percentage of revenue) has remained steady at about 23%.
+
+Cost and Expenses (excluding interest, D&A and taxes) fluctuate around 73%.
+
+Most of the other fields display steady levels over the years reported. Again, this is consistent with the characteristic of a mature company.
+
+Some slightly more oustanding changes in levels are:
+- D&A rising to 11.30% in 2020 and falling to 3.75% in 2021
+- EBITDA rising and falling over the years reported, from 35.12% to 40.05%, then down to 27.07%. This is similarly reflected in the Operating Income, and to a smaller extent, the Net Income (people drinking Coke at home during the Lockdown?)
+
++++
+
+:::{admonition} What does having a high percentage of total asset in retained earnings signify?
+:class: note
+
+Fluctuations in depreciation and amortization expenses can be influenced by several factors, including changes in asset values, changes in the composition of assets, changes in accounting policies, and changes in the company's operations. Here's how each factor can contribute to fluctuations:
+
+1. **Changes in Asset Values**: The depreciation expense is based on the value of the assets being depreciated. If there are significant changes in the value of assets, either due to market conditions or impairment assessments, it can lead to fluctuations in depreciation expenses. For example, if the company acquires new assets or disposes of existing assets, it can impact depreciation expenses.
+
+2. **Changes in Asset Composition**: If the company changes its asset mix, such as investing more in long-lived assets like property, plant, and equipment (PP&E) or intangible assets, it can affect the overall depreciation and amortization expenses. Different types of assets have different depreciation or amortization methods and useful lives, leading to fluctuations in expenses.
+
+3. **Changes in Accounting Policies**: Changes in accounting standards or policies related to depreciation and amortization can also lead to fluctuations. For instance, if the company adopts a new accounting standard that alters the method of calculating depreciation or amortization, it can result in changes in expenses.
+
+4. **Changes in Operations**: Fluctuations in a company's operations, such as expansion, contraction, or changes in production methods, can impact the utilization and wear and tear of assets. This, in turn, can affect depreciation expenses. For example, increased production may lead to higher depreciation expenses due to increased wear and tear on machinery and equipment.
+
+5. **Impairment Charges**: Impairment charges occur when the carrying value of assets exceeds their recoverable amount. These charges are recognized in the income statement and can significantly impact depreciation and amortization expenses, leading to fluctuations.
+
+6. **Economic Conditions**: Economic factors such as inflation rates, interest rates, and changes in market demand can also influence depreciation and amortization expenses. Inflation may increase the replacement cost of assets, leading to higher depreciation expenses, while changes in market demand may impact the useful life of assets.
+
+In summary, fluctuations in depreciation and amortization expenses can be attributed to various factors, including changes in asset values, composition, accounting policies, operations, impairment charges, and economic conditions. Analyzing these factors can provide insights into the underlying reasons for the fluctuations and help investors understand the financial performance and position of the company.
+
+:::
+
++++
+
+The sheet that contains the common-size analysis may be found [here](https://docs.google.com/spreadsheets/d/1OCqC9k0lz1kRZ-RXYRMgI8ebjHum1xHEfAYKl4t3Nos/edit#gid=793737173).
