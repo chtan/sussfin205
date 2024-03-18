@@ -92,7 +92,7 @@ This is a simplistic interpretation that says that the only change in Equity com
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
-## Financial Statements Relationships
+## Relationships among the Financial Statements
 
 We consider 2 times: 0 and 1.
 
@@ -171,7 +171,7 @@ Hence, we observe the following relationships between the balance sheet, the inc
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
-## Projecting Financial Statements (Three Statement Modelling)
+## Three-Statement Modelling
 
 Modelling here refers to projecting current and historical financial statements into the future for the purpose of forecasting.
 
