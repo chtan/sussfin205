@@ -84,9 +84,9 @@ where $E_1 = E_0 + (I - Ex)$.
 
 This is a simplistic interpretation that says that the only change in Equity comes from the income statement. Real accounting may be more complex than this. Nonetheless, this formula clarifies the idea behind the extended Accounting Equation.
 
-[^math]: Mathematically speaking, accounting comprises accounts (i.e. rows). Each account has a debit (left-hand) side and a credit (right-hand) side. These sides hold non-negative numbers. Each account belongs to 1 of 5 accounting element or type (A, L, E, I and Ex). A debit operation is $+(a,0)$ to an account that belongs to A or Ex. A credit operation is $+(0,b)$ to an account that belongs to L, E or I.
+[^math]: Mathematically speaking, accounting comprises accounts (i.e. rows). Each account has 2 columns - it has a debit (left-hand) side and a credit (right-hand) side. These sides hold non-negative numbers. Each account belongs to 1 of 5 accounting element or type (A, L, E, I and Ex). A debit operation is $+(a,0)$ to an account that belongs to A or Ex. A credit operation is $+(0,b)$ to an account that belongs to L, E or I.
 
-[^accounting_equation]: The Accounting Equation stipulates that the sum of numbers on the debits side is equal to the sum of numbers on the credit side.
+[^accounting_equation]: The Accounting Equation stipulates that the sum of numbers on the debit side is equal to the sum of numbers on the credit side.
 
 [^transaction]: Each transaction is a sequence of debits and credits such that the sum to be debited is equal to the sum to be credited.
 
@@ -159,15 +159,15 @@ $$
 
 Hence, we observe the following relationships between the balance sheet, the income statement and the cash flow statement:
 
-- Retained earnings (balance sheet and income statement): $$E_1 = E_0 + (I - Ex)$$
+- Retained earnings (balance sheet and income statement): $E_1 = E_0 + (I - Ex)$
 
-- Indirect method of cash flow statement construction (income statement and cash flow statement): $$CFO = I - Ex$$
+- Indirect method of cash flow statement construction (income statement and cash flow statement): $CFO = I - Ex$
 
-- Components of the cash flow statement: $$CF = CFO + CFI + CFF$$
+- Components of the cash flow statement: $CF = CFO + CFI + CFF$
 
-- Change in assets (balance sheet and cash flow statement): $$A_1 = A_0 - CFI + CF$$
+- Change in assets (balance sheet and cash flow statement): $A_1 = A_0 - CFI + CF$
 
-- Change in liabilities (balance sheet and cash flow statement): $$L_1 = L_0 + CFF$$
+- Change in liabilities (balance sheet and cash flow statement): $L_1 = L_0 + CFF$
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
