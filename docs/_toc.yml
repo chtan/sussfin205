@@ -7,5 +7,6 @@ defaults:  # The defaults key will be applied to all chapters and sub-sections
   titlesonly: True
 chapters:
 - file: "Quotes in the Markets"
-- file: "Horizontal and Vertical Analyses"
 - file: "How to Download Financial Statements Data from the Internet"
+- file: "Horizontal and Vertical Analyses"
+- file: "Relating and Projecting Financial Statements"
