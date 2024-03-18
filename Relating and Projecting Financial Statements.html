@@ -1,0 +1,730 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Relating and Projecting Financial Statements &#8212; FIN205 Data Technologies for Financial Modelling</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Relating and Projecting Financial Statements';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Horizontal and Vertical Analyses" href="Horizontal%20and%20Vertical%20Analyses.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="FIN205 Data Technologies for Financial Modelling - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="FIN205 Data Technologies for Financial Modelling - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to FIN205
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Quotes%20in%20the%20Markets.html">Quotes in the Markets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="How%20to%20Download%20Financial%20Statements%20Data%20from%20the%20Internet.html">How to Download Financial Statements Data from the Internet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Horizontal%20and%20Vertical%20Analyses.html">Horizontal and Vertical Analyses</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Relating and Projecting Financial Statements</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FRelating and Projecting Financial Statements.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Relating and Projecting Financial Statements.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Relating and Projecting Financial Statements</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-debit-and-credit">Review of Debit and Credit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-statements-relationships">Financial Statements Relationships</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projecting-financial-statements-three-statement-modelling">Projecting Financial Statements (Three Statement Modelling)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="relating-and-projecting-financial-statements">
+<h1>Relating and Projecting Financial Statements<a class="headerlink" href="#relating-and-projecting-financial-statements" title="Link to this heading">#</a></h1>
+<section id="review-of-debit-and-credit">
+<h2>Review of Debit and Credit<a class="headerlink" href="#review-of-debit-and-credit" title="Link to this heading">#</a></h2>
+<p>There are 5 <em>accounting elements</em>:</p>
+<ul class="simple">
+<li><p>assets</p></li>
+<li><p>liabilities</p></li>
+<li><p>equity</p></li>
+<li><p>income</p></li>
+<li><p>expenses</p></li>
+</ul>
+<p>An accounting element is an <em>account type</em>. Each account belongs to a unique account.</p>
+<p>More operationally, an account is a <em>ledger account</em> (or <em>T account</em>), which typically include the following information:ormation:</p>
+<ol class="arabic simple">
+<li><p>Account Name: The name of the account, indicating the type of asset, liability, equity, revenue, or expense being tracked.</p></li>
+<li><p>Account Number: A unique identifier assigned to each account for organizational purposes.</p></li>
+<li><p>Transaction Details: A chronological record of all transactions affecting the account, including the date, description of the transaction, and the amounts debited and credited.</p></li>
+<li><p>Balance: The balance of the account, which is the net result of all debits and credits recorded in the account. The balance is used to determine the financial position and performance of the business.</p></li>
+</ol>
+<p>Ledger accounts serve as a detailed record that supports the preparation of financial statements, such as the balance sheet, income statement, and cash flow statement. They provide essential information for management decision-making, financial analysis, and regulatory compliance.</p>
+<p>In accounting, the terms <em>debit</em> and *changes refer to changes made on the left and right sides of a ledger account, respectively. They can also refer to the left and right sides of the ledger respectively.</p>
+<p>The table below shows the typical effects of debit and credit entries on the five fundamental accounting elements: assets, liabilities, equity, revenue, and expenses:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Accounting Element</p></th>
+<th class="head"><p>Debit Effect</p></th>
+<th class="head"><p>Credit Effect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Assets</p></td>
+<td><p>Increase</p></td>
+<td><p>Decrease</p></td>
+</tr>
+<tr class="row-odd"><td><p>Liabilities</p></td>
+<td><p>Decrease</p></td>
+<td><p>Increase</p></td>
+</tr>
+<tr class="row-even"><td><p>Equity</p></td>
+<td><p>Decrease</p></td>
+<td><p>Increase</p></td>
+</tr>
+<tr class="row-odd"><td><p>Revenue</p></td>
+<td><p>Decrease</p></td>
+<td><p>Increase</p></td>
+</tr>
+<tr class="row-even"><td><p>Expenses</p></td>
+<td><p>Increase</p></td>
+<td><p>Decrease</p></td>
+</tr>
+</tbody>
+</table>
+<p>Thus, a debit to the Assets and Expenses accounts increases them, while a credit to the Liabilities, Equity and Revenue accounts increases them<a class="footnote-reference brackets" href="#math" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p>The (standard) Accounting Equation<a class="footnote-reference brackets" href="#accounting-equation" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> states that $<span class="math notranslate nohighlight">\(A = L + E\)</span>$</p>
+<p>Each <em>transaction</em><a class="footnote-reference brackets" href="#transaction" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> is a collection of at least 1 debt(s) and a collection of at least 1 credit(s). For example, purchasing a computer for USD 500 debits 500 in the Equipment account (under Assets) and credits 500 in the Accounts Payable account (under Liabilities and Equity). A transaction preserves the Accounting Equation.</p>
+<p>The extended Accounting Equation states that</p>
+<div class="math notranslate nohighlight">
+\[A + Ex = L + E + I\]</div>
+<p>Here, Ex and I are considered to be temporary accounts, while A, L and E are considered to be permanent accounts. This is consistent with the view that the income statement spans over a year, recording changes occurring in the year.</p>
+<p>Writing it this way:</p>
+<div class="math notranslate nohighlight">
+\[A = L + (E + (I - Ex))\]</div>
+<p>we recognize the equation to be saying that the (cumulative) retained earnings is an equity component and the (change to the) retained earnings derived from net income adds to the corresponding balance sheet component. Simultaneously, the retained earnings increase the assets of the firm.</p>
+<p>Put another way, income accounts record all increases in Equity other than that contributed by the owner/s of the business/entity. Expense accounts record all decreases in Equity which occur as costs during the course of business.</p>
+<p>In other words, the extended Accounting Equation expresses the change to the standard Accounting Equation after 1 year. To make it very clear, we may express the standard Accounting Equation as</p>
+<div class="math notranslate nohighlight">
+\[A_0 = L_0 + E_0\]</div>
+<p>and the extended Accounting Equation as</p>
+<div class="math notranslate nohighlight">
+\[A_1 = L_1 + E_1,\]</div>
+<p>where <span class="math notranslate nohighlight">\(E_1 = E_0 + (I - Ex)\)</span>.</p>
+<p>This is a simplistic interpretation that says that the only change in Equity comes from the income statement. Real accounting may be more complex than this. Nonetheless, this formula clarifies the idea behind the extended Accounting Equation.</p>
+</section>
+<section id="financial-statements-relationships">
+<h2>Financial Statements Relationships<a class="headerlink" href="#financial-statements-relationships" title="Link to this heading">#</a></h2>
+<p>We consider 2 times: 0 and 1.</p>
+<p>The <u>balance sheet</u> records the financial state of a firm at a given time. Hence, we have at time 0, the state</p>
+<div class="math notranslate nohighlight">
+\[A_0, L_0, E_0\]</div>
+<p>and at time 1, the state</p>
+<div class="math notranslate nohighlight">
+\[A_1, L_1, E_1\]</div>
+<p>The <u>income statement</u> records changes in the course of a year (i.e. from time 0 to time 1). It has 2 components:</p>
+<div class="math notranslate nohighlight">
+\[I, Ex\]</div>
+<p>The net income is <span class="math notranslate nohighlight">\(I - Ex\)</span>. Assuming that all of this becomes retained earnings, then we have (as mentioned in the earlier section)</p>
+<div class="math notranslate nohighlight">
+\[E_1 = E_0 + (I - Ex)\]</div>
+<p>Suppose that over the course of the year, a borrowing of an amount <span class="math notranslate nohighlight">\(\beta\)</span> is made to invest in a fixed asset, then</p>
+<div class="math notranslate nohighlight">
+\[L_1 = L_0 + \beta\]</div>
+<p>Consequently, we may verify:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+A_1 &amp;= A_0 + \beta + (I - Ex) \\
+    &amp;= L_0 + E_0 + \beta + (I - Ex)\\
+    &amp;= (L_0 + \beta) + (E_0 + (I - Ex))\\ 
+    &amp;= L_1 + E_1
+\end{align*}
+\end{split}\]</div>
+<p>Now, let’s consider the <u>cash flow statement</u>. It comprises</p>
+<div class="math notranslate nohighlight">
+\[CFO, CFI, CFF\]</div>
+<p>with net cash flow</p>
+<div class="math notranslate nohighlight">
+\[CF = CFO + CFI + CFF\]</div>
+<p>In the present situation,</p>
+<div class="math notranslate nohighlight">
+\[CFO = I - Ex\]</div>
+<div class="math notranslate nohighlight">
+\[CFI = -\beta\]</div>
+<div class="math notranslate nohighlight">
+\[CFF = \beta\]</div>
+<p>and $<span class="math notranslate nohighlight">\(CF = I - Ex\)</span>$</p>
+<p>Hence, we may rewrite the verification as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+A_1 &amp;= A_0 - CFI + CF\\
+    &amp;= L_0 + E_0 - CFI + CF\\ 
+    &amp;= (L_0 - CFI) + (E_0 + CF)\\
+    &amp;= (L_0 + CFF) + (E_0 + (I - Ex))\\
+    &amp;= L_1 + E_1
+\end{align*}
+\end{split}\]</div>
+<p>Hence, we observe the following relationships between the balance sheet, the income statement and the cash flow statement:</p>
+<ul class="simple">
+<li><p>Retained earnings (balance sheet and income statement): $<span class="math notranslate nohighlight">\(E_1 = E_0 + (I - Ex)\)</span>$</p></li>
+<li><p>Indirect method of cash flow statement construction (income statement and cash flow statement): $<span class="math notranslate nohighlight">\(CFO = I - Ex\)</span>$</p></li>
+<li><p>Components of the cash flow statement: $<span class="math notranslate nohighlight">\(CF = CFO + CFI + CFF\)</span>$</p></li>
+<li><p>Change in assets (balance sheet and cash flow statement): $<span class="math notranslate nohighlight">\(A_1 = A_0 - CFI + CF\)</span>$</p></li>
+<li><p>Change in liabilities (balance sheet and cash flow statement): $<span class="math notranslate nohighlight">\(L_1 = L_0 + CFF\)</span>$</p></li>
+</ul>
+</section>
+<section id="projecting-financial-statements-three-statement-modelling">
+<h2>Projecting Financial Statements (Three Statement Modelling)<a class="headerlink" href="#projecting-financial-statements-three-statement-modelling" title="Link to this heading">#</a></h2>
+<p>Modelling here refers to projecting current and historical financial statements into the future for the purpose of forecasting.</p>
+<p>Due to the fact the the 3 financial statements (income statement, balance sheet and cash flow statement) are inter-linked as was discussed in the earlier section, projecting them into the future requires ensuring that the relationships are consistently projected as well.</p>
+<p>Let’s continue to use the notation from the previous section.</p>
+<p>We will add time indices to the income statement and cash flow statement components as follows:</p>
+<div class="math notranslate nohighlight">
+\[I_1 = I, Ex_1 = Ex, CFO_1 = CFO, CFI_1 = CFI, CFO_1 = CFO, CF_1 = CF\]</div>
+<p>This is consitent with how we read income statement and cash flow statements, i.e. they are timed at the end of the observation/financial period. For example, <span class="math notranslate nohighlight">\(I\)</span> is the income read at time 1, for the period from time 0 to time 1, hence it is reported together with the balance sheet at time 1, and it should rightly be indexed as <span class="math notranslate nohighlight">\(I_1\)</span>.</p>
+<p>We will now try to create pro forma financial statements by projecting sales into time 2.</p>
+<p>So, let’s assume that</p>
+<div class="math notranslate nohighlight">
+\[I_2 = (1 + g)I_1\]</div>
+<p>where <span class="math notranslate nohighlight">\(g\)</span> is a growth rate.</p>
+<p>For simplicity, let’s assume that the firm is able to hold costs down while increasing sales. Over the course of the year from time 1 to time 2, we will also encounter an amortization of the fixed asset by an amount <span class="math notranslate nohighlight">\(\alpha\)</span> and interest expense of <span class="math notranslate nohighlight">\(r\beta\)</span>, where <span class="math notranslate nohighlight">\(r\)</span> is the interest rate of borrowing. Thus</p>
+<div class="math notranslate nohighlight">
+\[Ex_2 = Ex_1 + \alpha + r\beta\]</div>
+<p>Retained earnings is <span class="math notranslate nohighlight">\(I_2 - Ex_2\)</span> and thus, we have the equity relationship</p>
+<div class="math notranslate nohighlight">
+\[E_2 = E_1 + (I_2 - Ex_2)\]</div>
+<p>as we assume that all earnings are retained.</p>
+<p>Liability remains unchanged:</p>
+<div class="math notranslate nohighlight">
+\[L_2 = L_1\]</div>
+<p>as there is no change to the borrowing situation.</p>
+<p>By the indirect method for cash flow statement construction,</p>
+<div class="math notranslate nohighlight">
+\[CFO_2 = I_2 - Ex_2 + \alpha + r\beta\]</div>
+<p>as amortization and interest expense are both added back.</p>
+<p>As no investment is made over the period,</p>
+<div class="math notranslate nohighlight">
+\[CFI_2 = 0\]</div>
+<p>while the interest payment implies that</p>
+<div class="math notranslate nohighlight">
+\[CFF_2 = -r\beta\]</div>
+<p>Now we may compute the net cash flow to be</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+CF_2 &amp;= CFO_2 + CFI_2 + CFF_2\\
+     &amp;= I_2 - Ex_2 + \alpha + r\beta + 0 - r\beta\\
+     &amp;= (1 + g)I_1 - Ex_1 - \alpha - r\beta + \alpha + r\beta - r\beta\\
+     &amp;= (1 + g)I_1 - Ex_1 - r\beta
+\end{align*}
+\end{split}\]</div>
+<p>On the assets side of the balance sheet,</p>
+<div class="math notranslate nohighlight">
+\[A_2 = A_1 - \alpha + CF_2\]</div>
+<p>due to amortization of the fixed asset and the net cash flow into C&amp;CE.</p>
+<p>On the liabilities side,</p>
+<div class="math notranslate nohighlight">
+\[L_2 = L_1\]</div>
+<p>since there is no change to the borrowing.</p>
+<p>On the equities side,</p>
+<div class="math notranslate nohighlight">
+\[E_2 = E_1 + (I_2 - Ex_2)\]</div>
+<p>due to cumulating retained earnings.</p>
+<p>Now, let’s check for balance:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+L_2 + E_2 &amp;= L_1 + E_1 + (I_2 - Ex_2)\\
+          &amp;= A_1 + (1 + g)I_1 - (Ex_1 + \alpha + r\beta)\\
+          &amp;= A_1 - \alpha + ((1 + g)I_1 - Ex_1 - r\beta)\\
+          &amp;= A_1 - \alpha + CF_2\\
+          &amp;= A_2
+\end{align*}
+\end{split}\]</div>
+<p>Indeed, the balance sheet remains balanced and we are confident that our pro forma balance sheet (<span class="math notranslate nohighlight">\(A_2, L_2, E_2\)</span>), pro forma income statement (<span class="math notranslate nohighlight">\(I_2, Ex_2\)</span>) and pro forma cash flow statement (<span class="math notranslate nohighlight">\(CF_2, CFO_2, CFI_2, CFF_2\)</span>) are alright.</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="math" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Mathematically speaking, accounting comprises accounts (i.e. rows). Each account has a debit (left-hand) side and a credit (right-hand) side. These sides hold non-negative numbers. Each account belongs to 1 of 5 accounting element or type (A, L, E, I and Ex). A debit operation is <span class="math notranslate nohighlight">\(+(a,0)\)</span> to an account that belongs to A or Ex. A credit operation is <span class="math notranslate nohighlight">\(+(0,b)\)</span> to an account that belongs to L, E or I.</p>
+</aside>
+<aside class="footnote brackets" id="accounting-equation" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>The Accounting Equation stipulates that the sum of numbers on the debits side is equal to the sum of numbers on the credit side.</p>
+</aside>
+<aside class="footnote brackets" id="transaction" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Each transaction is a sequence of debits and credits such that the sum to be debited is equal to the sum to be credited.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Horizontal%20and%20Vertical%20Analyses.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Horizontal and Vertical Analyses</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-of-debit-and-credit">Review of Debit and Credit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-statements-relationships">Financial Statements Relationships</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projecting-financial-statements-three-statement-modelling">Projecting Financial Statements (Three Statement Modelling)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tan Chong Hui
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
