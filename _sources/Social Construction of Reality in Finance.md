@@ -103,7 +103,7 @@ For you, you learn the concepts, the examples and tools to construct these seman
 
 ### The Perspective of The Social Construction of Reality
 
-"[The Social Construction of Reality: A Treatise in the Sociology of Knowledge](wiki:The_Social_Construction_of_Reality)" is the title of a book written by two sociologists Peter L. Berger and Thomas Luckmann first published in 1966. In 1998, the International Sociological Association listed The Social Construction of Reality as the fifth most-important book of 20th-century sociology. The intention of this latter information is more to suggest that the perspective being brought forth here is valid albeit unconventional, rather  than an appeal to authority
+"<wiki:The_Social_Construction_of_Reality>" is the title of a book written by two sociologists Peter L. Berger and Thomas Luckmann first published in 1966. In 1998, the International Sociological Association listed The Social Construction of Reality as the fifth most-important book of 20th-century sociology. The intention of this latter information is more to suggest that the perspective being brought forth here is valid albeit unconventional, rather  than an appeal to authority.
 
 :::{admonition} What is the Sociology of Knowledge?
 :class: note
@@ -118,7 +118,7 @@ Bitcoin is an even more poignant illustration of this. It may now be recognized 
 
 Thus, the fact that one may possess a wealth in bitcoins is in turn due to the fact that there actors sending transactions (semantical products) to each other, which are eventually recorded down in blockchains and observed by other market participants. The magic of being rich is a social reality consisting in actors communicating meaningfully with one another when that reality is carefully unveiled.
 
-In the following sections, we will further elaborate on the flow of financial statements in the markets through time, the impacts from earnings announcements and the associated activities of reporting, analysis, modeling and presentation. 
+In the following sections, we will further elaborate on the flow of financial statements in the markets through time, the impacts from earnings announcements and the associated activities of reporting, analysis, modeling and presentation.
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
@@ -152,7 +152,7 @@ Year-end performance, viz. the Q4 earnings, often provide a comprehensive view o
 
 The times and periods just mentioned are shown on the timeline here:
 
-```mermaid
+```{mermaid}
 timeline
         title Earnings Announcements Timeline
         section Jan-Mar
@@ -165,26 +165,22 @@ timeline
           Q4 Fiscal Period : Q3 Earnings Season ~ 6 wks
 ```
 
-This webpage on Yahoo! Finance provides a visualization of the earnings season:
+This webpage on Yahoo! Finance provides a visualization of the earningsseason:
 
-#### Earnings Season on Yahoo! Finance:
+### Earnings Season on Yahoo! Finance:
 
-```{image} img/earnings_season.png
-:alt:earnings season
-:class: bg-primary
+```{figure} img/earnings_season.png
 :width: 100%
 ```
 <p style="text-align:center;"><a href="https://finance.yahoo.com/calendar/earnings/?from=2024-03-10&to=2024-03-16/">https://finance.yahoo.com/calendar/earnings/?from=2024-03-10&to=2024-03-16/</a></p>
 
 This is Q4 earnings announcement period, which picks up (referring to the number of announcements per day) from the end of January, peaks and slows down again, lasting for about 6 weeks or 1.5 months, which is half the Q1 fiscal quarter.
 
-Historical record of earnings announcement dates of The Coca-Cola Company is shown here:
+Historical record of earnings announcement dates of The Coca-Cola Company is shon here:
 
-#### Earnings History of The Coca-Cola Company (KO)
+### Earnings History of The Coca-Cola Company (KO)
 
 ```{figure} img/earnings_history.png
-:alt:earnings history
-:class: bg-primary
 :width: 100%
 ```
 <p style="text-align:center;"><a href="https://www.tipranks.com/">https://www.tipranks.com/</a></p>
@@ -211,31 +207,28 @@ To this information, we may also add:
 
 in order to capture the most salient aspects of an earnings announcement and its effects.
 
-The following diagram show the cover page of the news release that contain the earnings announcement:
+The following diagram show the cover page of the news release that contain the earnings annoucement:
 
-#### News Release
+### News Release
 
 ```{figure} img/news_release.png
-:alt:news release
-:class: bg-primary
 :width: 80%
 ```
 
 Earnings data for companies are readily found on the internet, e.g. [https://www.nasdaq.com/market-activity/stocks/ko/earnings](https://www.nasdaq.com/market-activity/stocks/ko/earnings).
 
-Typically, after the earnings announcement, the company will submit filings at the SEC, a list of filings of KO is shown here:
+Typically, after the earnings announcement, the company will submit filings at the SEC, a list of filings of KO is shwn here:
 
-#### SEC Filings
+### SEC Filings
 
 ```{figure} img/ko_filings.png
 :width: 100%
 ```
-<p style="text-align:center;"><a href="https://www.sec.gov/edgar/browse/?CIK=21344&owner=exclude">https://www.sec.gov/edgar/browse/?CIK=21344&owner=exclude</a></p>
+<p style="text-align:center;"><a href="https://www.sec.gov/edgar/browse/?CIK=21344&owner=exclude">https://www.sec.gov/edgar/browse/?CIK=21344&owner=exclude/a></p>
 
-#### Trades and Signals
+### Trades and Signals
 
 Earnings announcements are be made pre-open (before open) or post-close (after close) outside of trading hours. They may occur on any day during the business week. When new information is released to investors, trading at new levels is precipitated, consequently significantly impacting stock prices, so that the opening price may register a jump from the closing price from the prior business day. The ensuing volume may also significantly increase for a while before slowing down again.
-
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
@@ -580,3 +573,12 @@ Here are some well known blogging personalities in investment analysis:
 8. **Brian Lund** - [The Lund Loop](http://thelundloop.com/)
 9. **Patrick O'Shaughnessy** - [Invest Like the Best](https://investorfieldguide.com/podcast/)
 10. **Jason Zweig** - [The Intelligent Investor](https://www.wsj.com/news/types/investing-column)
+
+```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: ''
+---
+
+```

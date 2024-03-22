@@ -60,6 +60,8 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Social Construction of Reality in Finance';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -472,7 +474,22 @@ img {
 </ul>
 <p>Note that spreadsheets are commonly thought of as <em>Excel spreadsheets</em> due to the traditional prevalence of Excel use <i>on Wall Street</i>. But in this course, you learn that the output of modeling can also be on Google Sheets or in Python scripts. It does not necessarily be Excel. Nonetheless, “Spreadsheets” is used above to denote a definite and concrete product that is produced and communicated at the end of the activity of financial modeling.</p>
 <p>These relationships further fit into the following diagram:</p>
-<p>Conceptualizing the diagram,</p>
+<div class="mermaid">
+            flowchart LR
+  Accountant --&gt;|Reporting|id1(Financial Statements)
+  id1 ==&gt; id0((Finance Industry))
+
+  Analyst --&gt;|Analysis|id2(Report)
+  id2 ==&gt; id0
+
+  Analyst --&gt;|Modeling|id3(Model)
+  id3 ==&gt; id0
+
+  Analyst --&gt;|Presenting|id4(Presentation)
+  id4 ==&gt; id0
+
+  style id0 fill:#f9f,stroke:#333,stroke-width:4px
+        </div><p>Conceptualizing the diagram,</p>
 <ul class="simple">
 <li><p>accountants and analysts are actors</p></li>
 <li><p>reporting, analyzing, modeling, presenting are activities</p></li>
@@ -491,7 +508,7 @@ img {
 </section>
 <section id="the-perspective-of-the-social-construction-of-reality">
 <h3>The Perspective of The Social Construction of Reality<a class="headerlink" href="#the-perspective-of-the-social-construction-of-reality" title="Link to this heading">#</a></h3>
-<p>“<a class="reference internal" href="#wiki:The_Social_Construction_of_Reality"><span class="xref myst">The Social Construction of Reality: A Treatise in the Sociology of Knowledge</span></a>” is the title of a book written by two sociologists Peter L. Berger and Thomas Luckmann first published in 1966. In 1998, the International Sociological Association listed The Social Construction of Reality as the fifth most-important book of 20th-century sociology. The intention of this latter information is more to suggest that the perspective being brought forth here is valid albeit unconventional, rather  than an appeal to authority</p>
+<p>“<a class="reference external" href="wiki:The_Social_Construction_of_Reality">wiki:The_Social_Construction_of_Reality</a>” is the title of a book written by two sociologists Peter L. Berger and Thomas Luckmann first published in 1966. In 1998, the International Sociological Association listed The Social Construction of Reality as the fifth most-important book of 20th-century sociology. The intention of this latter information is more to suggest that the perspective being brought forth here is valid albeit unconventional, rather  than an appeal to authority.</p>
 <div class="note admonition">
 <p class="admonition-title">What is the Sociology of Knowledge?</p>
 <p>The discipline of the sociology of knowledge explores how social structures, institutions, and cultural contexts shape the creation, dissemination, and validation of knowledge within a society. It investigates how social factors influence what is considered valid or authoritative knowledge, and how these beliefs are maintained or challenged over time. This field examines the interplay between knowledge and society, including how knowledge reflects power dynamics, social hierarchies, and cultural norms.</p>
@@ -521,7 +538,8 @@ img {
 <p>Companies usually make earnings announcements during the earnings seasons. There is one earning season associated to each quarter. Earning seasons generally begins in the month following the fiscal quarters, namely, January, April, July and October, as the companies need time after the end of each quarter’s accounting period to put the information together. Each earnings season lasts for about 6 weeks (or 1.5 months). Then the cycle starts all over again.</p>
 <p>Year-end performance, viz. the Q4 earnings, often provide a comprehensive view of the company’s performance for the entire fiscal year.</p>
 <p>The times and periods just mentioned are shown on the timeline here:</p>
-<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>timeline
+<div class="mermaid">
+            timeline
         title Earnings Announcements Timeline
         section Jan-Mar
           Q1 Fiscal Period : Q4/Annual Earnings Season ~ 6 wks
@@ -531,20 +549,20 @@ img {
           Q3 Fiscal Period : Q2 Earnings Season ~ 6 wks
         section Oct-Dec
           Q4 Fiscal Period : Q3 Earnings Season ~ 6 wks
-</pre></div>
-</div>
-<p>This webpage on Yahoo! Finance provides a visualization of the earnings season:</p>
+        </div><p>This webpage on Yahoo! Finance provides a visualization of the earningsseason:</p>
 <section id="earnings-season-on-yahoo-finance">
 <h3>Earnings Season on Yahoo! Finance:<a class="headerlink" href="#earnings-season-on-yahoo-finance" title="Link to this heading">#</a></h3>
-<img alt="img/earnings_season.png" src="img/earnings_season.png" />
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/earnings_season.png"><img alt="_images/earnings_season.png" src="_images/earnings_season.png" style="width: 100%;" /></a>
+</figure>
 <p style="text-align:center;"><a href="https://finance.yahoo.com/calendar/earnings/?from=2024-03-10&to=2024-03-16/">https://finance.yahoo.com/calendar/earnings/?from=2024-03-10&to=2024-03-16/</a></p>
 <p>This is Q4 earnings announcement period, which picks up (referring to the number of announcements per day) from the end of January, peaks and slows down again, lasting for about 6 weeks or 1.5 months, which is half the Q1 fiscal quarter.</p>
-<p>Historical record of earnings announcement dates of The Coca-Cola Company is shown here:</p>
+<p>Historical record of earnings announcement dates of The Coca-Cola Company is shon here:</p>
 </section>
 <section id="earnings-history-of-the-coca-cola-company-ko">
 <h3>Earnings History of The Coca-Cola Company (KO)<a class="headerlink" href="#earnings-history-of-the-coca-cola-company-ko" title="Link to this heading">#</a></h3>
 <figure class="align-default">
-<img alt="img/earnings_history.png" src="img/earnings_history.png" />
+<a class="reference internal image-reference" href="_images/earnings_history.png"><img alt="_images/earnings_history.png" src="_images/earnings_history.png" style="width: 100%;" /></a>
 </figure>
 <p style="text-align:center;"><a href="https://www.tipranks.com/">https://www.tipranks.com/</a></p>
 <p>Notice the data structure that summarizes an announcement as suggested from the header:</p>
@@ -561,22 +579,22 @@ img {
 <li><p>expected/observed/past earnings</p></li>
 </ul>
 <p>in order to capture the most salient aspects of an earnings announcement and its effects.</p>
-<p>The following diagram show the cover page of the news release that contain the earnings announcement:</p>
+<p>The following diagram show the cover page of the news release that contain the earnings annoucement:</p>
 </section>
 <section id="news-release">
 <h3>News Release<a class="headerlink" href="#news-release" title="Link to this heading">#</a></h3>
 <figure class="align-default">
-<img alt="img/news_release.png" src="img/news_release.png" />
+<a class="reference internal image-reference" href="_images/news_release.png"><img alt="_images/news_release.png" src="_images/news_release.png" style="width: 80%;" /></a>
 </figure>
 <p>Earnings data for companies are readily found on the internet, e.g. <a class="reference external" href="https://www.nasdaq.com/market-activity/stocks/ko/earnings">https://www.nasdaq.com/market-activity/stocks/ko/earnings</a>.</p>
-<p>Typically, after the earnings announcement, the company will submit filings at the SEC, a list of filings of KO is shown here:</p>
+<p>Typically, after the earnings announcement, the company will submit filings at the SEC, a list of filings of KO is shwn here:</p>
 </section>
 <section id="sec-filings">
 <h3>SEC Filings<a class="headerlink" href="#sec-filings" title="Link to this heading">#</a></h3>
 <figure class="align-default">
-<a class="reference internal image-reference" href="img/ko_filings.png"><img alt="img/ko_filings.png" src="img/ko_filings.png" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="_images/ko_filings.png"><img alt="_images/ko_filings.png" src="_images/ko_filings.png" style="width: 100%;" /></a>
 </figure>
-<p style="text-align:center;"><a href="https://www.sec.gov/edgar/browse/?CIK=21344&owner=exclude">https://www.sec.gov/edgar/browse/?CIK=21344&owner=exclude</a></p>
+<p style="text-align:center;"><a href="https://www.sec.gov/edgar/browse/?CIK=21344&owner=exclude">https://www.sec.gov/edgar/browse/?CIK=21344&owner=exclude/a></p>
 </section>
 <section id="trades-and-signals">
 <h3>Trades and Signals<a class="headerlink" href="#trades-and-signals" title="Link to this heading">#</a></h3>
@@ -642,13 +660,13 @@ img {
 <p>Overall, the outputs of an investment analyst are aimed at providing comprehensive research, analysis, and insights to support informed investment decision-making and help clients achieve their investment objectives.</p>
 <p>The following diagram shows a listing of earnings call transcripts:</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="img/ko_earnings_call_transcripts.png"><img alt="img/ko_earnings_call_transcripts.png" src="img/ko_earnings_call_transcripts.png" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="_images/ko_earnings_call_transcripts.png"><img alt="_images/ko_earnings_call_transcripts.png" src="_images/ko_earnings_call_transcripts.png" style="width: 80%;" /></a>
 </figure>
 <p style="text-align:center;"><a href="https://seekingalpha.com/symbol/KO/earnings/transcripts">https://seekingalpha.com/symbol/KO/earnings/transcripts</a></p>
 <p>The tabs also neatly indicate the information that is regularly obtainable for a company: Analysis, Comments, News, Transcripts, SEC Filings, Press Releases, Related Analysis.</p>
 <p>The figure below shows the beginning of the web page that contains the contents of a transcript:</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="img/ko_earnings_call_transcript.png"><img alt="img/ko_earnings_call_transcript.png" src="img/ko_earnings_call_transcript.png" style="width: 75%;" /></a>
+<a class="reference internal image-reference" href="_images/ko_earnings_call_transcript.png"><img alt="_images/ko_earnings_call_transcript.png" src="_images/ko_earnings_call_transcript.png" style="width: 75%;" /></a>
 </figure>
 <p style="text-align:center;"><a href="https://seekingalpha.com/article/4669822-coca-cola-company-ko-q4-2023-earnings-call-transcript">https://seekingalpha.com/article/4669822-coca-cola-company-ko-q4-2023-earnings-call-transcript</a></p>
 <p>In the remaining sections, we will explore the overall structure of the 3 activities of financial analysts: financial analysis, modeling and presentation.</p>
