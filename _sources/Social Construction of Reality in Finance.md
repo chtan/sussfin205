@@ -519,16 +519,14 @@ Presenting the result of financial analysis is a skill in itself.
 
 How an analysis is to be, or may be presented, will depend on the kind of analysis that it is, and the type of audience that one has to communicate the analysis to.
 
-In the context of investment analysis, particularly for the sell-side analyst, story telling is a particularly important technique. As the well-known guru in valuation and NTU professor in finance, Aswath Demodoran , puts it: 
+In the context of investment analysis, particularly for the sell-side analyst, story telling is a particularly important technique. As the well-known guru in valuation and NTU professor in finance, Aswath Demodoran, puts it: 
 
-> When I say the word 'valuation,' most of you think about models and numbers, and you're right. There are lots of models and lots of numbers. But there are three broad themes I hope to establish in these coming sessions. 
->
-> The first is that valuation is simple; we choose to make it complex. 
->
-> The second is that every valuation, even though it's about numbers, has a story, a narrative behind it. A good valuation is more about the story than about the numbers. 
-> 
-> And third, when valuations go bad, it's not because of the numbers.
+> *When I say the word 'valuation,' most of you think about models and numbers, and you're right. There are lots of models and lots of numbers. But there are three broad themes I hope to establish in these coming sessions. The first is that valuation is simple; we choose to make it complex. The second is that every valuation, even though it's about numbers, has a story, a narrative behind it. A good valuation is more about the story than about the numbers. And third, when valuations go bad, it's not because of the numbers.*
 
+```{figure} img/damodaran.png
+:width: 80%
+```
+<p style="text-align:center;"><a href="https://www.youtube.com/watch?v=znmQ7oMiQrM&t=3s">https://www.youtube.com/watch?v=znmQ7oMiQrM&t=3s</a></p>
 
 Story-telling is a particularly important technique for sell-side investment analysts for these reasons:
 
@@ -548,6 +546,10 @@ Overall, storytelling enhances the effectiveness of presentations by making them
 
 You may also witness the use of storytelling techniques in the CFA Investment Challenge, such as the presentations from the 2023 CFA Institute Research Challenge Global Finals illustrate:
 
+```{figure} img/cfachallenge.png
+:width: 80%
+```
+<p style="text-align:center;"><a href="https://www.youtube.com/watch?v=9eqadVNaWaI">https://www.youtube.com/watch?v=9eqadVNaWaI</a></p>
 
 ### Blogs
 
