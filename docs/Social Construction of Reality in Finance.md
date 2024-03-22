@@ -103,7 +103,7 @@ For you, you learn the concepts, the examples and tools to construct these seman
 
 ### The Perspective of The Social Construction of Reality
 
-"<wiki:The_Social_Construction_of_Reality>" is the title of a book written by two sociologists Peter L. Berger and Thomas Luckmann first published in 1966. In 1998, the International Sociological Association listed The Social Construction of Reality as the fifth most-important book of 20th-century sociology. The intention of this latter information is more to suggest that the perspective being brought forth here is valid albeit unconventional, rather  than an appeal to authority.
+<wiki:The_Social_Construction_of_Reality> is the title of a book written by two sociologists Peter L. Berger and Thomas Luckmann first published in 1966. In 1998, the International Sociological Association listed The Social Construction of Reality as the fifth most-important book of 20th-century sociology. The intention of this latter information is more to suggest that the perspective being brought forth here is valid albeit unconventional, rather  than an appeal to authority.
 
 :::{admonition} What is the Sociology of Knowledge?
 :class: note
@@ -527,10 +527,6 @@ In the context of investment analysis, particularly for the sell-side analyst, s
 > 
 > And third, when valuations go bad, it's not because of the numbers.
 
-:::{iframe} https://www.youtube.com/embed/znmQ7oMiQrM
-:width: 100%
-Introduction to Valuation
-:::
 
 Story-telling is a particularly important technique for sell-side investment analysts for these reasons:
 
@@ -550,10 +546,6 @@ Overall, storytelling enhances the effectiveness of presentations by making them
 
 You may also witness the use of storytelling techniques in the CFA Investment Challenge, such as the presentations from the 2023 CFA Institute Research Challenge Global Finals illustrate:
 
-:::{iframe} https://www.youtube.com/embed/9eqadVNaWaI
-:width: 100%
-2023 CFA Institute Research Challenge Global Finals
-:::
 
 ### Blogs
 
