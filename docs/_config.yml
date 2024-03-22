@@ -22,7 +22,7 @@ parse:
     # - deflist
     - dollarmath
     # - html_admonition
-    # - html_image
+    - html_image
     - linkify
     # - replacements
     # - smartquotes
@@ -53,6 +53,7 @@ html:
 sphinx:
   extra_extensions:
     - sphinx_exercise
+    - sphinxcontrib.mermaid
   config:
     nb_execution_show_tb: True
   #  html_show_copyright: false
