@@ -61,6 +61,7 @@ Note that spreadsheets are commonly thought of as *Excel spreadsheets* due to th
 These relationships further fit into the following diagram: 
 
 ```{mermaid}
+%%{init: { 'logLevel': 'debug', 'theme': 'neutral' } }%%
 flowchart LR
   Accountant -->|Reporting|id1(Financial Statements)
   id1 ==> id0((Finance Industry))
@@ -153,6 +154,7 @@ Year-end performance, viz. the Q4 earnings, often provide a comprehensive view o
 The times and periods just mentioned are shown on the timeline here:
 
 ```{mermaid}
+%%{init: { 'logLevel': 'debug', 'theme': 'neutral' } }%%
 timeline
         title Earnings Announcements Timeline
         section Jan-Mar
