@@ -19,6 +19,7 @@ parts:
   - caption: Theory and Concepts
     chapters:
     - file: "Relating and Projecting Financial Statements"
+    - file: "Social Construction of Reality in Finance"
   - caption: Analysis
     chapters:
     - file: "Horizontal and Vertical Analyses"
