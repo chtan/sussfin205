@@ -104,7 +104,7 @@ For you, you learn the concepts, the examples and tools to construct these seman
 
 ### The Perspective of The Social Construction of Reality
 
-<wiki:The_Social_Construction_of_Reality> is the title of a book written by two sociologists Peter L. Berger and Thomas Luckmann first published in 1966. In 1998, the International Sociological Association listed The Social Construction of Reality as the fifth most-important book of 20th-century sociology. The intention of this latter information is more to suggest that the perspective being brought forth here is valid albeit unconventional, rather  than an appeal to authority.
+[The_Social_Construction_of_Reality: A Treatise in the Sociology of Knowledge](https://en.wikipedia.org/wiki/The_Social_Construction_of_Reality) is the title of a book written by two sociologists Peter L. Berger and Thomas Luckmann first published in 1966. In 1998, the International Sociological Association listed The Social Construction of Reality as the fifth most-important book of 20th-century sociology. The intention of this latter information is more to suggest that the perspective being brought forth here is valid albeit unconventional, rather  than an appeal to authority.
 
 :::{admonition} What is the Sociology of Knowledge?
 :class: note
@@ -167,7 +167,7 @@ timeline
           Q4 Fiscal Period : Q3 Earnings Season ~ 6 wks
 ```
 
-This webpage on Yahoo! Finance provides a visualization of the earningsseason:
+This webpage on Yahoo! Finance provides a visualization of the earnings season:
 
 ### Earnings Season on Yahoo! Finance:
 
