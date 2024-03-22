@@ -54,6 +54,7 @@ sphinx:
   extra_extensions:
     - sphinx_exercise
     - sphinxcontrib.mermaid
+    - sphinx_toolbox.wikipedia
   config:
     nb_execution_show_tb: True
   #  html_show_copyright: false
