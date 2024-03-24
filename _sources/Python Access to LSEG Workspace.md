@@ -29,10 +29,11 @@ kernelspec:
 ## Steps
 
 1. Download the desktop app from [here](https://cdn.refinitiv.com/Apps/ProductDownloadPage/1.1.13/)
-2. Follow the instructions from [here](https://developers.lseg.com/en/api-catalog/eikon/eikon-data-api/quick-start) to obtain the API Key (select Eikon Data API, Side by Side API and EDP API)
-3. On command line, invoke: <code>pip install eikon</code>4. Start the desktop app and have it running in the background
-5. Invoke the follwing commands in Python to check that API access works: <code>import eikon as ek; 
-ek.set_app_key('8e5a3xxxxxxxxxxxxxxxxxxxxxxxxxxxx21b031c</code>')The alternative to Steps 3 to 5 is via Jupyter Notebook/Lab as follows:
+2. Follow the instructions from Quick Start under {ref}`references` to obtain the API Key
+   - select Eikon Data API, Side by Side API and EDP API
+4. On command line, invoke: <code>pip install eikon</code>5. Start the desktop app and have it running in the background
+6. Invoke the follwing commands in Python to check that API access works: <code>import eikon as ek; 
+ek.set_app_ke'8e5a3xxxxxxxxxxxxxxxxxxxxxxxxxxxx21b031c'c</code>')The alternative to Steps 3 to 5 is via Jupyter Notebook/Lab as follows:
 
 
 
@@ -87,4 +88,4 @@ df
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
-Further instructions may be found in the Tutorials link under {ref}`references` above.
+Further instructions may be found in the Tutorials under {ref}`references` above.
