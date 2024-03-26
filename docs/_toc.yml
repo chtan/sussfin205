@@ -24,4 +24,5 @@ parts:
   - caption: Analysis
     chapters:
     - file: "Horizontal and Vertical Analyses"
+    - file: "Financial Ratios"
     - file: "Financial Analysis of The Coca-Cola Company"
