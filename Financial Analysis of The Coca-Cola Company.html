@@ -1,0 +1,1169 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Financial Analysis of The Coca-Cola Company &#8212; FIN205 Data Technologies for Financial Modelling</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Financial Analysis of The Coca-Cola Company';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Horizontal and Vertical Analyses" href="Horizontal%20and%20Vertical%20Analyses.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="FIN205 Data Technologies for Financial Modelling - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="FIN205 Data Technologies for Financial Modelling - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to FIN205
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Quotes%20in%20the%20Markets.html">Quotes in the Markets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="How%20to%20Download%20Financial%20Statements%20Data%20from%20the%20Internet.html">How to Download Financial Statements Data from the Internet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python%20Access%20to%20LSEG%20Workspace.html">Python Access to LSEG Workspace</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory and Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Relating%20and%20Projecting%20Financial%20Statements.html">Relating and Projecting Financial Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Social%20Construction%20of%20Reality%20in%20Finance.html">Social Construction of Reality in Finance</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analysis</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Horizontal%20and%20Vertical%20Analyses.html">Horizontal and Vertical Analyses</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Financial Analysis of The Coca-Cola Company</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FFinancial Analysis of The Coca-Cola Company.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Financial Analysis of The Coca-Cola Company.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Financial Analysis of The Coca-Cola Company</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-background-on-the-coca-cola-company">The Background on The Coca-Cola Company</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brief-history">Brief History</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scope-of-business">Scope of Business</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#competition-and-strategy">Competition and Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#competition">Competition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strategy">Strategy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profitability">Profitability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratio-analysis">Ratio Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mda-review">MDA Review</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cash">Cash</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ratio Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">MDA Review</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risk">Risk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-risks-faced-by-the-company">Summary of Risks Faced by the Company</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#economic-and-geopolitical-conditions">Economic and Geopolitical Conditions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Competition</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#innovation">Innovation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#retail-landscape-changes">Retail Landscape Changes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expansion-in-emerging-markets">Expansion in Emerging Markets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#productivity-initiatives">Productivity Initiatives</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#workforce-management">Workforce Management</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#supply-chain-disruptions">Supply Chain Disruptions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-of-acquisitions">Integration of Acquisitions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#third-party-risks">Third-party Risks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#labor-relations">Labor Relations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-related-to-consumer-demand-for-products">Risks Related to Consumer Demand for Products</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-related-to-the-coca-cola-system">Risks Related to the Coca-Cola System</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-related-to-regulatory-and-legal-matters">Risks Related to Regulatory and Legal Matters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-related-to-finance-accounting-and-investments">Risks Related to Finance, Accounting, and Investments</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-related-to-cybersecurity-and-data-privacy">Risks Related to Cybersecurity and Data Privacy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-related-to-environmental-and-social-factors">Risks Related to Environmental and Social Factors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="financial-analysis-of-the-coca-cola-company">
+<h1>Financial Analysis of The Coca-Cola Company<a class="headerlink" href="#financial-analysis-of-the-coca-cola-company" title="Link to this heading">#</a></h1>
+<p>One should remember these points about an analysis when embarking on constructing one:</p>
+<ul class="simple">
+<li><p>The purpose of an analysis includes</p>
+<ul>
+<li><p>for understanding of the financial situation of a company, which support downstream responses to queries on the subject</p></li>
+<li><p>for communication</p></li>
+<li><p>as basis for further analysis or decision making</p></li>
+</ul>
+</li>
+<li><p>complex analysis may be structured</p>
+<ul>
+<li><p>to have parts</p></li>
+<li><p>each part comprises the piecing together of a myriad low level analysis items</p></li>
+</ul>
+</li>
+<li><p>one or more questions may guide the entire analysis, or parts of it</p></li>
+</ul>
+<p>One should also be cognizant of the distinction between financial analysis and business analysis which are related.</p>
+<div class="note admonition">
+<p class="admonition-title">How are financial analysis and business analysis related?</p>
+<p>Financial analysis and business analysis are two distinct yet interconnected disciplines within the realm of business management. While they both involve examining various aspects of a company, they focus on different areas and serve different purposes. Here’s a comparison and contrast between the two:</p>
+<p><strong>Financial Analysis:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Focus</strong>: Financial analysis primarily concentrates on assessing a company’s financial health and performance by analyzing its financial statements, ratios, and metrics.</p></li>
+<li><p><strong>Purpose</strong>: The primary purpose of financial analysis is to evaluate the company’s financial strengths, weaknesses, profitability, liquidity, solvency, and overall financial stability.</p></li>
+<li><p><strong>Tools and Techniques</strong>: Financial analysts use tools such as financial ratios (liquidity ratios, profitability ratios, etc.), trend analysis, cash flow analysis, and comparative analysis to evaluate financial performance.</p></li>
+<li><p><strong>Data Sources</strong>: Financial analysis heavily relies on historical financial data, including income statements, balance sheets, cash flow statements, and other financial reports.</p></li>
+<li><p><strong>Stakeholders</strong>: Financial analysis is crucial for investors, creditors, financial institutions, and other stakeholders interested in the company’s financial performance and stability.</p></li>
+</ol>
+<p><strong>Business Analysis:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Focus</strong>: Business analysis involves examining various aspects of a business, including its processes, operations, strategies, market position, competitors, customers, and stakeholders.</p></li>
+<li><p><strong>Purpose</strong>: The primary purpose of business analysis is to identify business needs, opportunities, and problems and propose solutions to help the company achieve its objectives and improve its overall performance.</p></li>
+<li><p><strong>Tools and Techniques</strong>: Business analysts use tools such as SWOT analysis (Strengths, Weaknesses, Opportunities, Threats), PESTLE analysis (Political, Economic, Social, Technological, Legal, Environmental), market research, competitor analysis, and business process modeling to understand the business environment and make informed decisions.</p></li>
+<li><p><strong>Data Sources</strong>: Business analysis requires a wide range of data sources, including market research reports, industry benchmarks, customer feedback, internal operational data, and external economic indicators.</p></li>
+<li><p><strong>Stakeholders</strong>: Business analysis is essential for various stakeholders, including business owners, executives, managers, and employees, as it helps in strategic planning, decision-making, and operational improvements.</p></li>
+</ol>
+<p><strong>Comparison:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Focus</strong>: Both financial analysis and business analysis aim to provide insights into different aspects of a company’s performance and operations.</p></li>
+<li><p><strong>Interconnectedness</strong>: Financial analysis is a subset of business analysis, as financial health is one aspect of overall business performance.</p></li>
+<li><p><strong>Decision Making</strong>: Both disciplines play a crucial role in decision-making processes within an organization, albeit from different perspectives.</p></li>
+</ol>
+<p><strong>Contrast:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Scope</strong>: Financial analysis focuses specifically on financial data and metrics, whereas business analysis encompasses a broader range of factors beyond finances, including market dynamics, operational efficiency, and strategic positioning.</p></li>
+<li><p><strong>Purpose</strong>: Financial analysis primarily aims to assess financial performance and stability, while business analysis aims to understand the entire business ecosystem and identify opportunities for improvement and growth.</p></li>
+<li><p><strong>Tools and Techniques</strong>: While both disciplines use analytical tools, the specific tools and techniques employed differ based on their respective focuses and objectives.</p></li>
+</ol>
+<p>In summary, financial analysis and business analysis are complementary disciplines that provide different perspectives on a company’s performance and operations. While financial analysis delves into the company’s financial health and stability, business analysis takes a broader view, examining various internal and external factors impacting the business’s overall performance and competitiveness.</p>
+</div>
+<p>We’re going to embark on a financial analysis of The Coca Cola Company in the following sections, which are organized as follows:</p>
+<ol class="arabic simple">
+<li><p>The Background on The Coca-Cola Company</p></li>
+<li><p>Competition and Strategy</p></li>
+<li><p>Profitability</p></li>
+<li><p>Cash</p></li>
+<li><p>Risk</p></li>
+</ol>
+<section id="the-background-on-the-coca-cola-company">
+<h2>The Background on The Coca-Cola Company<a class="headerlink" href="#the-background-on-the-coca-cola-company" title="Link to this heading">#</a></h2>
+<section id="brief-history">
+<h3>Brief History<a class="headerlink" href="#brief-history" title="Link to this heading">#</a></h3>
+<p>In the bustling city of Atlanta, Georgia, in the year 1886, a humble pharmacist named Dr. John Pemberton was toying with an intriguing concoction in his laboratory. Little did he know that his experimentation would birth one of the world’s most iconic beverages - Coca-Cola.</p>
+<p>Pemberton, seeking to create a refreshing tonic, blended together a unique mixture of coca leaf extract and kola nut. This combination yielded a fizzy elixir that tantalized the taste buds and invigorated the senses. Intrigued by his creation, Pemberton decided to share it with the world.</p>
+<p>Enter Asa Candler, a savvy businessman with an eye for opportunity. Sensing the potential of Pemberton’s creation, Candler acquired the formula in 1888, marking the dawn of a new era for Coca-Cola. With Candler at the helm, the drink underwent a transformation, evolving from a local curiosity into a nationwide sensation.</p>
+<p>Candler’s shrewd marketing strategies propelled Coca-Cola to unprecedented heights. Through innovative advertising and strategic partnerships, he ensured that the iconic red-and-white logo became a ubiquitous symbol of refreshment and enjoyment.</p>
+<p>But Coca-Cola’s journey didn’t stop at the borders of the United States. With an ambitious vision for global expansion, the company ventured into international markets, adapting its recipe and marketing tactics to suit diverse cultures and tastes. From the bustling streets of New York City to the bustling markets of Tokyo, Coca-Cola’s effervescent charm knew no bounds.</p>
+<p>Throughout the 20th century, Coca-Cola continued to evolve, diversifying its product lineup and acquiring beloved brands such as Minute Maid and Powerade. Despite facing challenges ranging from changing consumer preferences to health concerns, the company remained resilient, embracing innovation and adaptation at every turn.</p>
+<p>Beyond business success, Coca-Cola also embraced its role as a corporate citizen, championing causes such as environmental sustainability and community development. Through initiatives like water conservation and youth empowerment programs, the company sought to leave a positive impact on the world.</p>
+<p>Today, The Coca-Cola Company stands as a testament to the power of innovation, perseverance, and the simple joy of a refreshing beverage. From its humble origins in a small Atlanta pharmacy to its status as a global icon, Coca-Cola’s journey is a story of imagination, determination, and the enduring spirit of refreshment.</p>
+</section>
+<section id="scope-of-business">
+<h3>Scope of Business<a class="headerlink" href="#scope-of-business" title="Link to this heading">#</a></h3>
+<p>The Coca-Cola Company, a global titan in the beverage industry, boasts a vast scope of business operations that span continents and encompass a diverse array of products and services. Central to its identity is its flagship brand, Coca-Cola, an iconic carbonated soft drink that has achieved unparalleled recognition worldwide. However, the company’s influence extends far beyond this singular beverage, encompassing a broad portfolio of offerings tailored to diverse consumer preferences and market demands.</p>
+<p>At the heart of Coca-Cola’s business are its carbonated soft drinks, which include renowned brands such as Diet Coke, Sprite, and Fanta, each catering to distinct tastes and demographics across various regions. Complementing these offerings are a myriad of non-carbonated beverages, reflecting the company’s commitment to providing choices that align with evolving consumer preferences for healthier options. From fruit juices and sports drinks to teas, coffees, and bottled water brands like Dasani and Smartwater, Coca-Cola’s non-carbonated portfolio offers a diverse range of refreshment choices.</p>
+<p>Recognizing the burgeoning demand for energy-boosting and functional beverages, Coca-Cola has expanded into this segment with brands like Monster Energy and Fuse Tea, appealing to consumers seeking enhanced performance and vitality. Moreover, through strategic acquisitions and partnerships, the company has bolstered its presence in the juice market, offering a variety of fruit juices, nectars, and juice drinks under brands like Minute Maid.</p>
+<p>In addition to its core beverage offerings, Coca-Cola has ventured into new territories, including the production of alcoholic beverages in select markets, further diversifying its portfolio to meet the evolving needs of consumers. Beyond product manufacturing, the company operates an extensive distribution and bottling network globally, ensuring efficient delivery of its beverages to consumers through various channels, from traditional retail outlets to vending machines and e-commerce platforms.</p>
+<p>With operations spanning over 200 countries, Coca-Cola’s global footprint is undeniable, with its products reaching consumers in bustling urban centers and remote rural communities alike. Furthermore, the company’s commitment to innovation and research and development ensures its continued relevance and adaptability in an ever-changing market landscape.</p>
+<p>In summary, The Coca-Cola Company’s scope of business today encompasses a broad and dynamic spectrum of beverages, distribution channels, and global markets. From its iconic flagship brand to an extensive portfolio of complementary products and services, Coca-Cola’s enduring presence underscores its status as a leader in the beverage industry, dedicated to refreshing the world and creating moments of happiness for consumers everywhere.</p>
+</section>
+</section>
+<section id="competition-and-strategy">
+<h2>Competition and Strategy<a class="headerlink" href="#competition-and-strategy" title="Link to this heading">#</a></h2>
+<section id="competition">
+<h3>Competition<a class="headerlink" href="#competition" title="Link to this heading">#</a></h3>
+<p>The Coca-Cola Company encounters competition from a diverse array of rivals, both domestically within the United States and on a global scale. Domestically, within the U.S., it faces its primary competitor, PepsiCo, which offers a range of soft drinks such as Pepsi, Mountain Dew, and Sierra Mist, along with a variety of snacks and beverages. Additionally, the Dr Pepper Snapple Group (now Keurig Dr Pepper) competes in the carbonated soft drink market with brands like Dr Pepper, 7UP, and Snapple. Moreover, Coca-Cola contends with smaller, regional brands that cater to specific local tastes and preferences across the country.</p>
+<p>On a global level, Coca-Cola faces competition from multinational corporations such as Nestlé, which produces bottled water (e.g., Pure Life), juices (e.g., Nestea), and other beverages, directly challenging Coca-Cola’s offerings. Red Bull, a major competitor in the energy drink segment, competes with Coca-Cola’s brands like Monster Energy and Powerade. Additionally, companies like Starbucks Corporation, with its extensive coffee shop network and ready-to-drink coffee products, and local and regional beverage brands worldwide, pose significant competition to Coca-Cola’s market share in various regions.</p>
+<p>Furthermore, the rise of health and wellness trends presents competition from companies offering healthier beverage options such as sparkling water brands (e.g., LaCroix, Perrier) and natural juices. Technological advancements and innovations also indirectly impact Coca-Cola’s competitiveness, with emerging trends like at-home soda machines, subscription services, and mobile ordering platforms changing traditional beverage consumption patterns.</p>
+<p>In essence, Coca-Cola navigates a fiercely competitive landscape, both locally within the U.S. and globally, where it must continually innovate and adapt to remain at the forefront of consumer preferences and maintain its market leadership.</p>
+</section>
+<section id="strategy">
+<h3>Strategy<a class="headerlink" href="#strategy" title="Link to this heading">#</a></h3>
+<p>The company’s strategy revolves around several key pillars aimed at driving growth and resilience amidst challenges. It emphasizes brand portfolio optimization, reducing from 400 to 200 master brands to focus on those with the highest growth potential. A networked organization structure fosters collaboration and efficiency, while marketing efforts prioritize personalized consumer engagement and disciplined resource allocation. Innovation is approached strategically, with a focus on incremental growth and scalability. The digital strategy integrates online and offline experiences, leveraging data for improved execution. Revenue growth management is central to identifying opportunities and strategies, with digital capabilities enhancing decision-making. Success is ultimately dependent on system-wide execution, with strategic partnerships and operational transformations yielding positive results across markets.</p>
+</section>
+</section>
+<section id="profitability">
+<h2>Profitability<a class="headerlink" href="#profitability" title="Link to this heading">#</a></h2>
+<p>Profitability analysis is performed by calculating profitability ratios and interpreting them. It is employed to evaluate how effectively a company can produce profits in comparison to its revenue, operational expenses, assets on its balance sheet, or shareholders’ equity across a period of time.</p>
+<p>There are two kinds of probability ratios - those that are based on margin and those that are based on return. As a ratio cannot be read alone, these ratios must be computed over several years of history, and for at least another company.</p>
+<section id="ratio-analysis">
+<h3>Ratio Analysis<a class="headerlink" href="#ratio-analysis" title="Link to this heading">#</a></h3>
+<p>In the following, we will look at the profitability ratios of The Coca-Cola Company and PepsiCo, Inc. FY2019-2023, and interpret them. After that, we will relate the results to the reported actions of the company.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">eikon</span> <span class="k">as</span> <span class="nn">ek</span>
+
+<span class="c1">#ek.set_app_key(&#39;***&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1"># This script only works in 2024 as our overall analysis</span>
+<span class="c1"># which depends on data from webpages, annual statements, etc.</span>
+<span class="c1"># are FY2023, while Eikon&#39;s code must be expressed</span>
+<span class="c1"># in the form of Y0-i - refer to code below.</span>
+<span class="c1"># Therefore, don&#39;t rerun the code after 2024!</span>
+<span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="n">year</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span>
+
+<span class="n">df</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">ek</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;KO&quot;</span><span class="p">,</span> <span class="s2">&quot;PEP.O&quot;</span><span class="p">],</span> 
+    <span class="p">[</span>
+        <span class="s2">&quot;TR.F.GrossProfMarg(Period=FY-4)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.F.GrossProfMarg(Period=FY-3)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.F.GrossProfMarg(Period=FY-2)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.F.GrossProfMarg(Period=FY-1)&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;TR.F.GrossProfMarg(Period=FY0)&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Instrument&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">year</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">)</span>
+<span class="n">df_gpm</span> <span class="o">=</span> <span class="n">df</span>
+
+<span class="n">df</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">ek</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;KO&quot;</span><span class="p">,</span> <span class="s2">&quot;PEP.O&quot;</span><span class="p">],</span> 
+    <span class="p">[</span>
+        <span class="s2">&quot;TR.RevenueActValue(Period=FY-4)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.RevenueActValue(Period=FY-3)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.RevenueActValue(Period=FY-2)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.RevenueActValue(Period=FY-1)&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;TR.RevenueActValue(Period=FY0)&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Instrument&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">year</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">)</span>
+<span class="n">df_rev</span> <span class="o">=</span> <span class="n">df</span>
+
+<span class="n">df</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">ek</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;KO&quot;</span><span class="p">,</span> <span class="s2">&quot;PEP.O&quot;</span><span class="p">],</span> 
+    <span class="p">[</span>
+        <span class="s2">&quot;TR.F.NetIncAfterTax(Period=FY-4)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.F.NetIncAfterTax(Period=FY-3)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.F.NetIncAfterTax(Period=FY-2)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.F.NetIncAfterTax(Period=FY-1)&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;TR.F.NetIncAfterTax(Period=FY0)&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Instrument&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">year</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">)</span>
+<span class="n">df_ni</span> <span class="o">=</span> <span class="n">df</span>
+
+<span class="c1"># Compute the net profit margin dataframe</span>
+<span class="c1"># from revenue and net income (after tax)</span>
+<span class="n">df_npm</span> <span class="o">=</span> <span class="n">df_ni</span> <span class="o">/</span> <span class="n">df_rev</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="n">df</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">ek</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;KO&quot;</span><span class="p">,</span> <span class="s2">&quot;PEP.O&quot;</span><span class="p">],</span> 
+    <span class="p">[</span>
+        <span class="s2">&quot;TR.ROAActValue(Period=FY-4)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.ROAActValue(Period=FY-3)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.ROAActValue(Period=FY-2)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.ROAActValue(Period=FY-1)&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;TR.ROAActValue(Period=FY0)&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Instrument&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">year</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">)</span>
+<span class="n">df_roa</span> <span class="o">=</span> <span class="n">df</span>
+
+<span class="n">df</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">ek</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;KO&quot;</span><span class="p">,</span> <span class="s2">&quot;PEP.O&quot;</span><span class="p">],</span> 
+    <span class="p">[</span>
+        <span class="s2">&quot;TR.F.ReturnAvgComEqPct(Period=FY-4)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.F.ReturnAvgComEqPct(Period=FY-3)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.F.ReturnAvgComEqPct(Period=FY-2)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TR.F.ReturnAvgComEqPct(Period=FY-1)&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;TR.F.ReturnAvgComEqPct(Period=FY0)&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Instrument&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">year</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">)</span>
+<span class="n">df_roe</span> <span class="o">=</span> <span class="n">df</span>
+
+<span class="c1"># Create a multi-indexed dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_gpm</span><span class="p">,</span> <span class="n">df_npm</span><span class="p">,</span> <span class="n">df_roa</span><span class="p">,</span> <span class="n">df_roe</span><span class="p">],</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gpm&#39;</span><span class="p">,</span> <span class="s1">&#39;npm&#39;</span><span class="p">,</span> <span class="s1">&#39;roa&#39;</span><span class="p">,</span> <span class="s1">&#39;roe&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;average&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># The following script avoids using FY-i notation.</span>
+<span class="c1"># Use this after 2024!</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">df, err = ek.get_data(</span>
+
+<span class="sd">[&quot;KO&quot;, &quot;PEP.O&quot;],</span>
+
+<span class="sd">[</span>
+
+<span class="sd">&quot;TR.F.GrossProfMarg&quot;,</span>
+
+<span class="sd">],</span>
+<span class="sd">parameters = {</span>
+<span class="sd">&#39;Scale&#39;: &#39;6&#39;,</span>
+<span class="sd">&#39;SDate&#39;: &#39;2017-01-01&#39;,</span>
+<span class="sd">&#39;EDate&#39;: &#39;2023-12-31&#39;,</span>
+<span class="sd">&#39;Frq&#39;: &#39;FY&#39;,</span>
+<span class="sd">}</span>
+<span class="sd">)</span>
+<span class="sd"> </span>
+<span class="sd">display(df)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Admin\anaconda3\Lib\site-packages\eikon\data_grid.py:255: FutureWarning: errors=&#39;ignore&#39; is deprecated and will raise in a future version. Use to_numeric without passing `errors` and catch exceptions explicitly instead
+  df = df.apply(pd.to_numeric, errors=&#39;ignore&#39;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 2019   2020   2021   2022   2023  average
+    Instrument                                            
+gpm KO          60.83  59.31  60.27  58.14  59.49   59.608
+    PEP.O       55.27  54.81  53.44  53.53  54.37   54.284
+npm KO           24.1  23.54  25.36  22.23  23.38   23.722
+    PEP.O       10.94   10.2    9.9  10.49  10.01   10.308
+roa KO          10.74   9.71   11.1  11.55  12.24   11.068
+    PEP.O        9.96   8.97   9.38  10.21  10.93     9.89
+roe KO          49.61  40.48   46.2  40.51  42.82   43.924
+    PEP.O       49.86  50.42  52.94  54.21   50.9   51.666
+</pre></div>
+</div>
+</div>
+</div>
+<p>Recall that while Gross profit margin focuses solely on production efficiency and pricing, net profit margin offers a broader perspective on overall profitability, encompassing all aspects of a company’s operations.</p>
+<p>The gross profit margin of The Coca-Cola Company (abbrev. Coke) is consistenly about 5 points higher than that of Pepsi. The two companies have maintained this margin consistently about a mean of 59.61 and 54.28 respectively.</p>
+<p>The net profit margin of Coke fluctuates about a mean of 23.72 while that of Pepsi does so about the 10.31 level. Thus, Coke’s net profit margin is consistenly about 13 points above Pepsi’s. This is the evidential crux pointing to the leadership of Coke in the global beverage industry.</p>
+<p>During the Covid-19 period, there was no discernible impact on the margins, indicating the beverage industry’s resilience to economic downturns.</p>
+<p>ROA reflects the company’s efficiency in utilizing all its resources to generate profit, while ROE emphasizes the return generated specifically from shareholders’ investments, making it a measure of shareholders’ profitability.</p>
+<p>The ROA of Coke has a mean of 11.07. After a dip of about 1 point from 2019 to 2020, it has been on a rising trend, reaching 12.24 in 2023. Pepsi has been showing a similar pattern with ROA, with a mean of 9.89 and a level of 10.93 in 2023. The ROA of Coke is consistenly about 1 point higher than that of Pepsi. Thus, the ROA numbers suggest that both companies have been able to maintain and improve the efficiency in utilizing its resources to generate profit.</p>
+<p>The ROE of the two companies fluctuate over the period. The lowest value of 40.48 for Coke occurred in 2020, while that for Pepsi occurred in 2019 at 49.86. The highest value of ROE for Coke is 49.86 which occurred in 2019, while for Pepsi, it is 54.21 which occurred in 2022. The spread was more than 9 points for Coke over the 5-year period, while it was about 4.5 for Pepsi. The ROE of Pepsi is consistenly higher than that of Coke.</p>
+<p>The analysis above shows that both companies are able to produce profits stably over time. Of the 4 ratios considered, only the ROA shows some appreciable fluctuations. Coke generally outperforms Pepsi with respect to the gross profit margin, the net profit margin and the ROA. In particular, its net profit margin is about twice of Pepsi’s. On the other hand, Pepsi outperforms Coke in terms of profitability relative to shareholders’ equity.</p>
+<p>Coke’s strategy of brand portfolio optimization, marketing prioritizing personalized consumer engagement and integration of digital strategy may be factors for its superior profitability performance.</p>
+</section>
+<section id="mda-review">
+<h3>MDA Review<a class="headerlink" href="#mda-review" title="Link to this heading">#</a></h3>
+<p>Let’s review what the management says about its operations in the Management’s Discussion and Analysis (Item 7 of 10-K FY2023).</p>
+<p>Management indicates several key points regarding the company’s profitability:</p>
+<ol class="arabic simple">
+<li><p><strong>Gross Profit Margin:</strong> The gross profit margin increased to 59.5% in 2023 from 58.1% in 2022. Management attributes this increase primarily to favourable pricing initiatives, favourable channel and package mix, and structural changes. However, this increase was partially offset by unfavourable foreign currency exchange rate fluctuations and increased commodity costs.</p></li>
+<li><p><strong>Operating Income and Operating Margin:</strong> Operating income increased to $11,311 million in 2023 from $10,909 million in 2022, representing a 4% increase. However, the consolidated operating margin decreased to 24.7% in 2023 from 25.4% in 2022. This decrease was primarily due to higher commodity costs, increased marketing spending, higher other operating charges, and the unfavourable impact of foreign currency exchange rate fluctuations. Despite the decrease in operating margin, the company experienced growth in operating income due to concentrate sales volume growth and favourable pricing initiatives.</p></li>
+<li><p><strong>Equity Income:</strong> Equity income increased to $1,691 million in 2023 from $1,472 million in 2022, reflecting more favourable operating results from equity method investees and a favourable foreign currency exchange rate impact. This increase was partially offset by higher net charges from certain equity method investees.</p></li>
+<li><p><strong>Other Income (Loss):</strong> Other income in 2023 was $570 million, compared to a loss of $262 million in 2022. The increase in other income was primarily driven by gains related to the refranchising of bottling operations, gains from equity securities, dividend income, and income related to the non-service cost components of net periodic benefit cost. However, this increase was partially offset by net foreign currency exchange losses and impairment charges.</p></li>
+<li><p><strong>Income Taxes:</strong> The effective tax rate for the company was 17.4% in 2023, compared to 18.1% in 2022. The lower effective tax rate primarily resulted from income tax incentive grants received in certain jurisdictions and benefits from earnings generated in equity method investments.</p></li>
+</ol>
+<p>Overall, while the company experienced growth in operating income and equity income, it faced challenges such as increased commodity costs, higher operating expenses, and unfavourable foreign currency exchange rate fluctuations, which impacted its operating margin. However, effective tax management and gains from other income sources contributed positively to the company’s profitability.</p>
+</section>
+</section>
+<section id="cash">
+<h2>Cash<a class="headerlink" href="#cash" title="Link to this heading">#</a></h2>
+<p>Analysis of cash is also known as liquidity analysis. This evaluates the ability of a company or individual to meet short-term financial obligations using its available liquid assets.</p>
+<section id="id1">
+<h3>Ratio Analysis<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>The current and quick ratios will be used for this purpose.</p>
+<p>Recall that the current ratio compares a company’s current assets to its current liabilities. It measures the ability of a company to pay its short-term obligations using its short-term assets. A higher current ratio indicates better liquidity. The quick ratio is similar, differing in that inventory is removed from current assets as it may not be easily convertible into cash. It provides a more conservative measure of liquidity.</p>
+<p>Data from LSEG Workspace is obtained as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">ek</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span>
+
+<span class="p">[</span><span class="s2">&quot;KO&quot;</span><span class="p">,</span> <span class="s2">&quot;PEP.O&quot;</span><span class="p">],</span>
+
+<span class="p">[</span>
+
+<span class="s2">&quot;TR.F.CurrRatio&quot;</span><span class="p">,</span>
+<span class="s2">&quot;TR.F.QuickRatio&quot;</span><span class="p">,</span>
+
+<span class="p">],</span>
+    
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s1">&#39;Scale&#39;</span><span class="p">:</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span>
+<span class="s1">&#39;SDate&#39;</span><span class="p">:</span> <span class="s1">&#39;2019-01-01&#39;</span><span class="p">,</span>
+<span class="s1">&#39;EDate&#39;</span><span class="p">:</span> <span class="s1">&#39;2023-12-31&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Frq&#39;</span><span class="p">:</span> <span class="s1">&#39;FY&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">df_ko</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))]</span>
+<span class="n">df_pep</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">))]</span>
+<span class="n">df_ko</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">2024</span><span class="p">)</span>
+<span class="n">df_ko</span> <span class="o">=</span> <span class="n">df_ko</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Instrument&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">df_pep</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">2024</span><span class="p">)</span>
+<span class="n">df_pep</span> <span class="o">=</span> <span class="n">df_pep</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Instrument&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">df_cr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_ko</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">df_pep</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_cr</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;KO&#39;</span><span class="p">,</span> <span class="s1">&#39;PEP.O&#39;</span><span class="p">]</span>
+<span class="n">df_cr</span> <span class="o">=</span> <span class="n">df_cr</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">df_qr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_ko</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">df_pep</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_qr</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;KO&#39;</span><span class="p">,</span> <span class="s1">&#39;PEP.O&#39;</span><span class="p">]</span>
+<span class="n">df_qr</span> <span class="o">=</span> <span class="n">df_qr</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">df_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_cr</span><span class="p">,</span> <span class="n">df_qr</span><span class="p">],</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cr&#39;</span><span class="p">,</span> <span class="s1">&#39;qr&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">df_combined</span><span class="p">[</span><span class="s1">&#39;average&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_combined</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df_combined</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Admin\anaconda3\Lib\site-packages\eikon\data_grid.py:255: FutureWarning: errors=&#39;ignore&#39; is deprecated and will raise in a future version. Use to_numeric without passing `errors` and catch exceptions explicitly instead
+  df = df.apply(pd.to_numeric, errors=&#39;ignore&#39;)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>2019</th>
+      <th>2020</th>
+      <th>2021</th>
+      <th>2022</th>
+      <th>2023</th>
+      <th>average</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">cr</th>
+      <th>KO</th>
+      <td>0.87</td>
+      <td>0.76</td>
+      <td>1.32</td>
+      <td>1.13</td>
+      <td>1.15</td>
+      <td>1.046</td>
+    </tr>
+    <tr>
+      <th>PEP.O</th>
+      <td>0.99</td>
+      <td>0.86</td>
+      <td>0.98</td>
+      <td>0.83</td>
+      <td>0.8</td>
+      <td>0.892</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">qr</th>
+      <th>KO</th>
+      <td>0.76</td>
+      <td>0.63</td>
+      <td>1.09</td>
+      <td>0.96</td>
+      <td>0.93</td>
+      <td>0.874</td>
+    </tr>
+    <tr>
+      <th>PEP.O</th>
+      <td>0.85</td>
+      <td>0.7</td>
+      <td>0.81</td>
+      <td>0.66</td>
+      <td>0.61</td>
+      <td>0.726</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The trajectory of these ratios for the two companies display a similar pattern. Over the Covid-19 years of 2019 - 2020, each ratio dips down. The it rises in 2021. A period of moderate fluctuation follows.  This rise from 2020 to 2021 is more significant for the current ratio than the quick ratio.</p>
+<p>This suggests that initially when the pandemic struck, the companies’ liquidity was reduced. This was reversed as they emerge from the period, appreciably increased their inventory.</p>
+<p>Both ratios for Coke were lower than Pepsi’s in from 2019 to 2020. This was turned around from 2021 to 2023, indicating a marked improvement in liquidity for Coke.</p>
+<p>The reduction of master brands in its portfolio optimization effort may be a factor as expenses might have been reduced as a result.</p>
+</section>
+<section id="id2">
+<h3>MDA Review<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>In terms of liquidity, the management asserts the company’s robust ability to generate cash flows from operating activities as a fundamental strength. They highlight the company’s reliance on debt financing instead of stock issuance to lower the overall cost of capital and enhance return on shareowners’ equity. The company’s history of borrowing funds both domestically and internationally at reasonable interest rates is cited, with an expectation to continue borrowing at such rates in the long term. The presence of cash reserves, short-term investments, marketable securities, and unused backup lines of credit amounting to $13.7 billion and $4.6 billion, respectively, further underscores the company’s liquidity position. Additionally, the management discusses payment terms with suppliers, the availability of a voluntary supply chain finance program, and a trade accounts receivable factoring program. Despite ongoing litigation with the IRS, the company expresses confidence in its liquidity position, deeming it strong enough to fund operating activities and commitments for investing and financing activities in the foreseeable future.</p>
+</section>
+</section>
+<section id="risk">
+<h2>Risk<a class="headerlink" href="#risk" title="Link to this heading">#</a></h2>
+<p>The company faces a myriad of risks spanning economic, competitive, and regulatory domains. Economic and geopolitical uncertainties, including global downturns and political instability, can dampen consumer confidence and demand. Intense competition within the beverage industry necessitates continuous innovation and strategic pricing to maintain market share and profitability. Moreover, expansion into emerging markets poses challenges such as economic instability and cultural differences, requiring careful localization and adaptation strategies. Supply chain disruptions, driven by factors like commodity price volatility and transportation issues, may disrupt operations and increase costs. Additionally, regulatory and legal uncertainties, especially concerning taxation and compliance, present significant financial and operational risks. Health concerns and changing consumer preferences towards healthier or environmentally sustainable products could impact demand, while cybersecurity threats and data privacy compliance risks require ongoing vigilance and investment in security measures. Lastly, environmental and social factors such as sustainability compliance and plastic pollution may affect brand reputation and market acceptance. Overall, proactive risk management and strategic adaptation are crucial for navigating these complex challenges and sustaining growth in the dynamic beverage industry landscape.</p>
+<p>The risks of The Coca-Cola Company may be found described in detail as Item 1A in its 10-K filing FY2023. Here is a summary:</p>
+<section id="summary-of-risks-faced-by-the-company">
+<h3>Summary of Risks Faced by the Company<a class="headerlink" href="#summary-of-risks-faced-by-the-company" title="Link to this heading">#</a></h3>
+<section id="economic-and-geopolitical-conditions">
+<h4>Economic and Geopolitical Conditions<a class="headerlink" href="#economic-and-geopolitical-conditions" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Unfavorable Conditions:</strong> Global economic downturns, high inflation rates, or political instability can reduce consumer purchasing power and confidence, leading to decreased demand for products.</p></li>
+<li><p><strong>International Conflicts:</strong> Events such as international conflicts, trade wars, or sanctions can disrupt supply chains, increase costs, and undermine consumer confidence.</p></li>
+<li><p><strong>Governmental Changes:</strong> Changes in government policies, regulations, or taxation can impact business operations and profitability, especially in regions where the company operates.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h4>Competition<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Intense Competition:</strong> The beverage industry is highly competitive, with rival companies constantly innovating and vying for market share.</p></li>
+<li><p><strong>Price Pressure:</strong> Intense competition may lead to price wars, reducing profit margins and necessitating increased marketing expenditures to maintain market share.</p></li>
+<li><p><strong>Innovation Demand:</strong> Rapid changes in consumer preferences require continuous innovation in product offerings and marketing strategies to stay ahead of competitors.</p></li>
+</ul>
+</section>
+<section id="innovation">
+<h4>Innovation<a class="headerlink" href="#innovation" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Market Trends:</strong> Failure to anticipate and adapt to changing consumer preferences, such as shifts towards healthier or environmentally sustainable products, may result in loss of market share.</p></li>
+<li><p><strong>Intellectual Property Protection:</strong> Ensuring adequate protection of intellectual property rights is crucial to prevent competitors from copying or infringing on proprietary innovations.</p></li>
+<li><p><strong>R&amp;D Investment:</strong> Insufficient investment in research and development (R&amp;D) may hinder the company’s ability to introduce new products or improve existing ones, limiting growth opportunities.</p></li>
+</ul>
+</section>
+<section id="retail-landscape-changes">
+<h4>Retail Landscape Changes<a class="headerlink" href="#retail-landscape-changes" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>E-commerce Growth:</strong> The rise of e-commerce platforms may disrupt traditional retail channels, requiring the company to adapt its distribution strategies and invest in online marketing and sales platforms.</p></li>
+<li><p><strong>Consolidation Trends:</strong> Retail industry consolidation may lead to fewer distribution channels or increased bargaining power for retailers, impacting pricing and promotional strategies.</p></li>
+<li><p><strong>Shifts in Consumer Behavior:</strong> Changing consumer shopping habits, such as a preference for online shopping or demand for healthier products, may require adjustments in product offerings and marketing tactics.</p></li>
+</ul>
+</section>
+<section id="expansion-in-emerging-markets">
+<h4>Expansion in Emerging Markets<a class="headerlink" href="#expansion-in-emerging-markets" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Economic Challenges:</strong> Emerging markets may face economic instability, currency fluctuations, or regulatory uncertainties, affecting consumer purchasing power and demand for products.</p></li>
+<li><p><strong>Cultural Adaptation:</strong> Differences in consumer preferences, cultural norms, and regulatory environments require careful localization of products and marketing strategies to succeed in emerging markets.</p></li>
+<li><p><strong>Infrastructure Constraints:</strong> Inadequate infrastructure, such as poor transportation networks or limited access to technology, may hinder distribution and market penetration efforts in emerging markets.</p></li>
+</ul>
+</section>
+<section id="productivity-initiatives">
+<h4>Productivity Initiatives<a class="headerlink" href="#productivity-initiatives" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Operational Disruptions:</strong> Implementing productivity initiatives, such as cost-cutting measures or process improvements, may disrupt business operations and require significant employee training and change management efforts.</p></li>
+<li><p><strong>Employee Morale:</strong> Downsizing or restructuring initiatives may negatively impact employee morale and productivity if not communicated effectively or if employees perceive the changes as unfair or poorly managed.</p></li>
+<li><p><strong>Public Perception:</strong> Public perception of productivity initiatives, such as layoffs or outsourcing, may affect brand reputation and consumer trust if perceived as prioritizing cost savings over employee welfare or product quality.</p></li>
+</ul>
+</section>
+<section id="workforce-management">
+<h4>Workforce Management<a class="headerlink" href="#workforce-management" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Talent Acquisition:</strong> Competition for skilled talent may require the company to offer competitive compensation packages, professional development opportunities, and attractive workplace benefits to attract and retain employees.</p></li>
+<li><p><strong>Diversity and Inclusion:</strong> Ensuring a diverse and inclusive workforce is essential for fostering innovation, creativity, and employee engagement, as well as maintaining positive relationships with customers and stakeholders.</p></li>
+<li><p><strong>Labor Market Dynamics:</strong> Changes in labor market conditions, such as shortages of skilled workers or shifts in employment regulations, may impact recruitment and retention efforts, potentially leading to talent gaps or increased labor costs.</p></li>
+</ul>
+</section>
+<section id="supply-chain-disruptions">
+<h4>Supply Chain Disruptions<a class="headerlink" href="#supply-chain-disruptions" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Commodity Price Volatility:</strong> Fluctuations in commodity prices, such as fluctuations in the prices of sugar, aluminum, or fuel, may impact production costs and profit margins.</p></li>
+<li><p><strong>Transportation Challenges:</strong> Disruptions in transportation networks, such as port closures, trucking strikes, or fuel shortages, may delay product deliveries and increase logistics costs.</p></li>
+<li><p><strong>Supplier Reliability:</strong> Dependence on a network of suppliers increases vulnerability to supply chain disruptions, such as supplier bankruptcies, quality issues, or geopolitical conflicts affecting raw material sourcing.</p></li>
+</ul>
+</section>
+<section id="integration-of-acquisitions">
+<h4>Integration of Acquisitions<a class="headerlink" href="#integration-of-acquisitions" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Integration Complexity:</strong> Integrating acquired businesses, brands, or bottling operations requires coordination across different organizational cultures, systems, and processes, potentially leading to delays or operational inefficiencies.</p></li>
+<li><p><strong>Cultural Alignment:</strong> Differences in corporate cultures and management styles between the acquiring company and the acquired entities may hinder successful integration efforts and impact employee morale and productivity.</p></li>
+<li><p><strong>Synergy Realization:</strong> Failure to achieve anticipated synergies or cost savings from acquisitions may result in financial underperformance and shareholder dissatisfaction.</p></li>
+</ul>
+</section>
+<section id="third-party-risks">
+<h4>Third-party Risks<a class="headerlink" href="#third-party-risks" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Vendor Dependence:</strong> Reliance on third-party vendors, suppliers, or distributors increases exposure to risks such as supply shortages, quality issues, or contractual disputes.</p></li>
+<li><p><strong>Cybersecurity Vulnerabilities:</strong> Outsourcing certain business functions or relying on third-party technology platforms may expose the company to cybersecurity threats, data breaches, or system vulnerabilities.</p></li>
+<li><p><strong>Contractual Obligations:</strong> Failure of third-party partners to meet contractual obligations, such as delivery deadlines or service level agreements, may disrupt business operations and damage customer relationships.</p></li>
+</ul>
+</section>
+<section id="labor-relations">
+<h4>Labor Relations<a class="headerlink" href="#labor-relations" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Union Activity:</strong> Labor unions may demand higher wages, benefits, or improved working conditions through collective bargaining agreements, leading to increased labor costs or work stoppages.</p></li>
+<li><p><strong>Workplace Disputes:</strong> Employee grievances, disputes, or allegations of discrimination or harassment may result in legal liabilities, reputational damage, and employee morale issues.</p></li>
+<li><p><strong>Regulatory Compliance:</strong> Compliance with labor laws and regulations, such as minimum wage requirements, overtime rules, or workplace safety standards, is essential to avoid fines, lawsuits, or negative publicity.</p></li>
+</ul>
+</section>
+<section id="risks-related-to-consumer-demand-for-products">
+<h4>Risks Related to Consumer Demand for Products<a class="headerlink" href="#risks-related-to-consumer-demand-for-products" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Health Awareness:</strong> Growing concerns about health issues such as obesity, diabetes, or dental health associated with sugary beverages may lead to shifts in consumer preferences towards healthier alternatives or reduced consumption.</p></li>
+<li><p><strong>Taste Preferences:</strong> Changes in taste preferences or cultural norms may impact demand for certain products, requiring adjustments in product formulations, packaging, or marketing strategies to maintain consumer relevance.</p></li>
+<li><p><strong>Marketing Regulations:</strong> Regulatory restrictions on advertising, labeling, or marketing practices may limit the company’s ability to promote products effectively or differentiate them from competitors.</p></li>
+</ul>
+</section>
+<section id="risks-related-to-the-coca-cola-system">
+<h4>Risks Related to the Coca-Cola System<a class="headerlink" href="#risks-related-to-the-coca-cola-system" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Bottler Performance:</strong> Financial instability or operational challenges faced by independent bottling partners may affect the availability and distribution of the company’s products in certain markets.</p></li>
+<li><p><strong>Strategic Alignment:</strong> Divergence in strategic objectives or business priorities between the company and its bottling partners may strain relationships and hinder collaborative efforts to drive growth or innovation.</p></li>
+<li><p><strong>Franchise Agreements:</strong> Renewal or termination of franchise agreements with bottling partners may impact revenue streams and profitability, particularly if negotiations are unfavorable or result in the loss of key distribution rights.</p></li>
+</ul>
+</section>
+<section id="risks-related-to-regulatory-and-legal-matters">
+<h4>Risks Related to Regulatory and Legal Matters<a class="headerlink" href="#risks-related-to-regulatory-and-legal-matters" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Tax Law Changes:</strong> Changes in tax laws or regulations, including corporate tax rates, tax credits, or deductions, may impact the company’s effective tax rate, cash flows, and financial performance.</p></li>
+<li><p><strong>Litigation Risks:</strong> Legal disputes, lawsuits, or regulatory investigations related to product liability, intellectual property infringement, or antitrust violations may result in significant legal expenses, settlements, or damage awards.</p></li>
+<li><p><strong>Compliance Costs:</strong> Compliance with complex and evolving regulatory requirements, such as environmental regulations, data privacy laws, or food safety standards, may require significant investments in compliance programs, systems, and personnel.</p></li>
+</ul>
+</section>
+<section id="risks-related-to-finance-accounting-and-investments">
+<h4>Risks Related to Finance, Accounting, and Investments<a class="headerlink" href="#risks-related-to-finance-accounting-and-investments" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Currency Risk:</strong> Exposure to foreign currency exchange rate fluctuations may impact the translation of foreign currency-denominated revenues, expenses, and assets into the company’s reporting currency, affecting financial results.</p></li>
+<li><p><strong>Interest Rate Risk:</strong> Changes in interest rates may impact borrowing costs, debt refinancing activities, and investment returns, affecting profitability and cash flows.</p></li>
+<li><p><strong>Investment Performance:</strong> Investment decisions or portfolio management activities may result in gains or losses on investment securities, impacting reported earnings and shareholder value.</p></li>
+</ul>
+</section>
+<section id="risks-related-to-cybersecurity-and-data-privacy">
+<h4>Risks Related to Cybersecurity and Data Privacy<a class="headerlink" href="#risks-related-to-cybersecurity-and-data-privacy" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Data Breach Risk:</strong> Cybersecurity breaches, malware attacks, or unauthorized access to sensitive data may result in financial losses, reputational damage, or regulatory penalties.</p></li>
+<li><p><strong>Compliance Obligations:</strong> Compliance with data privacy laws, regulations, or industry standards, such as the General Data Protection Regulation (GDPR) or the California Consumer Privacy Act (CCPA), requires ongoing investments in data security measures, privacy controls, and employee training.</p></li>
+</ul>
+</section>
+<section id="risks-related-to-environmental-and-social-factors">
+<h4>Risks Related to Environmental and Social Factors<a class="headerlink" href="#risks-related-to-environmental-and-social-factors" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Sustainability Compliance:</strong> Regulatory requirements and stakeholder expectations regarding sustainability, environmental protection, and social responsibility may necessitate investments in sustainable sourcing, manufacturing processes, or carbon reduction initiatives.</p></li>
+<li><p><strong>Environmental Impact:</strong> Growing concerns about environmental issues, such as climate change, plastic pollution, or water scarcity, may require the company to adopt eco-friendly practices, reduce carbon emissions, or invest in renewable energy sources.</p></li>
+<li><p><strong>Social Responsibility:</strong> Maintaining a positive corporate reputation and brand image requires ethical business practices, community engagement, and philanthropic initiatives to address social challenges and support local communities.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.coca-colacompany.com/">https://www.coca-colacompany.com/</a></p></li>
+<li><p><a class="reference external" href="https://investors.coca-colacompany.com/">https://investors.coca-colacompany.com/</a></p></li>
+<li><p><a class="reference external" href="https://investors.coca-colacompany.com/filings-reports/annual-reviews">https://investors.coca-colacompany.com/filings-reports/annual-reviews</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/The_Coca-Cola_Company">https://en.wikipedia.org/wiki/The_Coca-Cola_Company</a></p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Horizontal%20and%20Vertical%20Analyses.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Horizontal and Vertical Analyses</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-background-on-the-coca-cola-company">The Background on The Coca-Cola Company</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brief-history">Brief History</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scope-of-business">Scope of Business</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#competition-and-strategy">Competition and Strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#competition">Competition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strategy">Strategy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profitability">Profitability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratio-analysis">Ratio Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mda-review">MDA Review</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cash">Cash</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ratio Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">MDA Review</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risk">Risk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-risks-faced-by-the-company">Summary of Risks Faced by the Company</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#economic-and-geopolitical-conditions">Economic and Geopolitical Conditions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Competition</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#innovation">Innovation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#retail-landscape-changes">Retail Landscape Changes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expansion-in-emerging-markets">Expansion in Emerging Markets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#productivity-initiatives">Productivity Initiatives</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#workforce-management">Workforce Management</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#supply-chain-disruptions">Supply Chain Disruptions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-of-acquisitions">Integration of Acquisitions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#third-party-risks">Third-party Risks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#labor-relations">Labor Relations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-related-to-consumer-demand-for-products">Risks Related to Consumer Demand for Products</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-related-to-the-coca-cola-system">Risks Related to the Coca-Cola System</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-related-to-regulatory-and-legal-matters">Risks Related to Regulatory and Legal Matters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-related-to-finance-accounting-and-investments">Risks Related to Finance, Accounting, and Investments</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-related-to-cybersecurity-and-data-privacy">Risks Related to Cybersecurity and Data Privacy</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#risks-related-to-environmental-and-social-factors">Risks Related to Environmental and Social Factors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tan Chong Hui
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
